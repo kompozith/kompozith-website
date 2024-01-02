@@ -2736,6 +2736,9 @@ body::-webkit-scrollbar-thumb {
 
 .service-three-box {
   margin-bottom: 50px;
+  padding: 20px !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 7px;
   -webkit-transition: all .4s;
   transition: all .4s;
 }
