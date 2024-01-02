@@ -2333,6 +2333,10 @@ body::-webkit-scrollbar-thumb {
   color: #098dd7;
 }
 
+.footer-area-two {
+  background-color: #dfdfdf;
+}
+
 .footer-area-two .footer-widget .footer-title {
   text-transform: capitalize;
 }
