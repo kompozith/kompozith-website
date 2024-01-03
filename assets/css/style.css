@@ -2738,6 +2738,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 50px;
   -webkit-transition: all .4s;
   transition: all .4s;
+  padding: 10px;
 }
 
 .service-three-box svg {
@@ -2745,7 +2746,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .service-three-box h2 {
-  margin: 20px 0 10px;
+  margin: 10px 0 5px;
 }
 
 .service-three-box p {
@@ -2761,6 +2762,8 @@ body::-webkit-scrollbar-thumb {
 .service-three-box:hover {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cacaca ;
 }
 
 .service-three-box:hover a svg {
