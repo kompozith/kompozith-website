@@ -2763,7 +2763,9 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px #cacaca ;
+  /* box-shadow: 2px 2px 2px 2px #cacaca ; */
+  -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
 }
 
 .service-three-box:hover a svg {
