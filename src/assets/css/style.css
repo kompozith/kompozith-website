@@ -1145,6 +1145,28 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
 
+.listing-box-icon-wrap2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #098dd7;
+  width: 30px;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.listing-box-subtitle {
+  margin-left: 15px;
+}
+
 .listing-box .single-listing-box .listing-box-info {
   margin-left: 20px;
 }
@@ -2763,9 +2785,8 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   border-radius: 10px;
-  /* box-shadow: 2px 2px 2px 2px #cacaca ; */
   -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
-          box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .service-three-box:hover a svg {
