@@ -944,8 +944,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .hero-area.hero-three {
-  background: -webkit-gradient(linear, left top, left bottom, from(#171717), to(rgba(23, 23, 23, 0.26))), url(../images/hero/hero-bg-img-3.png);
-  background: linear-gradient(180deg, #171717 0%, rgba(23, 23, 23, 0.26) 100%), url(../images/hero/hero-bg-img-3.png);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddb710), to(rgba(23, 23, 23, 0.26))), url(../images/hero/hero-bg-img-3.png);
+  background: linear-gradient(180deg, #e2a806 0%, rgba(23, 23, 23, 0.26) 100%), url(../images/hero/hero-bg-img-3.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 188px 0 112px;
@@ -954,11 +954,11 @@ body::-webkit-scrollbar-thumb {
 
 .hero-info-wrap h1 {
   color: #FFF;
-  font-size: 92.727px;
+  font-size: 52.727px;
   line-height: 1.2;
   text-transform: capitalize;
   margin-bottom: 62px;
-  max-width: 505px;
+  max-width: 700px;
 }
 
 .hero-info-wrap h1 span {
@@ -3532,3 +3532,7 @@ body::-webkit-scrollbar-thumb {
 20. Menu CSS
 =================================================*/
 /*# sourceMappingURL=style.css.map */
+
+.price-tab-btn .btw {
+  border-right: 3px solid #ffffff;
+}
