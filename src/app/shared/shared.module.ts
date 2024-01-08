@@ -13,7 +13,9 @@ import { FooterComponent } from './footer/footer.component';
       NavComponent,
       FooterComponent
   ],
-  imports: [],
+  imports: [
+      RouterModule,
+    ],
   providers: [],
   exports: [
     TapToTopComponent,

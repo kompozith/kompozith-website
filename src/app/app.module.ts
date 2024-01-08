@@ -31,7 +31,7 @@ import { StatistiquesComponent } from './components/home/sections/statistiques/s
     PortfolioComponent,
     HeroComponent,
     BlogComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
   ],
   imports: [
     BrowserModule,

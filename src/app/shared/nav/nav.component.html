@@ -13,46 +13,25 @@
                 <div class="nav-wrap d-flex justify-content-end align-items-center">
                     <div class="mainmenu text-right">
                         <ul>
-                            <li class="has-child-menu"><a href="javascript:void(0)">Home</a>
+                            
+                            <li><a [routerLink]="['/']">Accueil</a></li>
+                            <li><a [routerLink]="['/']">About</a></li>
+                            <li><a [routerLink]="['/']">Services</a></li>
+                            <li><a [routerLink]="['/']">Contact</a></li>
+                            <li class="has-child-menu">
+                                <a [routerLink]="['/']">
+                                    <i class="fa-regular fa-language"></i>
+                                </a>
                                 <ul>
-                                    <li><a href="index.html">Home Version 01</a></li>
-                                    <li><a href="home-two.html">Home Version 02</a></li>
-                                    <li><a href="home-three.html">Home Version 03</a></li>
+                                    <li><a [routerLink]="['/']">Français</a></li>
+                                    <li><a [routerLink]="['/']">English</a></li>
                                 </ul>
                             </li>
-                            <li><a href="about-us.html">About</a></li>
-                            <li class="has-child-menu"><a href="javascript:void(0)">Blog</a>
-                                <ul>
-                                    <li><a href="blog-classic.html">Blog Classic</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-child-menu"><a href="javascript:void(0)">Pages</a>
-                                <ul>
-                                    <li class="has-child-menu"><a href="javascript:void(0)">Service</a>
-                                        <ul>
-                                            <li><a href="service-one.html">Service One</a></li>
-                                            <li><a href="service-two.html">Service Two</a></li>
-                                            <li><a href="service-three.html">Service Three</a></li>
-                                            <li><a href="service-details.html">Service Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-child-menu"><a href="javascript:void(0)">Project</a>
-                                        <ul>
-                                            <li><a href="project.html">Project</a></li>
-                                            <li><a href="project-details.html">Project Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="team-details.html">Team Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                         <div class="menu-btn-wrap flex-shrink-0 d-lg-none pb-5">
-                            <a class="common-btn white-border ms-3 mt-4" href="contact.html">
+                            <a class="common-btn white-border ms-3 mt-4" [routerLink]="['/']">
                                 <span>
-                                    Get a quote
+                                    Devis gratuit
                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -64,9 +43,9 @@
                         </div>
                     </div>
                     <div class="menu-btn-wrap flex-shrink-0 d-none d-lg-block">
-                        <a class="common-btn white-border" href="contact.html">
+                        <a class="common-btn white-border" [routerLink]="['/']">
                             <span>
-                                Get a quote
+                                Devis gratuit
                                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
