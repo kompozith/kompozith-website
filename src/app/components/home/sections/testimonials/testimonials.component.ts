@@ -12,14 +12,22 @@ SwiperCore.use([Pagination]);
 })
 export class TestimonialsComponent {
   config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 50,
-    speed: 1000,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: true
+    slidesPerView: 1,
+    breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        }
     },
+    spaceBetween: 50,
+    speed: 500,
+    loop: true,
+    // autoplay: {
+    //   delay: 7000,
+    //   disableOnInteraction: true
+    // },
     freeMode: true
   };
 

@@ -38,7 +38,7 @@ import { StatistiquesComponent } from './components/home/sections/statistiques/s
     RouterModule,
     AppRoutingModule,
     SharedModule,
-    SwiperModule
+    SwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
