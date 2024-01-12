@@ -3541,30 +3541,3 @@ body::-webkit-scrollbar-thumb {
 .price-tab-btn .btw {
   border-right: 3px solid #ffffff;
 }
-
-.component_responsive {
-  flex-wrap: initial;
-}
-
-.component-hover-effect {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #FCFCFD;
-  border: 2px solid #fff;
-  box-shadow: 0px 4px 10px rgba(46, 35, 94, 0.07);
-  border-radius: 5px;
-  padding: 20px;
-  justify-content: center;
-  min-height: 78px;
-}
-@media (max-width: 767px) {
-  .component-hover-effect {
-    padding: 13px;
-    min-height: 68px;
-  }
-}
-.component-hover-effect svg {
-  width: 26px;
-  height: 26px;
-}

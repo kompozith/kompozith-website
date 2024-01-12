@@ -1,0 +1,27 @@
+.component_responsive {
+    flex-wrap: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+  
+.component-hover-effect {
+    gap: 12px;
+    background: #FCFCFD;
+    box-shadow: 0px 4px 10px rgba(46, 35, 94, 0.07);
+    border-radius: 5px;
+    min-height: 78px;
+}
+@media (max-width: 767px) {
+    .component-hover-effect {
+      height: 68px;
+      width: auto;
+    }
+}
+  
+.component_responsive img {
+    height: 78px;
+    width: auto;
+}
+  
