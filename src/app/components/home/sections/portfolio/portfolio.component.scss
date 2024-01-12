@@ -1,9 +1,13 @@
+.parallax{
+    overflow: hidden;
+}
+
 .component_responsive {
     flex-wrap: initial;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    min-width: 100%;
 }
   
 .component-hover-effect {

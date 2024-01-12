@@ -165,30 +165,6 @@ input:-webkit-autofill:hover, input:-webkit-autofill:focus {
   z-index: -1 !important;
 }
 
-/* Custom Cursor */
-.cursor {
-  pointer-events: none;
-  position: fixed;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  mix-blend-mode: difference;
-  -webkit-transition: opacity 0.4s ease, -webkit-transform .3s ease;
-  transition: opacity 0.4s ease, -webkit-transform .3s ease;
-  transition: transform .3s ease, opacity 0.4s ease;
-  transition: transform .3s ease, opacity 0.4s ease, -webkit-transform .3s ease;
-  z-index: 99999;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-}
-
-.cursor-active {
-  -webkit-transform: translate(-50%, -50%) scale(3);
-          transform: translate(-50%, -50%) scale(3);
-  opacity: .1;
-}
-
 /* Custom Cursor End */
 /*Back to Top btn*/
 .back-to-top-btn {

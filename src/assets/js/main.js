@@ -555,27 +555,4 @@ imageTl.to(".img-anim-scale img", {
 //  Animation image scale End
 
 
-
-// Custom Cursor
-
-const cursor = document.querySelector('.cursor');
-const editCursor = e => {
-    const { clientX: x, clientY: y } = e;
-    cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
-};
-window.addEventListener('mousemove', editCursor);
-
-$("a, .cursor-pointer").hover(
-    function () {
-        $(".cursor").addClass("cursor-active");
-    }, function () {
-        $(".cursor").removeClass("cursor-active");
-    }
-);
-
-// Custom Cursor End
-
-
-
 }(jQuery)); 
