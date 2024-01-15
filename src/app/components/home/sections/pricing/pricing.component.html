@@ -14,35 +14,35 @@
                     </div> -->
                     <ul class="nav nav-pills price-tab-btn" id="pills-tab" role="tablist">
                         <li class="nav-item btw" role="presentation">
-                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="changeCure('XAF')">XAF</button>
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="_orderService.changeCure('XAF')">XAF</button>
                         </li>
                         <li class="nav-item btw" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="changeCure('EUR')">EUR</button>
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('EUR')">EUR</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="changeCure('USD')">USD</button>
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('USD')">USD</button>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row mt-60 justify-content-center">
-            <div *ngFor="let pack of packs" class=" col-lg-4 col-md-6 fade_left">
+            <div *ngFor="let pack of _orderService.packs" class=" col-lg-4 col-md-6 fade_left">
                 <div *ngIf="pack.id != '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{pack.name}}</abbr>
-                        <h2>{{ calcPrice(pack.price) }} <sub>/mois</sub></h2>
+                        <h2>{{ _orderService.calcPrice(pack.price) }} <sub>/mois</sub></h2>
                     </div>
                     <div class="price-two-desc">
                         <h5>{{pack.description}}</h5>
                         <ul>
                             <li *ngFor="let service of pack.services">
                                 <i class="fa-solid fa-check text-primary"></i>
-                                {{ serviceCall(service) }}
+                                {{ _orderService.serviceCall(service)[1] }}
                             </li>
                         </ul>
                         <div class="price-two-btn text-center">
-                            <a class="common-btn orange-border" href="#">
+                            <a class="common-btn orange-border" (click)="submit(pack)">
                                 <span>
                                     Commander
                                 </span>
@@ -53,19 +53,19 @@
                 <div *ngIf="pack.id == '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{pack.name}}</abbr>
-                        <h2>{{ calcPrice(total(pack)) }} <sub>/mois</sub></h2>
+                        <h2>{{ _orderService.totalPackPrice(pack.services) }} <sub>/mois</sub></h2>
                     </div>
                     <div class="price-two-desc">
                         <h5>{{pack.description}}</h5>
                         <ul>
-                            <li *ngFor="let service of pack.services" (click)="selection(service)">
+                            <li *ngFor="let service of pack.services" (click)="_orderService.selection(service)">
                                 <i *ngIf="!service.selected" class="fa-solid fa-xmark text-danger"></i>
                                 <i *ngIf="service.selected" class="fa-solid fa-check text-primary"></i>
-                                {{ serviceCall(service) }}
+                                {{ (_orderService.serviceCall(service))[0] }}
                             </li>
                         </ul>
                         <div class="price-two-btn text-center">
-                            <a class="common-btn orange-border" href="#">
+                            <a class="common-btn orange-border" (click)="submit(pack)">
                                 <span>
                                     Explorer
                                 </span>

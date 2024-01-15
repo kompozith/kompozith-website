@@ -1,0 +1,201 @@
+<!-- Breadcrumb -->
+
+<div class="breadcrumb-area bg-color-black position-relative z-index-one w-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-info text-center">
+                    <h1>Commande</h1>
+                    <p>
+                        <a href="index.html">Accueil</a>
+                        <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 13C1.71875 13 1.46875 12.9062 1.28125 12.7188C0.875 12.3438 0.875 11.6875 1.28125 11.3125L5.5625 7L1.28125 2.71875C0.875 2.34375 0.875 1.6875 1.28125 1.3125C1.65625 0.90625 2.3125 0.90625 2.6875 1.3125L7.6875 6.3125C8.09375 6.6875 8.09375 7.34375 7.6875 7.71875L2.6875 12.7188C2.5 12.9062 2.25 13 2 13Z" fill="currentColor"/>
+                        </svg>
+                        Commande
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="position-absolute z-index-minus-one start-0 bottom-0" src="assets/images/shape/breadcrumb-sp.png" alt="">
+</div>
+
+<!-- Breadcrumb End -->
+
+
+<!-- blog -->
+
+<div class="blog-classic-area pt-120">
+    <div class="container">
+        <div class="row d-flex justify-content-between align-items-center mb-5">
+            <div class="col-xxl-7 col-lg-8">
+                <div class="section-title text-center text-lg-start title-anim">
+                    <span>Faites vous plaisir</span>
+                    <h2>Effectuez votre commande</h2>
+                </div>
+            </div>
+            <div class="col-xxl-5 col-lg-4 mobt-24">
+                <div class="d-flex justify-content-lg-end justify-content-center">
+                    <!-- <div class="section-title text-center">
+                        <span>Devise</span>
+                    </div> -->
+                    <ul class="nav nav-pills price-tab-btn" id="pills-tab" role="tablist">
+                        <li class="nav-item btw" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="_orderService.changeCure('XAF')">XAF</button>
+                        </li>
+                        <li class="nav-item btw" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('EUR')">EUR</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('USD')">USD</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-120">
+            <div class="{{ customizable ? 'col-lg-8' : ''}} order-last order-lg-first pt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Service</th>
+                      <th *ngIf="!customizable" class="text-center">Prix Unitaire</th>
+                      <th class="text-center">Quantité</th>
+                      <th class="{{ customizable ? 'text-center' : 'text-end'}}">Prix Total</th>
+                      <th *ngIf="customizable" class="text-end">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let serv of _orderService.cmd_services">
+                          <td>
+                            {{_orderService.serviceCall(serv)[0]}}
+                          </td>
+                          <td *ngIf="!customizable" class="text-center">
+                            {{_orderService.calcPrice(_orderService.getService(serv.id).price)}}
+                          </td>
+                          <td class="d-flex justify-content-center">
+                            <div class="qty-box">
+                              <div class="input-group">
+                                <button *ngIf="customizable" class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderService.decrement(serv)">
+                                    <i class="fa-regular fa-minus"></i>
+                                </button>
+      
+                                <input class="touchspin text-center form-control" disabled="{{!customizable}}" min="1" type="text" (change)="_orderService.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
+      
+                                <button *ngIf="customizable" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderService.increment(serv)">
+                                  <i class="fa-regular fa-plus"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="text-end">{{ _orderService.totalItemPrice(serv) }}</td>
+                          <td *ngIf="customizable" class="text-center" (click)="_orderService.cmdRemoveProduct(serv)">
+                            <i class="fa-regular fa-circle-xmark"></i>
+                          </td>
+                      </tr>
+                      <tr class="tr-total">
+                        <td *ngIf="!customizable" class="text-center" colspan="3">Total</td>
+                        <td *ngIf="!customizable" class="text-end">{{ _orderService.totalOrderPrice() }}</td>
+                        <td *ngIf="customizable" class="text-center" colspan="2">Total</td>
+                        <td *ngIf="customizable" class="text-center" colspan="2">{{ _orderService.totalOrderPrice() }}</td>
+                      </tr>
+                  </tbody>
+                </table>
+                <h3 *ngIf="customizable" class="pt-5">Informations de contact</h3>
+                <form *ngIf="customizable" id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Prenom</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Nom</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Telephone</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>E-mail</label>
+                            <input type="email" placeholder="Yourmail@.com">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                            <label>Exigences de la commande</label>
+                            <textarea name="message" id="message" cols="30" rows="4" placeholder="Description"></textarea>
+                        </div>
+                        <div class="contact-btn-wrap d-flex justify-content-end">
+                            <button type="submit" class="common-btn hover-black border-0">
+                                <span>
+                                    Terminer
+                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.6875 7.71875L8.6875 12.7188C8.3125 13.125 7.65625 13.125 7.28125 12.7188C6.875 12.3438 6.875 11.6875 7.28125 11.3125L10.5625 8H1C0.4375 8 0 7.5625 0 7C0 6.46875 0.4375 6 1 6H10.5625L7.28125 2.71875C6.875 2.34375 6.875 1.6875 7.28125 1.3125C7.65625 0.90625 8.3125 0.90625 8.6875 1.3125L13.6875 6.3125C14.0938 6.6875 14.0938 7.34375 13.6875 7.71875Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        <p class="form-message"></p>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="customizable" class="col-lg-4 pt-3 mobt-35 order-first order-lg-last">
+                <div class="sidebar-wrap">
+                    <div class="single-sidebar">
+                        <h2 class="sidebar-title">Services</h2>
+                        <form action="#" class="sidebar-search position-relative" >
+                            <input class="w-100" (keyup)="_orderService.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
+                            <button class="border-0 position-absolute top-50 translate-middle-y" type="submit">
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.5938 6.5C13.5938 7.9375 13.125 9.28125 12.3438 10.3438L16.2812 14.3125C16.6875 14.6875 16.6875 15.3438 16.2812 15.7188C15.9062 16.125 15.25 16.125 14.875 15.7188L10.9062 11.75C9.84375 12.5625 8.5 13 7.09375 13C3.5 13 0.59375 10.0938 0.59375 6.5C0.59375 2.9375 3.5 0 7.09375 0C10.6562 0 13.5938 2.9375 13.5938 6.5ZM7.09375 11C9.5625 11 11.5938 9 11.5938 6.5C11.5938 4.03125 9.5625 2 7.09375 2C4.59375 2 2.59375 4.03125 2.59375 6.5C2.59375 9 4.59375 11 7.09375 11Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </form>
+                        <ul class="sidebar-tag d-flex flex-wrap pt-3">
+                            <li *ngFor="let serv of _orderService.services" (click)="_orderService.addToList(serv)"><a>{{ serv.name }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!customizable" class="col-md-12 pt-5">
+                <h3>Informations de contact</h3>
+                <form id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Prenom</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Nom</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>Telephone</label>
+                            <input type="text"  placeholder="Your Name">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                            <label>E-mail</label>
+                            <input type="email" placeholder="Yourmail@.com">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                            <label>Exigences de la commande</label>
+                            <textarea name="message" id="message" cols="30" rows="4" placeholder="Description"></textarea>
+                        </div>
+                        <div class="contact-btn-wrap d-flex justify-content-end">
+                            <button type="submit" class="common-btn hover-black border-0">
+                                <span>
+                                    Terminer
+                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.6875 7.71875L8.6875 12.7188C8.3125 13.125 7.65625 13.125 7.28125 12.7188C6.875 12.3438 6.875 11.6875 7.28125 11.3125L10.5625 8H1C0.4375 8 0 7.5625 0 7C0 6.46875 0.4375 6 1 6H10.5625L7.28125 2.71875C6.875 2.34375 6.875 1.6875 7.28125 1.3125C7.65625 0.90625 8.3125 0.90625 8.6875 1.3125L13.6875 6.3125C14.0938 6.6875 14.0938 7.34375 13.6875 7.71875Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        <p class="form-message"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- blog End -->

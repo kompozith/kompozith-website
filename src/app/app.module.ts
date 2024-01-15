@@ -17,6 +17,7 @@ import { PortfolioComponent } from './components/home/sections/portfolio/portfol
 import { HeroComponent } from './components/home/sections/hero/hero.component';
 import { BlogComponent } from './components/home/sections/blog/blog.component';
 import { StatistiquesComponent } from './components/home/sections/statistiques/statistiques.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { StatistiquesComponent } from './components/home/sections/statistiques/s
     HeroComponent,
     BlogComponent,
     StatistiquesComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

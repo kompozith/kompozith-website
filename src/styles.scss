@@ -15,10 +15,20 @@
     z-index: 99999;
     -webkit-transform: translate(-50%, -50%) scale(1);
             transform: translate(-50%, -50%) scale(1);
-  }
+}
   
-  .cursor-active {
+.cursor-active {
     -webkit-transform: translate(-50%, -50%) scale(3);
             transform: translate(-50%, -50%) scale(3);
     opacity: .1;
-  }
+}
+  
+.qty-box {
+        width: 40%;
+}
+    
+button, input {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+}

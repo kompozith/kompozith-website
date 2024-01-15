@@ -17,17 +17,17 @@ export class TestimonialsComponent {
         768: {
           slidesPerView: 2,
         },
-        992: {
-          slidesPerView: 3,
-        }
+        // 992: {
+        //   slidesPerView: 3,
+        // }
     },
     spaceBetween: 50,
     speed: 500,
     loop: true,
-    // autoplay: {
-    //   delay: 7000,
-    //   disableOnInteraction: true
-    // },
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: true
+    },
     freeMode: true
   };
 

@@ -5,13 +5,7 @@ import { content } from "./shared/routes/routes";
 
 // import { AdminGuard } from './shared/guard/auth.guard';
 
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    children: content
-  },
-];
+const routes: Routes =  content;
 
 @NgModule({
   imports: [[RouterModule.forRoot(routes)],
