@@ -31,7 +31,8 @@
             <div class="col-xxl-7 col-lg-8">
                 <div class="section-title text-center text-lg-start title-anim">
                     <span>Faites vous plaisir</span>
-                    <h2>Effectuez votre commande</h2>
+                    <h2 *ngIf="_orderService.flexible">Simulez votre commande</h2>
+                    <h2 *ngIf="!_orderService.flexible">Effectuez votre commande</h2>
                 </div>
             </div>
             <div class="col-xxl-5 col-lg-4 mobt-24">
@@ -54,15 +55,14 @@
             </div>
         </div>
         <div class="row pb-120">
-            <div class="{{ customizable ? 'col-lg-8' : ''}} order-last order-lg-first pt-3">
+            <div class="{{ _orderService.flexible ? 'col-lg-8' : ''}} pt-3">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Service</th>
-                      <th *ngIf="!customizable" class="text-center">Prix Unitaire</th>
                       <th class="text-center">Quantité</th>
-                      <th class="{{ customizable ? 'text-center' : 'text-end'}}">Prix Total</th>
-                      <th *ngIf="customizable" class="text-end">Action</th>
+                      <th *ngIf="_orderService.flexible" class="text-center">Prix Total</th>
+                      <th *ngIf="_orderService.flexible" class="text-end">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -70,39 +70,36 @@
                           <td>
                             {{_orderService.serviceCall(serv)[0]}}
                           </td>
-                          <td *ngIf="!customizable" class="text-center">
-                            {{_orderService.calcPrice(_orderService.getService(serv.id).price)}}
-                          </td>
                           <td class="d-flex justify-content-center">
                             <div class="qty-box">
                               <div class="input-group">
-                                <button *ngIf="customizable" class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderService.decrement(serv)">
+                                <button *ngIf="_orderService.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderService.decrement(serv)">
                                     <i class="fa-regular fa-minus"></i>
                                 </button>
       
-                                <input class="touchspin text-center form-control" disabled="{{!customizable}}" min="1" type="text" (change)="_orderService.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
+                                <input class="touchspin text-center form-control" disabled="{{!_orderService.flexible}}" min="1" type="text" (change)="_orderService.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
       
-                                <button *ngIf="customizable" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderService.increment(serv)">
+                                <button *ngIf="_orderService.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderService.increment(serv)">
                                   <i class="fa-regular fa-plus"></i>
                                 </button>
                               </div>
                             </div>
                           </td>
-                          <td class="text-end">{{ _orderService.totalItemPrice(serv) }}</td>
-                          <td *ngIf="customizable" class="text-center" (click)="_orderService.cmdRemoveProduct(serv)">
+                          <td *ngIf="_orderService.flexible" class="text-end">{{ _orderService.totalItemPrice(serv) }}</td>
+                          <td *ngIf="_orderService.flexible" class="text-center" (click)="_orderService.cmdRemoveProduct(serv)">
                             <i class="fa-regular fa-circle-xmark"></i>
                           </td>
                       </tr>
                       <tr class="tr-total">
-                        <td *ngIf="!customizable" class="text-center" colspan="3">Total</td>
-                        <td *ngIf="!customizable" class="text-end">{{ _orderService.totalOrderPrice() }}</td>
-                        <td *ngIf="customizable" class="text-center" colspan="2">Total</td>
-                        <td *ngIf="customizable" class="text-center" colspan="2">{{ _orderService.totalOrderPrice() }}</td>
+                        <td *ngIf="!_orderService.flexible" class="text-center">Total net à payer</td>
+                        <td *ngIf="_orderService.flexible" class="text-center" colspan="2">Total Estimatif</td>
+                        <td *ngIf="!_orderService.flexible" class="text-center">{{ _orderService.calcPrice(current_pack_price) }}</td>
+                        <td *ngIf="_orderService.flexible" class="text-center" colspan="2">{{ _orderService.totalOrderPrice() }}</td>
                       </tr>
                   </tbody>
                 </table>
-                <h3 *ngIf="customizable" class="pt-5">Informations de contact</h3>
-                <form *ngIf="customizable" id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
+                <h3 *ngIf="_orderService.flexible" class="pt-5">Informations de contact</h3>
+                <form *ngIf="_orderService.flexible" id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>Prenom</label>
@@ -138,10 +135,10 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="customizable" class="col-lg-4 pt-3 mobt-35 order-first order-lg-last">
+            <div *ngIf="_orderService.flexible" class="col-lg-4 pt-3 mobt-35 order-first order-lg-last">
                 <div class="sidebar-wrap">
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Services</h2>
+                        <h2 class="sidebar-title">Selectionnez les services</h2>
                         <form action="#" class="sidebar-search position-relative" >
                             <input class="w-100" (keyup)="_orderService.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
                             <button class="border-0 position-absolute top-50 translate-middle-y" type="submit">
@@ -156,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="!customizable" class="col-md-12 pt-5">
+            <div *ngIf="!_orderService.flexible" class="col-md-12 pt-5">
                 <h3>Informations de contact</h3>
                 <form id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
                     <div class="row">
@@ -183,7 +180,7 @@
                         <div class="contact-btn-wrap d-flex justify-content-end">
                             <button type="submit" class="common-btn hover-black border-0">
                                 <span>
-                                    Terminer
+                                    Soumettre
                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M13.6875 7.71875L8.6875 12.7188C8.3125 13.125 7.65625 13.125 7.28125 12.7188C6.875 12.3438 6.875 11.6875 7.28125 11.3125L10.5625 8H1C0.4375 8 0 7.5625 0 7C0 6.46875 0.4375 6 1 6H10.5625L7.28125 2.71875C6.875 2.34375 6.875 1.6875 7.28125 1.3125C7.65625 0.90625 8.3125 0.90625 8.6875 1.3125L13.6875 6.3125C14.0938 6.6875 14.0938 7.34375 13.6875 7.71875Z" fill="currentColor"></path>
                                     </svg>

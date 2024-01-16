@@ -24,6 +24,6 @@ export class PricingComponent implements OnInit{
   
   submit(pack: any){
     pack.id < 2 ? localStorage.setItem('saved-order', JSON.stringify(pack.services)) : '';
-    this.router.navigate(['/order/'+ pack.name]);
+    this.router.navigate(['/order/'+ pack.name]).then();
   }
 }

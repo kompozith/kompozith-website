@@ -7,6 +7,7 @@ export class OrderService {
   public products: any = [];
   public services: any = [];
   public services_copy: any = [];
+  flexible: boolean = false;
 
   public cmd_id: any;
   public cmd_services: any = [];
@@ -62,43 +63,49 @@ export class OrderService {
     {
       id: 9,
       name: 'Flyer',
-      price: 75000,
+      price: 18000,
       qty: 1
     },
     {
       id: 10,
       name: 'Roll up',
-      price: 75000,
+      price: 20000,
       qty: 1
     },
     {
       id: 11,
-      name: 'Carte de visite',
-      price: 75000,
+      name: 'Logo',
+      price: 35000,
       qty: 1
     },
     {
       id: 12,
-      name: 'Application web',
-      price: 75000,
+      name: 'Carte de visite',
+      price: 15000,
       qty: 1
     },
     {
       id: 13,
-      name: 'Site web complexe',
-      price: 75000,
+      name: 'Application web',
+      price: 300000,
       qty: 1
     },
     {
       id: 14,
-      name: 'Application mobile',
-      price: 75000,
+      name: 'Site web complexe',
+      price: 200000,
       qty: 1
     },
     {
       id: 15,
+      name: 'Application mobile',
+      price: 250000,
+      qty: 1
+    },
+    {
+      id: 16,
       name: 'Application de bureau',
-      price: 75000,
+      price: 350000,
       qty: 1
     }
   ]
@@ -127,7 +134,7 @@ export class OrderService {
       description: "Libre choix parmi la gamme de services selon vos préférences.",
       color: '#3d449e',
       services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:false},{id:3,qty:1,selected:false},{id:4,qty:1,selected:true},{id:5,qty:1,selected:false},{id:6,qty:1,selected:true}],
-      price: 250000,
+      price: 0,
       duration: 1,
       follow_up: 1,
     }
@@ -261,6 +268,12 @@ export class OrderService {
     });
     this.cmd_services = temp;
   }
+  getPackByName(pack_name: any){
+    let pack = this.packs.filter((elem: any) => {
+      return elem.name.toLowerCase == pack_name.toLowerCase;
+    });
+    return pack[0];
+  }
   getSavedOrder(){
     let flex: any;
     localStorage.getItem('saved-flex-pack') ? flex = localStorage.getItem('saved-flex-pack'): "";
@@ -323,7 +336,7 @@ export class OrderService {
     });
     this.services = temp; 
     this.services_copy = temp; 
-    this.filterUpdate();
+    this.flexible ?? this.filterUpdate();
   }
   setQty(e: any, serv: any){
     //Aucune valeur saisie

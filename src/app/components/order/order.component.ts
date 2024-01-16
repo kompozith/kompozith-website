@@ -10,14 +10,13 @@ import { OrderService } from 'src/app/_services/order.service';
 export class OrderComponent implements OnInit{
 
   ordered_pack: any;
-  customizable: boolean = false;
+  current_pack_price : any;
   constructor(
     public _orderService: OrderService,
     private route: ActivatedRoute,
     private router: Router,
   ){
     this.ordered_pack = this.route.snapshot.paramMap.get('pack');
-    console.log(this.ordered_pack);
     
   }
   
@@ -27,11 +26,12 @@ export class OrderComponent implements OnInit{
     }
     
     if(this.ordered_pack == 'flex'){
-      this.customizable = true;
+      this._orderService.flexible = true;
       this._orderService.getSavedOrder()
     }
     else {
       this._orderService.getOrder()
+      this.current_pack_price = this._orderService.getPackByName(this.ordered_pack).price;
     }
     this._orderService.actualizeProduct(this._orderService.cmd_services);
     this._orderService.services = this._orderService.services_copy;
