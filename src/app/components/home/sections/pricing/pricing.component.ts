@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderMemoryService } from 'src/app/_services/order-memory.service';
 import { OrderService } from 'src/app/_services/order.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { OrderService } from 'src/app/_services/order.service';
 export class PricingComponent implements OnInit{
   constructor(
     public _orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private _orderMemoryService: OrderMemoryService
   ){
     
   }
@@ -23,7 +25,8 @@ export class PricingComponent implements OnInit{
   }
   
   submit(pack: any){
-    pack.id < 2 ? localStorage.setItem('saved-order', JSON.stringify(pack.services)) : '';
-    this.router.navigate(['/order/'+ pack.name]).then();
+    this._orderMemoryService.savedOrder(pack).subscribe((data: any) => {
+      this.router.navigate(['/order/'+ pack.name.toLowerCase()]);
+    })
   }
 }

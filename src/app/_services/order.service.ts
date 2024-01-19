@@ -255,14 +255,12 @@ export class OrderService {
       });
     });
   }
-  getOrder(){
-    let flex: any;
-    localStorage.getItem('saved-order') ? flex = localStorage.getItem('saved-order'): "";
-    let temp_order: [] = flex ? JSON.parse(flex) : [];
+  getOrder(order: any){
+    let temp_order: [] = order;
     let temp = this.all_services.filter((cmd_elem: any) => {
       let resp = false;
       temp_order.map((flex_elem: any) => {
-        (flex_elem.id == cmd_elem.id)? resp = true : '';
+        (flex_elem.id == cmd_elem.id)? (resp = true, cmd_elem.qty = flex_elem.qty) : '';
       });
       return resp;
     });
@@ -274,10 +272,8 @@ export class OrderService {
     });
     return pack[0];
   }
-  getSavedOrder(){
-    let flex: any;
-    localStorage.getItem('saved-flex-pack') ? flex = localStorage.getItem('saved-flex-pack'): "";
-    let temp_order: [] = flex ? JSON.parse(flex) : [];
+  getSavedOrder(order: any){
+    let temp_order: [] = order;
     let temp = this.all_services.filter((cmd_elem: any) => {
       let resp = false;
       temp_order.map((flex_elem: any) => {
@@ -378,4 +374,8 @@ export class OrderService {
     }
 
   }
+  async savedToLocalStorage(pack: any){
+    pack.id < 2 ? localStorage.setItem('saved-order', JSON.stringify(pack.services)) : '';
+  }
+  
 }
