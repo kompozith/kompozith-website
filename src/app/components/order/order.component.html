@@ -69,6 +69,7 @@
                       <tr *ngFor="let serv of _orderService.cmd_services">
                           <td>
                             {{_orderService.serviceCall(serv)[0]}}
+                            <span *ngIf="!serv.netPrice" class="text-danger">(prix variant)</span>
                           </td>
                           <td class="d-flex justify-content-center">
                             <div class="qty-box">
@@ -90,11 +91,14 @@
                             <i class="fa-regular fa-circle-xmark"></i>
                           </td>
                       </tr>
-                      <tr class="tr-total">
+                      <tr *ngIf="_orderService.cmd_services.length" class="tr-total">
                         <td *ngIf="!_orderService.flexible" class="text-center">Total net à payer</td>
                         <td *ngIf="_orderService.flexible" class="text-center" colspan="2">Total Estimatif</td>
                         <td *ngIf="!_orderService.flexible" class="text-center">{{ _orderService.calcPrice(current_pack_price) }}</td>
                         <td *ngIf="_orderService.flexible" class="text-center" colspan="2">{{ _orderService.totalOrderPrice() }}</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" *ngIf="!_orderService.cmd_services.length" class="text-center">Votre panier et vide !!!</td>
                       </tr>
                   </tbody>
                 </table>
@@ -103,15 +107,15 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>Prenom</label>
-                            <input type="text"  placeholder="Your Name">
+                            <input type="text"  placeholder="Your FirstName">
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>Nom</label>
-                            <input type="text"  placeholder="Your Name">
+                            <input type="text"  placeholder="Your Lastname">
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>Telephone</label>
-                            <input type="text"  placeholder="Your Name">
+                            <input type="text"  placeholder="Your Phone Number">
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>E-mail</label>
@@ -119,7 +123,7 @@
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <label>Exigences de la commande</label>
-                            <textarea name="message" id="message" cols="30" rows="4" placeholder="Description"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="4" placeholder="Veillez saisir les exigences de votre commande"></textarea>
                         </div>
                         <div class="contact-btn-wrap d-flex justify-content-end">
                             <button type="submit" class="common-btn hover-black border-0">

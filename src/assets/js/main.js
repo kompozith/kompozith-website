@@ -1,31 +1,6 @@
 (function ($) {
     "use strict";
 
-
-
-///////////////////////////////////////////////////////
-// Preloader
-
-function template_preloader() {
-  var preloader = $('#preloader');
-
-  $(document).ready(function() {
-    setTimeout(function() {
-      preloader.addClass('preloaded');
-    }, 1000);
-    setTimeout(function() {
-      preloader.remove();
-    }, 2000);
-  });
-}
-
-template_preloader();
-
-// Preloader End
-
-
-///////////////////////////////////////////////////////
-
 // hamburger menu
 jQuery(document).ready(function () {
 	jQuery('header .mainmenu').meanmenu({

@@ -18,14 +18,17 @@ export class PricingComponent implements OnInit{
   }
   
   ngOnInit(){
-     this._orderService.getSavedPack()
-     let flex: any = JSON.stringify(this._orderService.packs[2].services);
-     localStorage.getItem('pack-flex') ? flex = localStorage.getItem('pack-flex'): "";
-     this._orderService.packs[2].services = JSON.parse(flex);
+    this._orderMemoryService.getSavedOrder().subscribe((data: any) => {
+       data ? (this._orderService.cmd_services = JSON.parse(data), 
+       this._orderService.packs[2].services.map((flex_elem: any) => {
+         flex_elem.selected = false;
+       })) : '';
+       this._orderService.getSavedPack();
+    });
   }
   
   submit(pack: any){
-    this._orderMemoryService.savedOrder(pack).subscribe((data: any) => {
+    this._orderMemoryService.savedOrder(this._orderService.cmd_services).subscribe((data: any) => {
       this.router.navigate(['/order/'+ pack.name.toLowerCase()]);
     })
   }

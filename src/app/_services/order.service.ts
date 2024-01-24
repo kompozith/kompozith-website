@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { OrderMemoryService } from './order-memory.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
+
+  constructor(
+    private _orderMemoryService: OrderMemoryService,){
+  }
+
   public products: any = [];
   public services: any = [];
   public services_copy: any = [];
@@ -11,102 +17,134 @@ export class OrderService {
 
   public cmd_id: any;
   public cmd_services: any = [];
-  public all_services:{id: number, name:string, price: number, qty: number}[] =  [
+  public all_services:{id: number, name:string, price: number, qty: number, wholesalePrice: boolean, netPrice: boolean}[] =  [
     {
       id: 1,
       name: 'Identité visuelle (branding)',
       price: 90000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 2,
       name: 'Site web minimal',
       price: 120000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 3,
       name: 'Création de pages social media',
       price: 25000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 4,
       name: 'Plan marketing mensuel',
       price: 30000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 5,
       name: 'Plan de communication mensuel',
       price: 30000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 6,
       name: 'Accompagnement mensuel',
       price: 30000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 7,
       name: 'Evaluation et étude approfondie du branding existant',
       price: 20000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 8,
       name: 'Redesign du site web',
       price: 80000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: true
     },
     {
       id: 9,
       name: 'Flyer',
       price: 18000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: true,
+      netPrice: true
     },
     {
       id: 10,
       name: 'Roll up',
       price: 20000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: true,
+      netPrice: true
     },
     {
       id: 11,
       name: 'Logo',
       price: 35000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: true,
+      netPrice: true
     },
     {
       id: 12,
       name: 'Carte de visite',
       price: 15000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: true,
+      netPrice: true
     },
     {
       id: 13,
       name: 'Application web',
       price: 300000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: false
     },
     {
       id: 14,
       name: 'Site web complexe',
       price: 200000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: false
     },
     {
       id: 15,
       name: 'Application mobile',
       price: 250000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: false
     },
     {
       id: 16,
       name: 'Application de bureau',
       price: 350000,
-      qty: 1
+      qty: 1,
+      wholesalePrice: false,
+      netPrice: false
     }
   ]
   public packs = [
@@ -203,14 +241,33 @@ export class OrderService {
     return net_price;
   }
   totalItemPrice(serv: any){
-    return this.calcPrice(this.getService(serv.id).price * serv.qty);
+    let price = this.getService(serv.id).price;
+    let qty = serv.qty;
+    let totalPrice = serv.wholesalePrice ? this.fibonacci(price, qty) : price*qty;
+    return this.calcPrice(totalPrice);
   }
   
-  totalPackPrice(pack: any){
+//Suite de Fibonacci pour l'accord de la réduction en fonction de la quantité commandée
+  fibonacci(u1: number, n: number): number {
+    //U0: prix unitaire
+    if(n<=0) return 0;
+    //U1
+    if(n==1) return u1;
+    //Un
+    if(n==2) 
+      return parseFloat(((((2/3)*u1)+ (u1)).toFixed(2)));
+    //Un
+    return parseFloat(((((4/5)*this.fibonacci(u1, n-1)) + ((1/5)*this.fibonacci(u1, n-2))+ (u1/2)).toFixed(2)));
+  }
+
+  
+  totalPackPrice(services: any){
     let pack_price = 0;
-    pack.map((serv: any) => {
+    services.map((serv: any) => {
       let elem = this.getService(serv.id);
-      (serv.selected == true) ? pack_price += elem.price * elem.qty : '';
+      if (serv.selected == true){ 
+        pack_price += serv.wholesalePrice ? this.fibonacci(elem.price, elem.qty) : elem.price * elem.qty;
+      }
     })
     return this.calcPrice(pack_price);
   }
@@ -219,7 +276,7 @@ export class OrderService {
     let cmd_price = 0;
     this.cmd_services.map((serv: any) => {
       let elem = this.getService(serv.id);
-      cmd_price += elem.price * elem.qty;
+      cmd_price += serv.wholesalePrice ? this.fibonacci(elem.price, elem.qty) : elem.price * elem.qty;
     })
     return this.calcPrice(cmd_price);
   }
@@ -241,15 +298,13 @@ export class OrderService {
   }
   
   selection(item: any){
+    item.selected ? this.addToList(item): this.cmdRemoveProduct(item);
     item.selected = !item.selected;
-    localStorage.setItem('saved-flex-pack', JSON.stringify(this.packs[2].services));
   }
   
+  
   getSavedPack(){
-    let flex: any = JSON.stringify([]);
-    localStorage.getItem('saved-flex-pack') ? flex = localStorage.getItem('saved-flex-pack'): "";
-    let temp_order: [] = JSON.parse(flex);
-    temp_order.filter((cmd_elem: any) => {
+    this.cmd_services.filter((cmd_elem: any) => {
       this.packs[2].services.map((flex_elem: any) => {
         (flex_elem.id == cmd_elem.id)? flex_elem.selected = true : '';
       });
@@ -268,7 +323,7 @@ export class OrderService {
   }
   getPackByName(pack_name: any){
     let pack = this.packs.filter((elem: any) => {
-      return elem.name.toLowerCase == pack_name.toLowerCase;
+      return elem.name.toLowerCase() == pack_name.toLowerCase();
     });
     return pack[0];
   }
@@ -304,19 +359,24 @@ export class OrderService {
     return sum;
   }
   
+  saveOrder(){
+    this._orderMemoryService.savedOrder(this.cmd_services).subscribe((elem: any) => {});
+  }
   addToList(serv: any){
     serv.qty = 1;
     this.cmd_services.push(serv);
     this.actualizeProduct(this.cmd_services);
+    this.saveOrder();
   }
-
+  
   cmdRemoveProduct(serv: any){
     let servs = this.cmd_services;
     let temp = servs.filter((p: any) => {
       return (p.id != serv.id);
     });
     this.cmd_services = temp;  
-    this.actualizeProduct(temp);  
+    this.actualizeProduct(temp); 
+    this.saveOrder();
   }
 
   actualizeProduct(datas: any){
@@ -350,11 +410,13 @@ export class OrderService {
   public decrement(serv: any) {
     if (serv.qty > 1) {
       serv.qty -= 1;
+      this.saveOrder();
     }    
   }
 
   public increment(serv: any) {
     serv.qty += 1;
+    this.saveOrder();
   }
   
   finalizeTransaction(){

@@ -223,7 +223,7 @@ body::-webkit-scrollbar-thumb {
 ============================================
 ============= Preloader CSS ================
 */
-#preloader {
+.preload {
   position: fixed;
   left: 0;
   top: 0;
@@ -235,7 +235,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
 }
 
-#preloader::before, #preloader::after {
+.preload::before, .preload::after {
   content: '';
   position: absolute;
   left: 0;
@@ -248,12 +248,12 @@ body::-webkit-scrollbar-thumb {
   transition: all 0.3s ease 0s;
 }
 
-#preloader::after {
+.preload::after {
   left: auto;
   right: 0;
 }
 
-#preloader .loader_line {
+.preload .loader_line {
   margin: auto;
   width: 1px;
   height: 250px;
@@ -263,7 +263,7 @@ body::-webkit-scrollbar-thumb {
   transition: all 0.8s ease 0s;
 }
 
-#preloader .loader_line::before {
+.preload .loader_line::before {
   content: '';
   position: absolute;
   left: 0;
@@ -277,7 +277,7 @@ body::-webkit-scrollbar-thumb {
           animation: lineheight 1000ms ease-in-out 0s forwards;
 }
 
-#preloader .loader_line::after {
+.preload .loader_line::after {
   content: '';
   position: absolute;
   left: 0;
@@ -2143,7 +2143,7 @@ body::-webkit-scrollbar-thumb {
 
 .sidebar-tag li a:hover {
   background-color: #098dd7;
-  color: #fff;
+  color: #fff !important;
 }
 
 .details-info-wrap .details-thumb-title {

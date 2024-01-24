@@ -10,14 +10,14 @@ export class OrderMemoryService {
 
   constructor() { }
   
-  public savedOrder = (pack: any) => {
+  public savedOrder = (services: any) => {
     return Observable.create((observer: any) => {
-      localStorage.setItem('saved-order', JSON.stringify(pack));      
+      localStorage.setItem('saved-order', JSON.stringify(services));      
       observer.next();
     });
   }
   
-  public geSavedOrder = () => {
+  public getSavedOrder = () => {
     return Observable.create((observer: any) => {
       let order = localStorage.getItem('saved-order');
       observer.next(order);
