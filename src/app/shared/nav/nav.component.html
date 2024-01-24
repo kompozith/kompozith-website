@@ -6,7 +6,7 @@
                     <!-- <a href="index.html" class="d-none d-lg-block"><img src="{{'assets/images/logo-dark.svg" alt="Kompozith"></a>
                     <a href="index.html" class="d-none d-md-block d-lg-none"><img src="{{'assets/images/logo-dark.svg" width="60%" alt="Kompozith"></a>
                     <a href="index.html" class="d-block d-sm-none"><img src="{{'assets/images/favicon.svg" width="80px" alt="Kompozith"></a> -->
-                    <a href="index.html"><img src="{{'assets/images/logo-dark.svg'}}" width="200px" alt="Kompozith"></a>
+                    <a  [routerLink]="['/']"><img src="{{'assets/images/logo-dark.svg'}}" width="200px" alt="Kompozith"></a>
                 </div>
             </div>
             <div class="col-lg-9">
@@ -15,17 +15,17 @@
                         <ul>
                             
                             <li><a [routerLink]="['/']">Accueil</a></li>
-                            <li><a [routerLink]="['/']">À propos</a></li>
-                            <li><a [routerLink]="['/']">Services</a></li>
-                            <li><a [routerLink]="['/']">Contact</a></li>
+                            <li><a [routerLink]="['/about-us']">À propos</a></li>
+                            <li><a [routerLink]="['/services']">Services</a></li>
+                            <li><a [routerLink]="['/contact']">Contact</a></li>
                             <li class="has-child-menu">
                                 <a [routerLink]="['/']">
                                     Langue
                                     <i class="fa-regular fa-language ml-3"></i>
                                 </a>
                                 <ul>
-                                    <li><a [routerLink]="['/']">Français</a></li>
-                                    <li><a [routerLink]="['/']">English</a></li>
+                                    <li><a>Français</a></li>
+                                    <li><a>English</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -6,18 +6,21 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutComponent } from './components/home/sections/about/about.component';
-import { ServicesComponent } from './components/home/sections/services/services.component';
-import { TeamComponent } from './components/home/sections/team/team.component';
-import { TestimonialsComponent } from './components/home/sections/testimonials/testimonials.component';
-import { HistoryComponent } from './components/home/sections/history/history.component';
-import { PricingComponent } from './components/home/sections/pricing/pricing.component';
+import { AboutComponent } from './shared/sections/about/about.component';
+import { ServicesComponent } from './shared/sections/services/services.component';
+import { TeamComponent } from './shared/sections/team/team.component';
+import { TestimonialsComponent } from './shared/sections/testimonials/testimonials.component';
+import { HistoryComponent } from './shared/sections/history/history.component';
+import { PricingComponent } from './shared/sections/pricing/pricing.component';
 import { SwiperModule } from 'swiper/angular';
-import { PortfolioComponent } from './components/home/sections/portfolio/portfolio.component';
-import { HeroComponent } from './components/home/sections/hero/hero.component';
-import { BlogComponent } from './components/home/sections/blog/blog.component';
-import { StatistiquesComponent } from './components/home/sections/statistiques/statistiques.component';
+import { PortfolioComponent } from './shared/sections/portfolio/portfolio.component';
+import { HeroComponent } from './shared/sections/hero/hero.component';
+import { BlogComponent } from './shared/sections/blog/blog.component';
+import { StatistiquesComponent } from './shared/sections/statistiques/statistiques.component';
 import { OrderComponent } from './components/order/order.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { OurServicesComponent } from './components/our-services/our-services.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { OrderComponent } from './components/order/order.component';
     BlogComponent,
     StatistiquesComponent,
     OrderComponent,
+    ContactComponent,
+    AboutUsComponent,
+    OurServicesComponent,
   ],
   imports: [
     BrowserModule,
