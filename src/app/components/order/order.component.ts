@@ -30,7 +30,7 @@ export class OrderComponent implements OnInit{
     }
     this._orderMemoryService.getSavedOrder().subscribe((data: any) => {
       if(this.ordered_pack == 'flex'){
-        this._orderService.cmd_services = JSON.parse(data);
+        this._orderService.cmd_services = data ? JSON.parse(data) : [];
         this._orderService.flexible = true;
         this._orderService.getSavedOrder(this._orderService.cmd_services)
       }
