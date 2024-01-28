@@ -21,6 +21,7 @@ import { OrderComponent } from './components/order/order.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
+import { BreadcrumpComponent } from './shared/breadcrump/breadcrump.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { OurServicesComponent } from './components/our-services/our-services.com
     ContactComponent,
     AboutUsComponent,
     OurServicesComponent,
+    BreadcrumpComponent
   ],
   imports: [
     BrowserModule,

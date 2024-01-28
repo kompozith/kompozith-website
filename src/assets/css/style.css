@@ -515,7 +515,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.section-title span {
+.section-title span, .section-title-two h2 span {
   color: #098dd7;
   font-family: "Epilogue", sans-serif;
   font-size: 18px;
@@ -525,7 +525,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 10px;
 }
 
-.section-title h2 {
+.section-title h2, .section-title-two h2 {
   font-size: 60px;
   line-height: 1.2;
   text-transform: capitalize;
@@ -537,18 +537,6 @@ body::-webkit-scrollbar-thumb {
 
 .section-title.section-title-white h2, .section-title.section-title-white p {
   color: #fff;
-}
-
-.section-title-two h2 {
-  font-size: 145px;
-  letter-spacing: -5.898px;
-  text-transform: capitalize;
-  line-height: 1.05;
-}
-
-.section-title-two h2 span {
-  -webkit-text-stroke: 1px #171717;
-  color: transparent;
 }
 
 .check-list li {
@@ -896,8 +884,8 @@ body::-webkit-scrollbar-thumb {
 3. Hero CSS
 =================================================*/
 .hero-area {
-  background: url(../images/hero/hero-bg-sp.png), -webkit-gradient(linear, left top, left bottom, color-stop(100%, #242424), to(#242424));
-  background: url(../images/hero/hero-bg-sp.png), linear-gradient(#242424 100%, #242424 100%);
+  background: url(../images/hero/hero-img.png), -webkit-gradient(linear, left top, left bottom, color-stop(100%, #242424), to(#242424));
+  background: url(../images/hero/hero-img.png), linear-gradient(#242424 100%, #242424 100%);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 220px 0 150px;
@@ -909,9 +897,9 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   right: 0;
   top: 0;
-  background-image: url(../images/hero/hero-img-1.png);
+  background-image: url(../images/hero/hero-img.png);
   content: "";
-  height: 100%;
+  height: auto;
   width: 100%;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -937,14 +925,16 @@ body::-webkit-scrollbar-thumb {
   color: #FFF;
   font-size: 92.727px;
   line-height: 1.2;
-  text-transform: capitalize;
   margin-bottom: 62px;
   max-width: 700px;
 }
 
 .hero-info-wrap h1 span {
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
+  /* -webkit-text-stroke: 1px #fff; */
+  /* color: transparent; */
+  background: linear-gradient(to right, #df0d54 0%, #f3a712 30%,#88fc91 80%, #44cebe 90%, #098dd7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-info-wrap .hero-btn-wrap {

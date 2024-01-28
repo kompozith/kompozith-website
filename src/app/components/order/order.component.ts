@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
 import { OrderMemoryService } from 'src/app/_services/order-memory.service';
 import { OrderService } from 'src/app/_services/order.service';
 import { PreloadService } from 'src/app/_services/preload.service';
@@ -44,5 +45,13 @@ export class OrderComponent implements OnInit{
     });
     this._preloadService.preload();
   }
+  
+  breadcrumbItems: BreadcrumbItem = {
+    title: 'Commande',
+    datas: [
+      { label: 'Accueil', route: '/' },
+      { label: 'Commande', route: '/order/flex' },
+    ]
+  };
   
 }

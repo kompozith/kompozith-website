@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
 import { PreloadService } from 'src/app/_services/preload.service';
 
 @Component({
@@ -13,5 +14,14 @@ export class OurServicesComponent implements OnInit {
   ngOnInit(): void {
     this._preloadService.preload();
   }
+  
+  breadcrumbItems: BreadcrumbItem = {
+    title: 'Services',
+    datas: [
+      { label: 'Accueil', route: '/' },
+      { label: 'Services', route: '/services' },
+    ]
+  };
+
 
 }

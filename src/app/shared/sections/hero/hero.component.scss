@@ -1,3 +1,26 @@
+.hero-area {
+    height: auto;
+    justify-content: center;
+}
+  
 .hero-info-wrap h1 {
-    font-size: 92.727px;
+    font-size: 92px;
+}
+
+$small: 480px;
+$medium: 767px;
+$large: 1024px;
+$xlarge: 1280px;
+
+.hero-info-wrap {
+  @media screen and (max-width: $small) {
+    h1 {
+        font-size: 32px;
+    }
+  }
+  @media screen and (min-width: $medium) {
+    h1 {
+        font-size: 62px;
+    }
+  }
 }

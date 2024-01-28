@@ -20,6 +20,7 @@ export class OrderMemoryService {
   public getSavedOrder = () => {
     return Observable.create((observer: any) => {
       let order = localStorage.getItem('saved-order');
+      !order ?? localStorage.clear();
       observer.next(order);
     });
   }
