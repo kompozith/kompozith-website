@@ -24,8 +24,12 @@
                                     <i class="fa-regular fa-language ml-3"></i>
                                 </a>
                                 <ul>
-                                    <li><a>Français</a></li>
-                                    <li><a>English</a></li>
+                                    <li class="nav-item" (click)="useLanguage('fr')">
+                                        <a >Français</a>
+                                    </li>
+                                    <li class="nav-item" (click)="useLanguage('en')">
+                                        <a >English</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

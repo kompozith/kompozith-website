@@ -28,7 +28,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Fonction pour charger les fichiers de traduction
 // Fonction pour charger les fichiers de traduction
-export function HttpLoaderFactory(http: HttpClient) {
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 @NgModule({
@@ -70,3 +71,5 @@ export function HttpLoaderFactory(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
