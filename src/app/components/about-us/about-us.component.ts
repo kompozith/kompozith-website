@@ -15,10 +15,12 @@ export class AboutUsComponent implements OnInit {
     this._preloadService.preload();
   }
   
-  breadcrumbItems: BreadcrumbItem[] = [
-    { label: 'Accueil', route: '/' },
-    { label: 'À propos', route: '/about-us' },
-  ];
-
+  breadcrumbItems: BreadcrumbItem = {
+    title: 'À propos',
+    datas: [
+      { label: 'Accueil', route: '/' },
+      { label: 'À propos', route: '/about-us' },
+    ]
+  };
 
 }

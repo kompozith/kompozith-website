@@ -22,7 +22,15 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { BreadcrumpComponent } from './shared/breadcrump/breadcrump.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Fonction pour charger les fichiers de traduction
+// Fonction pour charger les fichiers de traduction
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +53,14 @@ import { BreadcrumpComponent } from './shared/breadcrump/breadcrump.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule,
     AppRoutingModule,
     SharedModule,
