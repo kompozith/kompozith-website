@@ -3,8 +3,8 @@
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-xxl-7 col-lg-8">
                 <div class="section-title text-center text-lg-start title-anim">
-                    <span>Nos Forfaits</span>
-                    <h2>Élevez votre marque dans la sphère digitale</h2>
+                    <span>{{ 'home.pricing.text_1' | translate }}</span>
+                    <h2>{{ 'home.pricing.text_2' | translate }}</h2>
                 </div>
             </div>
             <div class="col-xxl-5 col-lg-4 mobt-24">
@@ -31,7 +31,7 @@
                 <div *ngIf="pack.id != '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{pack.name}}</abbr>
-                        <h2>{{ _orderService.calcPrice(pack.price) }} <sub>/mois</sub></h2>
+                        <h2>{{ _orderService.calcPrice(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     <div class="price-two-desc">
                         <h5>{{pack.description}}</h5>
@@ -44,7 +44,7 @@
                         <div class="price-two-btn text-center">
                             <a class="common-btn orange-border" (click)="submit(pack)">
                                 <span>
-                                    Commander
+                                  {{ 'home.pricing.text_4' | translate }}
                                 </span>
                             </a>
                         </div>
@@ -53,7 +53,7 @@
                 <div *ngIf="pack.id == '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{pack.name}}</abbr>
-                        <h2>{{ _orderService.totalPackPrice(pack.services) }} <sub>/mois</sub></h2>
+                        <h2>{{ _orderService.totalPackPrice(pack.services) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     <div class="price-two-desc">
                         <h5>{{pack.description}}</h5>
@@ -67,7 +67,7 @@
                         <div class="price-two-btn text-center">
                             <a class="common-btn orange-border" (click)="submit(pack)">
                                 <span>
-                                    Explorer
+                                  {{ 'home.pricing.text_5' | translate }}
                                 </span>
                             </a>
                         </div>
