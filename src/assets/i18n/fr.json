@@ -2,7 +2,157 @@
   "home": {
     "hero": {
       "text_1": "Sphère numérique, une substance des",
-      "text_2": "unités composites"
+      "text_2": "unités composites",
+      "text_3": "Explorer",
+      "text_4": "Comment ça marche?"
+    },
+
+
+    "about": {
+      "about": "A PROPOS DE NOUS",
+      "text_1": "Votre succès, notre obsession.",
+      "text_2": "Nous mettons à votre disposition des",
+      "text_3": "services.",
+      "text_4": "haut de gamme et vous garantissons le succès en vous accompagnant tout au long de la concrétisation de vos objectifs tout en procédant comme suit :",
+      "text_5": "Une analyse approfondie de votre demande.",
+      "text_6": "Des suggestions visant à améliorer les résultats de vos attentes.",
+      "text_7": "Des réalisations de haute qualité grâce au professionnalisme de notre équipe hautement qualifiée.",
+      "text_8": "Un suivi basé sur la construction d'une relation professionnelle solide."
+
+    },
+
+
+    "services": {
+      "text_1": "Pour vous",
+      "text_2": "Nos offres de service",
+      "text_3": "E-Communication",
+      "text_4": "Conception graphique, stratégie marketing, accompagnement personnalisé pour atteindre vos objectifs commerciaux.",
+      "text_5": "Développement Web",
+      "text_6": "Conception et réalisation de sites web et d'applications pour renforcer votre présence en ligne, adaptés à vos besoins spécifiques.",
+      "text_7": "UI/UX Design",
+      "text_8": "Profitez de notre offre complète d'identité graphique pour vous démarquer efficacement grâce à une image de marque distinctive.",
+      "text_9": "Formations.",
+      "text_10": "Formations en développement logiciel et graphisme pour renforcer vos compétences et enrichir votre professionnalisme."
+
+    },
+
+
+    "pricing": {
+      "text_1": "Nos Forfaits",
+      "text_2": "Élevez votre marque dans la sphère digitale",
+      "text_3": "/mois",
+      "text_4": "Commander",
+      "text_5": "Explorer"
+    },
+
+    "portfolio": {
+      "text_1": "Portfolio",
+      "text_2": "Projets Réalisés"
+
+    },
+
+    "testimonials": {
+      "text_1": "Avis des clients",
+      "text_2": "Comme eux, faites nous confiance",
+      "text_3": "Il y a de cela quelques mois qui vous avez fait ma carte de visite pour mon entreprise. Vous avez été à l’écoute et respecté les indications, vous nous avez d’ailleurs proposé plusieurs idées de logo (vous faites preuve de beaucoup d’imagination) qui nous ont énormément plu.Désormais je vous fait confiance et j’aime faire appel à vous pour des différents projets. Vous formez une superbe équipe."
+
+
     }
+  },
+
+
+  "contact": {
+    "text_1": "Nous sommes joignables",
+    "text_2": "Informations de contact",
+    "text_3": "Localisation",
+    "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
+    "text_5": "Téléphones",
+    "text_6": "E-mail",
+    "text_7": "Nom",
+    "text_8": "Message",
+    "text_9": "Laisser un commentaire"
+
+
+  },
+
+
+  "team": {
+    "text_1": "À votre service",
+    "text_2": "Notre équipe d'experts qualifiés",
+    "text_3": "Designer graphique",
+    "text_4": "Développeur Fullstack",
+    "text_5": "Développeur Backend"
+
+  },
+
+
+  "history": {
+    "text_1": "Épopée",
+    "text_2": "De la passion naît l'innovation",
+    "text_3": "À l'image d'un code astucieusement composé, notre agence façonne l'avenir.Ensemble, convertissons des éléments composites en triomphes numériques.",
+    "text_4": "Innovation Permanente",
+    "text_5": "Notre équipe, composée de jeunes talents passionnés et assidus, cultive quotidiennement des stratégies visant à demeurer à la pointe des technologies.",
+    "text_6": "Engagements formels",
+    "text_7": "Guidés par la passion et la compétence, nous relevons avec ardeur le défi de concrétiser les rêves de nos partenaires."
+
+  },
+
+
+  "order": {
+    "text_1": "Faites vous plaisir",
+    "text_2": "Simulez votre commande",
+    "text_3": "Effectuez votre commande",
+    "text_4": "Service",
+    "text_5": "Quantité",
+    "text_6": "Prix Total",
+    "text_7": "Action",
+    "text_8": "Total net à payer",
+    "text_9": "Total Estimatif",
+    "text_10":"Votre panier et vide !!!",
+
+    "text_11": "Informations de contact",
+    "text_12": "Prenom",
+    "text_13": "Nom",
+    "text_14": "Telephone",
+    "text_15":"E-mail",
+    "text_16":"Exigences de la commande",
+
+    "text_17": "Terminer",
+    "text_18": "Selectionnez les services",
+    "text_19": "Soumettre"
+
+  },
+
+
+
+  "nav": {
+    "text_1": "Accueil",
+    "text_2": "À propos",
+    "text_3": "Services",
+    "text_4": "Contact",
+    "text_5" :"Langue",
+    "text_6": "Français",
+    "text_7": "English",
+    "text_8": "Devis gratuit"
+
+
+  },
+
+  "footer": {
+    "text_1": "Agence de communication digitale et développement de solutions web sur mesure, offrant à ses partenaires des services innovants et un suivi assuré.",
+    "text_2": "Nos Services",
+    "text_3": "Communication",
+    "text_4": "Développement web",
+    "text_5": "Graphisme",
+    "text_6": "Formations",
+    "text_7": "Consulting",
+    "text_8": "Contacts",
+    "text_9": "Douala Cameroun",
+    "text_10":"Médias Sociaux",
+
+    "text_11": "Nous publions fréquemment sur nos pages de médias sociaux. Suivez-nous pour rester informé(e) de nos dernières actualités."
+
+
   }
+
 }

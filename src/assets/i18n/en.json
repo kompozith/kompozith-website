@@ -1,8 +1,160 @@
 {
-    "home": {
-        "hero": {
-           "text_1": "Digital universe is a substance of many",
-           "text_2": "Composite Entities"
-        }
+  "home":
+  {
+    "hero": {
+      "text_1": "Digital universe is a substance of many",
+      "text_2": "Composite Entities",
+      "text_3": "Explore",
+      "text_4": "How it works?"
+    },
+
+    "about": {
+      "about": "ABOUT US",
+      "text_1": "Your success, our obsession.",
+      "text_2": "We provide you with",
+      "text_3": "services.",
+      "text_4": "and guarantee your success by accompanying you throughout the achievement of your objectives, as follows :",
+      "text_5": "An in-depth analysis of your request.",
+      "text_6": "Suggestions to improve the results of your expectations.",
+      "text_7": "High-quality realizations thanks to the professionalism of our highly qualified team.",
+      "text_8": "Follow-up based on building a solid professional relationship."
+
+    },
+
+
+    "services": {
+      "text_1": "For you",
+      "text_2": "Our services",
+      "text_3": "E-Communication",
+      "text_4": "Graphic design, marketing strategy, personalized support to achieve your business objectives.",
+      "text_5": "Web development",
+      "text_6": "Design and production of websites and applications to strengthen your online presence, tailored to your specific needs.",
+      "text_7": "UI/UX Design",
+      "text_8": "Take advantage of our complete graphic identity offer to stand out effectively thanks to a distinctive brand image.",
+      "text_9": "Training courses.",
+      "text_10": "Training courses in software development and graphic design to enhance your skills and enrich your professionalism."
+
+    },
+
+
+    "pricing": {
+      "text_1": "Our Packages",
+      "text_2": "Elevate your brand in the digital sphere",
+      "text_3": "/month",
+      "text_4": "Order",
+      "text_5": "Explore"
+    },
+
+    "portfolio": {
+      "text_1": "Portfolio",
+      "text_2": "Completed Projects"
+
+    },
+
+    "testimonials": {
+      "text_1": "Customer reviews",
+      "text_2": "Like them, trust us",
+      "text_3": "A few months ago, you designed my company's business card. You listened carefully and followed instructions, and came up with several logo ideas (you're very imaginative) that we liked enormously. You make a great team."
+
     }
+  },
+
+
+
+  "contact": {
+    "text_1": "We can be reached",
+    "text_2": "Contact information",
+    "text_3": "Location",
+    "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
+    "text_5": "Phones",
+    "text_6": "E-mail",
+    "text_7": "Name",
+    "text_8": "Message",
+    "text_9": "Leaves comment"
+
+
+  },
+
+  "team": {
+    "text_1": "At your service",
+    "text_2": "Our team of qualified experts",
+    "text_3": "Graphic Designer ",
+    "text_4": "Fullstack Developper ",
+    "text_5": "Backend Developper "
+
+  },
+
+
+
+  "history": {
+    "text_1": "Epic",
+    "text_2": "From passion comes innovation",
+    "text_3": "Like a cunningly composed code, our agency shapes the future. Together, let's convert composite elements into digital triumphs.",
+    "text_4": "Permanent Innovation ",
+    "text_5": "Our team of passionate, hard-working young talents cultivates strategies every day to stay at the cutting edge of technology.",
+    "text_6": "Formal commitments",
+    "text_7": "Guided by passion and competence, we eagerly accept the challenge of making our partners' dreams come true."
+
+  },
+
+
+  "order": {
+    "text_1": "Treat yourself",
+    "text_2": "Simulate your order",
+    "text_3": "Place your order",
+    "text_4": "Service",
+    "text_5": "Quantity",
+    "text_6": "Total Price",
+    "text_7": "Action",
+    "text_8": "Total net payable",
+    "text_9": "Total Estimated",
+    "text_10":"Your cart is empty !!!",
+
+    "text_11": "Contact information",
+    "text_12": "First name",
+    "text_13": "Name",
+    "text_14": "Telephone",
+    "text_15":"E-mail",
+    "text_16":"Order requirements",
+
+    "text_17": "Finish",
+    "text_18": "Select services",
+    "text_19": "Submit"
+
+  },
+
+
+  "nav": {
+    "text_1": "Home",
+    "text_2": "About",
+    "text_3": "Services",
+    "text_4": "Contact",
+    "text_5" :"Language",
+    "text_6": "Français",
+    "text_7": "English",
+    "text_8": "Free Quote"
+
+
+  },
+
+
+
+  "footer": {
+    "text_1": "Digital communications agency and development of customized web solutions, offering its partners innovative services and guaranteed follow-up.",
+    "text_2": "Our Services",
+    "text_3": "Communication",
+    "text_4": "Web development",
+    "text_5": "Graphics",
+    "text_6": "Training",
+    "text_7": "Consulting",
+    "text_8": "Contacts",
+    "text_9": "Douala Cameroon",
+    "text_10":"Social Media",
+
+    "text_11": "We post frequently on our social media pages. Follow us to keep up to date with our latest news."
+
+
+  }
+
+
 }
