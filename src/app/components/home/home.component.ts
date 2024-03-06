@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PreloadService } from 'src/app/_services/preload.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',

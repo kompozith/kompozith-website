@@ -14,6 +14,7 @@ export class OrderComponent implements OnInit{
 
   ordered_pack: any;
   current_pack_price : any;
+  orderTranslatedTitle : string = 'Commande';
   constructor(
     public _orderService: OrderService,
     private route: ActivatedRoute,
@@ -47,10 +48,10 @@ export class OrderComponent implements OnInit{
   }
   
   breadcrumbItems: BreadcrumbItem = {
-    title: 'Commande',
+    title: 'order.text_0',
     datas: [
-      { label: 'Accueil', route: '/' },
-      { label: 'Commande', route: '/order/flex' },
+      { label: 'home.text_0', route: '/' },
+      { label: 'order.text_0', route: '/order/flex' },
     ]
   };
   

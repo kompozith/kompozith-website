@@ -16,10 +16,10 @@ export class ContactComponent implements OnInit {
   }
   
   breadcrumbItems: BreadcrumbItem = {
-    title: 'Contact',
+    title: 'contact.text_0',
     datas: [
-      { label: 'Accueil', route: '/' },
-      { label: 'Contact', route: '/contact' },
+      { label: 'home.text_0', route: '/' },
+      { label: 'contact.text_0', route: '/contact' },
     ]
   };
 

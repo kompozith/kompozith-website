@@ -16,10 +16,10 @@ export class OurServicesComponent implements OnInit {
   }
   
   breadcrumbItems: BreadcrumbItem = {
-    title: 'Services',
+    title: 'home.services.text_0',
     datas: [
-      { label: 'Accueil', route: '/' },
-      { label: 'Services', route: '/services' },
+      { label: 'home.text_0', route: '/' },
+      { label: 'home.services.text_0', route: '/services' },
     ]
   };
 

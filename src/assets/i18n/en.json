@@ -1,6 +1,7 @@
 {
   "home":
   {
+    "text_0": "Home",
     "hero": {
       "text_1": "Digital universe is a substance of many",
       "text_2": "Composite Entities",
@@ -9,6 +10,7 @@
     },
 
     "about": {
+      "text_0": "About",
       "about": "ABOUT US",
       "text_1": "Your success, our obsession.",
       "text_2": "We provide you with",
@@ -21,8 +23,8 @@
 
     },
 
-
     "services": {
+      "text_0": "Services",
       "text_1": "For you",
       "text_2": "Our services",
       "text_3": "E-Communication",
@@ -35,7 +37,6 @@
       "text_10": "Training courses in software development and graphic design to enhance your skills and enrich your professionalism."
 
     },
-
 
     "pricing": {
       "text_1": "Our Packages",
@@ -59,9 +60,8 @@
     }
   },
 
-
-
   "contact": {
+    "text_0": "Contact",
     "text_1": "We can be reached",
     "text_2": "Contact information",
     "text_3": "Location",
@@ -84,8 +84,6 @@
 
   },
 
-
-
   "history": {
     "text_1": "Epic",
     "text_2": "From passion comes innovation",
@@ -94,11 +92,10 @@
     "text_5": "Our team of passionate, hard-working young talents cultivates strategies every day to stay at the cutting edge of technology.",
     "text_6": "Formal commitments",
     "text_7": "Guided by passion and competence, we eagerly accept the challenge of making our partners' dreams come true."
-
   },
 
-
   "order": {
+    "text_0": "Order",
     "text_1": "Treat yourself",
     "text_2": "Simulate your order",
     "text_3": "Place your order",
@@ -119,10 +116,10 @@
 
     "text_17": "Finish",
     "text_18": "Select services",
-    "text_19": "Submit"
+    "text_19": "Submit",
+    "text_20":"Price varying"
 
   },
-
 
   "nav": {
     "text_1": "Home",
@@ -136,8 +133,6 @@
 
 
   },
-
-
 
   "footer": {
     "text_1": "Digital communications agency and development of customized web solutions, offering its partners innovative services and guaranteed follow-up.",
@@ -156,7 +151,41 @@
     "text_allright": "All Rights Reserved",
     "text_term": "Terms & Condition",
     "text_policy": "Privacy Policy"
-
+  },
+  
+  "pricing": {
+    "service": {
+      "name": {
+        "branding": "Branding",
+        "min_website": "Minimal website",
+        "social_media": "Creation of social media pages",
+        "marketing_plan": "Monthly marketing plan",
+        "communication_plan": "Monthly communication plan",
+        "lead": "Monthly accompaniment",
+        "branding_study": "Evaluation and in-depth study of existing branding",
+        "website_review": "Website redesign",
+        "flyer": "Flyer",
+        "roll_up": "Roll up",
+        "logo": "Logo",
+        "business_card": "Business card",
+        "web_app": "Web application",
+        "complexe_website": "Complex website",
+        "mobile_app": "Mobile application",
+        "desk_app": "Desktop application"
+      }
+    },
+    "pack": {
+      "name": {
+        "starter": "Starter",
+        "boost": "Boost",
+        "flex": "Flex"
+      },
+      "description": {
+        "starter": "Businesses and individuals looking to get started on digital.",
+        "boost": "Businesses and individuals looking to enhance their brands.",
+        "flex": "Free choice among the range of services according to your preferences."
+      }
+    }
   }
 
 

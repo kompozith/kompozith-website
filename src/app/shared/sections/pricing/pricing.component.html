@@ -30,15 +30,15 @@
             <div *ngFor="let pack of _orderService.packs" class=" col-lg-4 col-md-6 fade_left">
                 <div *ngIf="pack.id != '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
-                        <abbr>{{pack.name}}</abbr>
+                        <abbr>{{ pack.name | translate }}</abbr>
                         <h2>{{ _orderService.calcPrice(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     <div class="price-two-desc">
-                        <h5>{{pack.description}}</h5>
+                        <h5>{{ pack.description | translate }}</h5>
                         <ul>
                             <li *ngFor="let service of pack.services">
                                 <i class="fa-solid fa-check text-primary"></i>
-                                {{ _orderService.serviceCall(service)[1] }}
+                                {{ (_orderService.serviceCall(service).qty > 1) ? ""+(_orderService.serviceCall(service).qty+"X"+(_orderService.serviceCall(service).name | translate)): (_orderService.serviceCall(service).name | translate) }}
                             </li>
                         </ul>
                         <div class="price-two-btn text-center">
@@ -52,16 +52,16 @@
                 </div>
                 <div *ngIf="pack.id == '3'" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
-                        <abbr>{{pack.name}}</abbr>
+                        <abbr>{{pack.name | translate}}</abbr>
                         <h2>{{ _orderService.totalPackPrice(pack.services) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     <div class="price-two-desc">
-                        <h5>{{pack.description}}</h5>
+                        <h5>{{pack.description | translate}}</h5>
                         <ul>
                             <li *ngFor="let service of pack.services" (click)="_orderService.selection(service)">
                                 <i *ngIf="!service.selected" class="fa-solid fa-xmark text-danger"></i>
                                 <i *ngIf="service.selected" class="fa-solid fa-check text-primary"></i>
-                                {{ (_orderService.serviceCall(service))[0] }}
+                                {{ (_orderService.serviceCall(service)).name| translate }}
                             </li>
                         </ul>
                         <div class="price-two-btn text-center">

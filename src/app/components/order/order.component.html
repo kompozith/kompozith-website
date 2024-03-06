@@ -47,8 +47,8 @@
                   <tbody>
                       <tr *ngFor="let serv of _orderService.cmd_services">
                           <td>
-                            {{_orderService.serviceCall(serv)[0]}}
-                            <span *ngIf="!serv.netPrice" class="text-danger">(prix variant)</span>
+                            {{ _orderService.serviceCall(serv).name | translate }}
+                            <span *ngIf="!serv.netPrice" class="text-danger">({{ 'order.text_20' | translate}})</span>
                           </td>
                           <td class="d-flex justify-content-center">
                             <div class="qty-box">
@@ -131,7 +131,7 @@
                             </button>
                         </form>
                         <ul class="sidebar-tag d-flex flex-wrap pt-3">
-                            <li *ngFor="let serv of _orderService.services" (click)="_orderService.addToList(serv)"><a>{{ serv.name }}</a></li>
+                            <li *ngFor="let serv of _orderService.services" (click)="_orderService.addToList(serv)"><a>{{ serv.name | translate }}</a></li>
                         </ul>
                     </div>
                 </div>

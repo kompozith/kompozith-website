@@ -20,7 +20,7 @@ export class OrderService {
   public all_services:{id: number, name:string, price: number, qty: number, wholesalePrice: boolean, netPrice: boolean}[] =  [
     {
       id: 1,
-      name: 'Identité visuelle (branding)',
+      name: 'pricing.service.name.branding',
       price: 90000,
       qty: 1,
       wholesalePrice: false,
@@ -28,7 +28,7 @@ export class OrderService {
     },
     {
       id: 2,
-      name: 'Site web minimal',
+      name: 'pricing.service.name.min_website',
       price: 120000,
       qty: 1,
       wholesalePrice: false,
@@ -36,7 +36,7 @@ export class OrderService {
     },
     {
       id: 3,
-      name: 'Création de pages social media',
+      name: 'pricing.service.name.social_media',
       price: 25000,
       qty: 1,
       wholesalePrice: false,
@@ -44,7 +44,7 @@ export class OrderService {
     },
     {
       id: 4,
-      name: 'Plan marketing mensuel',
+      name: 'pricing.service.name.marketing_plan',
       price: 30000,
       qty: 1,
       wholesalePrice: false,
@@ -52,7 +52,7 @@ export class OrderService {
     },
     {
       id: 5,
-      name: 'Plan de communication mensuel',
+      name: 'pricing.service.name.communication_plan',
       price: 30000,
       qty: 1,
       wholesalePrice: false,
@@ -60,7 +60,7 @@ export class OrderService {
     },
     {
       id: 6,
-      name: 'Accompagnement mensuel',
+      name: 'pricing.service.name.lead',
       price: 30000,
       qty: 1,
       wholesalePrice: false,
@@ -68,7 +68,7 @@ export class OrderService {
     },
     {
       id: 7,
-      name: 'Evaluation et étude approfondie du branding existant',
+      name: 'pricing.service.name.branding_study',
       price: 20000,
       qty: 1,
       wholesalePrice: false,
@@ -76,7 +76,7 @@ export class OrderService {
     },
     {
       id: 8,
-      name: 'Redesign du site web',
+      name: 'pricing.service.name.website_review',
       price: 80000,
       qty: 1,
       wholesalePrice: false,
@@ -84,7 +84,7 @@ export class OrderService {
     },
     {
       id: 9,
-      name: 'Flyer',
+      name: 'pricing.service.name.flyer',
       price: 18000,
       qty: 1,
       wholesalePrice: true,
@@ -92,7 +92,7 @@ export class OrderService {
     },
     {
       id: 10,
-      name: 'Roll up',
+      name: 'pricing.service.name.roll_up',
       price: 20000,
       qty: 1,
       wholesalePrice: true,
@@ -100,7 +100,7 @@ export class OrderService {
     },
     {
       id: 11,
-      name: 'Logo',
+      name: 'pricing.service.name.logo',
       price: 35000,
       qty: 1,
       wholesalePrice: true,
@@ -108,7 +108,7 @@ export class OrderService {
     },
     {
       id: 12,
-      name: 'Carte de visite',
+      name: 'pricing.service.name.business_card',
       price: 15000,
       qty: 1,
       wholesalePrice: true,
@@ -116,7 +116,7 @@ export class OrderService {
     },
     {
       id: 13,
-      name: 'Application web',
+      name: 'pricing.service.name.web_app',
       price: 300000,
       qty: 1,
       wholesalePrice: false,
@@ -124,7 +124,7 @@ export class OrderService {
     },
     {
       id: 14,
-      name: 'Site web complexe',
+      name: 'pricing.service.name.complexe_website',
       price: 200000,
       qty: 1,
       wholesalePrice: false,
@@ -132,7 +132,7 @@ export class OrderService {
     },
     {
       id: 15,
-      name: 'Application mobile',
+      name: 'pricing.service.name.mobile_app',
       price: 250000,
       qty: 1,
       wholesalePrice: false,
@@ -140,7 +140,7 @@ export class OrderService {
     },
     {
       id: 16,
-      name: 'Application de bureau',
+      name: 'pricing.service.name.desk_app',
       price: 350000,
       qty: 1,
       wholesalePrice: false,
@@ -150,17 +150,17 @@ export class OrderService {
   public packs = [
     {
       id: '1',
-      name: 'Starter',
+      name: "pricing.pack.name.starter",
       services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:true},{id:3,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
-      description: "Entreprises et particuliers souhaitant se lancer sur le digital.",
+      description: 'pricing.pack.description.starter',
       color: '#44cebe',
       price: 300000,
       duration: 1,
     },
     {
       id: '2',
-      name: 'Boost',
-      description: "Entreprises et particuliers souhaitant améliorer leurs marques.",
+      name: "pricing.pack.name.boost",
+      description: "pricing.pack.description.boost",
       color: '#098dd7',
       services: [{id:7,qty:1,selected:true},{id:8,qty:1,selected:true},{id:9,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
       price: 250000,
@@ -168,8 +168,8 @@ export class OrderService {
     },
     {
       id: '3',
-      name: 'Flex',
-      description: "Libre choix parmi la gamme de services selon vos préférences.",
+      name: "pricing.pack.name.flex",
+      description: "pricing.pack.description.flex",
       color: '#3d449e',
       services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:false},{id:3,qty:1,selected:false},{id:4,qty:1,selected:true},{id:5,qty:1,selected:false},{id:6,qty:1,selected:true}],
       price: 0,
@@ -283,7 +283,7 @@ export class OrderService {
   
   serviceCall(service: any){
     let result = this.getService(service.id)
-    return [result?.name, (service.qty > 1) ? service.qty+"X "+result?.name : result?.name];
+    return {name: result?.name, qty: service.qty};
   }
   
   getService(id: any){

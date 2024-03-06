@@ -1,5 +1,6 @@
 {
   "home": {
+    "text_0": "Accueil",
     "hero": {
       "text_1": "Sphère numérique, une substance des",
       "text_2": "unités composites",
@@ -7,9 +8,9 @@
       "text_4": "Comment ça marche?"
     },
 
-
     "about": {
-      "about": "A PROPOS DE NOUS",
+      "text_0": "À propos",
+      "about": "À PROPOS DE NOUS",
       "text_1": "Votre succès, notre obsession.",
       "text_2": "Nous mettons à votre disposition des",
       "text_3": "services.",
@@ -21,8 +22,8 @@
 
     },
 
-
     "services": {
+      "text_0": "Services",
       "text_1": "Pour vous",
       "text_2": "Nos offres de service",
       "text_3": "E-Communication",
@@ -36,7 +37,6 @@
 
     },
 
-
     "pricing": {
       "text_1": "Nos Forfaits",
       "text_2": "Élevez votre marque dans la sphère digitale",
@@ -48,7 +48,6 @@
     "portfolio": {
       "text_1": "Portfolio",
       "text_2": "Projets Réalisés"
-
     },
 
     "testimonials": {
@@ -60,8 +59,8 @@
     }
   },
 
-
   "contact": {
+    "text_0": "Contact",
     "text_1": "Nous sommes joignables",
     "text_2": "Informations de contact",
     "text_3": "Localisation",
@@ -75,7 +74,6 @@
 
   },
 
-
   "team": {
     "text_1": "À votre service",
     "text_2": "Notre équipe d'experts qualifiés",
@@ -84,7 +82,6 @@
     "text_5": "Développeur Backend"
 
   },
-
 
   "history": {
     "text_1": "Épopée",
@@ -97,8 +94,8 @@
 
   },
 
-
   "order": {
+    "text_0": "Commande",
     "text_1": "Faites vous plaisir",
     "text_2": "Simulez votre commande",
     "text_3": "Effectuez votre commande",
@@ -119,11 +116,10 @@
 
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
-    "text_19": "Soumettre"
+    "text_19": "Soumettre",
+    "text_20":"Prix variant"
 
   },
-
-
 
   "nav": {
     "text_1": "Accueil",
@@ -156,6 +152,40 @@
     "text_term": "Termes et conditions",
     "text_policy": "politique de confidentialité"
 
+  },
+  
+  "pricing": {
+    "service": {
+      "name":{
+        "branding": "Identité visuelle (branding)",
+        "min_website": "Site web minimal",
+        "social_media": "Création de pages social media",
+        "marketing_plan": "Plan marketing mensuel",
+        "communication_plan": "Plan de communication mensuel",
+        "lead": "Accompagnement mensuel",
+        "branding_study": "Evaluation et étude approfondie du branding existant",
+        "website_review": "Redesign du site web",
+        "flyer": "Flyer",
+        "roll_up": "Roll up",
+        "logo": "Logo",
+        "business_card": "Carte de visite",
+        "web_app": "Application web",
+        "complexe_website": "Site web complexe",
+        "mobile_app": "Application mobile",
+        "desk_app": "Application de bureau"
+      }
+    },
+    "pack": {
+      "name":{
+        "starter": "Starter",
+        "boost": "Boost",
+        "flex": "Flex"
+      },
+      "description":{
+        "starter": "Entreprises et particuliers souhaitant se lancer sur le digital.",
+        "boost": "Entreprises et particuliers souhaitant améliorer leurs marques.",
+        "flex": "Libre choix parmi la gamme de services selon vos préférences."
+      }
+    }
   }
-
 }
