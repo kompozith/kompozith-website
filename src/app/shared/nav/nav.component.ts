@@ -9,7 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class NavComponent implements OnInit {
 
   currentLanguage!: string;
-  translatedText: string = 'Devis gratuit'; // Définissez le texte par défaut ici
 
   constructor(private translate: TranslateService) {
     let prevLang = localStorage.getItem("language");
@@ -20,28 +19,12 @@ export class NavComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.loadTranslation();
-  }
+  ngOnInit(): void { }
 
   useLanguage(language: string) {
     this.translate.use(language);
     localStorage.setItem("language", language);
     this.currentLanguage = language;
-    this.loadTranslation(); // Chargez la traduction à chaque changement de langue
   }
-
-  private loadTranslation() {
-    this.translate.get('nav.text_8').subscribe(
-      (translation: string) => {
-        this.translatedText = translation || 'Devis gratuit';
-        console.log('Traduction réussie :', this.translatedText);
-      },
-      (error) => {
-        console.error('Erreur de traduction :', error);
-      }
-    );
-  }
-
 
 }

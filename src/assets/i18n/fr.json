@@ -110,7 +110,7 @@
     "text_11": "Informations de contact",
     "text_12": "Prenom",
     "text_13": "Nom",
-    "text_14": "Telephone",
+    "text_14": "Téléphone",
     "text_15":"E-mail",
     "text_16":"Exigences de la commande",
 
@@ -187,5 +187,15 @@
         "flex": "Libre choix parmi la gamme de services selon vos préférences."
       }
     }
+  },
+  
+  "form": {
+    "text_1": "Votre Prénom",
+    "text_2": "Votre Nom de Famille",
+    "text_3": "Votre Adresse Email",
+    "text_4": "Votre Numéro de Téléphone",
+    "text_5": "Si possible, décrivez votre commande en quelques mots",
+    "text_6": "Votre Nom",
+    "text_7": "Votre Message"
   }
 }

@@ -186,7 +186,16 @@
         "flex": "Free choice among the range of services according to your preferences."
       }
     }
+  },
+  
+  "form": {
+    "text_1":"Your Firstname",
+    "text_2":"Your Lastname",
+    "text_3":"Your Email",
+    "text_4":"Your Phone Number",
+    "text_5":"If possible, describe your order in a few words",
+    "text_6": "Your name",
+    "text_7": "Your Message"
   }
-
 
 }

@@ -150,7 +150,7 @@ export class OrderService {
   public packs = [
     {
       id: '1',
-      name: "pricing.pack.name.starter",
+      name: "Starter",
       services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:true},{id:3,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
       description: 'pricing.pack.description.starter',
       color: '#44cebe',
@@ -159,7 +159,7 @@ export class OrderService {
     },
     {
       id: '2',
-      name: "pricing.pack.name.boost",
+      name: "Boost",
       description: "pricing.pack.description.boost",
       color: '#098dd7',
       services: [{id:7,qty:1,selected:true},{id:8,qty:1,selected:true},{id:9,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
@@ -168,7 +168,7 @@ export class OrderService {
     },
     {
       id: '3',
-      name: "pricing.pack.name.flex",
+      name: "Flex",
       description: "pricing.pack.description.flex",
       color: '#3d449e',
       services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:false},{id:3,qty:1,selected:false},{id:4,qty:1,selected:true},{id:5,qty:1,selected:false},{id:6,qty:1,selected:true}],
