@@ -108,8 +108,9 @@
     "text_10":"Your cart is empty !!!",
 
     "text_11": "Contact information",
-    "text_12": "First name",
-    "text_13": "Name",
+    "text_12": "Firstname",
+    "text_13": "Lastname",
+    "text_131": "Name",
     "text_14": "Telephone",
     "text_15":"E-mail",
     "text_16":"Order requirements",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
 import { OrderMemoryService } from 'src/app/_services/order-memory.service';
@@ -10,7 +10,7 @@ import { PreloadService } from 'src/app/_services/preload.service';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit{
+export class OrderComponent implements OnInit, OnDestroy{
 
   ordered_pack: any;
   current_pack_price : any;
@@ -54,5 +54,9 @@ export class OrderComponent implements OnInit{
       { label: 'order.text_0', route: '/order/flex' },
     ]
   };
+  
+  ngOnDestroy(){
+    this._orderService.flexible = false;
+  }
   
 }
