@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,10 +26,9 @@ import { BreadcrumpComponent } from './shared/breadcrump/breadcrump.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { CommonModule } from '@angular/common';
-
-// Fonction pour charger les fichiers de traduction
-// Fonction pour charger les fichiers de traduction
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -52,8 +52,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AboutUsComponent,
     OurServicesComponent,
     BreadcrumpComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -70,6 +68,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppRoutingModule,
     SharedModule,
     SwiperModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [TranslateService],
   bootstrap: [AppComponent]
