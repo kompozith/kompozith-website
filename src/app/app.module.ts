@@ -29,6 +29,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -68,6 +69,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppRoutingModule,
     SharedModule,
     SwiperModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],

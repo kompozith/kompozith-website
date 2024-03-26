@@ -6,6 +6,7 @@ import {
   AngularFireList,
   AngularFireObject,
 } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class IntouchService {
   ) { }
   //Lister tous les messages d eprise de contact
   list(): any {
-    return this.db.list('messages');
+    return this.firebase.collection('messages');
   }
   //Ajouter un nouveau message dans la base de donnes.
   create(data: contactMessage): Promise<any> {
@@ -29,7 +30,7 @@ export class IntouchService {
   }
   //Recevoir un message particulier par son ID
   getById(id : string){
-    return this.db.object('messages/' + id);
+    return this.firebase.collection('messages/' + id).get();
   }
   //Modifier un message de prise de contact
   update(id : string, data: contactMessage){
@@ -37,7 +38,7 @@ export class IntouchService {
   }
   //Supprimer un message
   delete(id: any): Promise<any> {
-    return this.db.object('messages/' + id).remove();
+    return this.firebase.collection('messages').doc(id).delete();
   }
   
 }

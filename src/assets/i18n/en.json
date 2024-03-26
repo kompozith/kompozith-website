@@ -67,10 +67,12 @@
     "text_3": "Location",
     "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
     "text_5": "Phones",
+    "text_51": "Phone Number",
     "text_6": "E-mail",
+    "text_61": "Subject",
     "text_7": "Name",
     "text_8": "Message",
-    "text_9": "Leaves comment"
+    "text_9": "Submit"
 
 
   },
@@ -195,7 +197,8 @@
     "text_3":"Your Email",
     "text_4":"Your Phone Number",
     "text_5":"If possible, describe your order in a few words",
-    "text_6": "Your name",
+    "text_6": "Your Name",
+    "text_61": "Your Subject",
     "text_7": "Your Message"
   }
 
