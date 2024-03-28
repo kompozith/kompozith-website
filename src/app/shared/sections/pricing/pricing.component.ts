@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderMemoryService } from 'src/app/_services/order-memory.service';
-import { OrderService } from 'src/app/_services/order.service';
+import { OrderHelper } from 'src/app/_services/order-helper.service';
 
 @Component({
   selector: 'app-pricing',
@@ -10,7 +10,7 @@ import { OrderService } from 'src/app/_services/order.service';
 })
 export class PricingComponent implements OnInit{
   constructor(
-    public _orderService: OrderService,
+    public _orderHelper: OrderHelper,
     private router: Router,
     private _orderMemoryService: OrderMemoryService
   ){
@@ -19,16 +19,16 @@ export class PricingComponent implements OnInit{
   
   ngOnInit(){
     this._orderMemoryService.getSavedOrder().subscribe((data: any) => {
-       data ? (this._orderService.cmd_services = JSON.parse(data), 
-       this._orderService.packs[2].services.map((flex_elem: any) => {
+       data ? (this._orderHelper.cmd_services = JSON.parse(data), 
+       this._orderHelper.packs[2].services.map((flex_elem: any) => {
          flex_elem.selected = false;
        })) : '';
-       this._orderService.getSavedPack();
+       this._orderHelper.getSavedPack();
     });
   }
   
   submit(pack: any){
-    this._orderMemoryService.savedOrder(this._orderService.cmd_services).subscribe((data: any) => {
+    this._orderMemoryService.savedOrder(this._orderHelper.cmd_services).subscribe((data: any) => {
       this.router.navigate(['/order/'+ pack.name.toLowerCase()]);
     })
   }

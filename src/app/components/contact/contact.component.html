@@ -45,35 +45,40 @@
                 </ul>
             </div>
             <div class="col-lg-9 mobt-35">
-                <form id="contact-form" [formGroup]="contactForm" class="contact-input position-relative needs-validation" novalidate [ngClass]="{ 'was-validated': validate }">
+                <form id="contact-form" [formGroup]="contactForm" class="contact-input position-relative" novalidate [ngClass]="{ 'was-validated': submitted }">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="name">{{ 'contact.text_7' | translate }}<span style="color:red">*</span></label>
-                            <input class="form-control" type="text" formControlName="name"  placeholder="{{ 'form.text_6' | translate }}">
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('name')?.valid), 
+                                'form-control is-valid':(submitted && contactForm.get('name')?.valid)}"  type="text" formControlName="name"  placeholder="{{ 'form.text_6' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_100' | translate }}</div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="email">{{ 'contact.text_6' | translate }}<span style="color:red">*</span></label>
-                            <input class="form-control" formControlName="email" type="email" placeholder="{{ 'form.text_3' | translate }}">
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('email')?.valid), 
+                                                'form-control is-valid':(submitted && contactForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_3' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="phoneNumber">{{ 'contact.text_51' | translate }}</label>
-                            <input class="form-control" formControlName="phoneNumber" type="text" placeholder="{{ 'form.text_4' | translate }}">
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('phoneNumber')?.valid), 
+                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" type="text" placeholder="{{ 'form.text_4' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <label class="form-label" for="subject">{{ 'contact.text_61' | translate }}</label>
-                            <input class="form-control" formControlName="subject" type="text" placeholder="{{ 'form.text_61' | translate }}">
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('subject')?.valid), 
+                            'form-control is-valid':(submitted && contactForm.get('subject')?.valid)}" formControlName="subject" type="text" placeholder="{{ 'form.text_61' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <label class="form-label" for="body">{{ 'contact.text_8' | translate }}<span style="color:red">*</span></label>
-                            <textarea class="form-control" formControlName="body" id="message" cols="30" rows="4" placeholder="{{ 'form.text_7' | translate }}"></textarea>
+                            <textarea [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('body')?.valid), 
+                            'form-control is-valid':(submitted && contactForm.get('body')?.valid)}" formControlName="body" id="message" cols="30" rows="4" placeholder="{{ 'form.text_7' | translate }}"></textarea>
                             <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
                         </div>
                         <div class="contact-btn-wrap">
-                            <button class="common-btn hover-black border-0" (click)="submit()" [disabled]="!contactForm.valid">
+                            <button class="common-btn hover-black border-0" (click)="onSubmit()" [disabled]="contactForm.invalid">
                                 <span>
                                   {{ 'contact.text_9' | translate }}
 												<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">

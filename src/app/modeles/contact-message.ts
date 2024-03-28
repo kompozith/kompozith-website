@@ -1,4 +1,4 @@
-export interface contactMessage {
+export interface ContactMessage {
     subject: string;
     body: string;
     author:{

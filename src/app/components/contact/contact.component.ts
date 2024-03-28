@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
 import { IntouchService } from 'src/app/_services/intouch.service';
@@ -12,12 +13,13 @@ import { PreloadService } from 'src/app/_services/preload.service';
 })
 export class ContactComponent implements OnInit {
   
-  public validate: boolean = false;
+  public submitted: boolean = false;
   contactForm!: FormGroup;
   constructor(
     private _preloadService: PreloadService,
     private  intouchService: IntouchService,
     private fb: FormBuilder,
+    private toastr: ToastrService
   ){
   }
   ngOnInit(): void {
@@ -31,8 +33,8 @@ export class ContactComponent implements OnInit {
     });
   }
   
-  submit(){
-    this.validate = true;
+  onSubmit(){
+    this.submitted = true;
     if (!this.contactForm.valid) {
       return;
     }
@@ -45,7 +47,9 @@ export class ContactComponent implements OnInit {
         phoneNumber : this.contactForm.value.phoneNumber
       }
     }).then(() => {
-      this.validate = false;
+      this.submitted = false;
+      this.contactForm.reset();
+      this.toastr.success('Success', 'Message sent!');
     })
   }
   

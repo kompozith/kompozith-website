@@ -10,8 +10,8 @@
             <div class="col-xxl-7 col-lg-8">
                 <div class="section-title text-center text-lg-start title-anim">
                     <span>{{ 'order.text_1' | translate }}</span>
-                    <h2 *ngIf="_orderService.flexible">{{ 'order.text_2' | translate }}</h2>
-                    <h2 *ngIf="!_orderService.flexible">{{ 'order.text_3' | translate }}</h2>
+                    <h2 *ngIf="_orderHelper.flexible">{{ 'order.text_2' | translate }}</h2>
+                    <h2 *ngIf="!_orderHelper.flexible">{{ 'order.text_3' | translate }}</h2>
                 </div>
             </div>
             <div class="col-xxl-5 col-lg-4 mobt-24">
@@ -21,91 +21,101 @@
                     </div> -->
                     <ul class="nav nav-pills price-tab-btn" id="pills-tab" role="tablist">
                         <li class="nav-item btw" role="presentation">
-                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="_orderService.changeCure('XAF')">XAF</button>
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="_orderHelper.changeCure('XAF')">XAF</button>
                         </li>
                         <li class="nav-item btw" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('EUR')">EUR</button>
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderHelper.changeCure('EUR')">EUR</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderService.changeCure('USD')">USD</button>
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderHelper.changeCure('USD')">USD</button>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row pb-120">
-            <div class="{{ _orderService.flexible ? 'col-lg-8' : ''}} pt-3">
+            <div class="{{ _orderHelper.flexible ? 'col-lg-8' : ''}} pt-3">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>{{ 'order.text_4' | translate }}</th>
                       <th class="text-center">{{ 'order.text_5' | translate }}</th>
-                      <th *ngIf="_orderService.flexible" class="text-center">{{ 'order.text_6' | translate }}</th>
-                      <th *ngIf="_orderService.flexible" class="text-end">{{ 'order.text_7' | translate }}</th>
+                      <th *ngIf="_orderHelper.flexible" class="text-center">{{ 'order.text_6' | translate }}</th>
+                      <th *ngIf="_orderHelper.flexible" class="text-end">{{ 'order.text_7' | translate }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let serv of _orderService.cmd_services">
+                      <tr *ngFor="let serv of _orderHelper.cmd_services">
                           <td>
-                            {{ _orderService.serviceCall(serv).name | translate }}
+                            {{ _orderHelper.serviceCall(serv).name | translate }}
                             <span *ngIf="!serv.netPrice" class="text-danger">({{ 'order.text_20' | translate}})</span>
                           </td>
                           <td class="d-flex justify-content-center">
                             <div class="qty-box">
                               <div class="input-group">
-                                <button *ngIf="_orderService.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderService.decrement(serv)">
+                                <button *ngIf="_orderHelper.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderHelper.decrement(serv)">
                                     <i class="fa-regular fa-minus"></i>
                                 </button>
 
-                                <input class="touchspin text-center form-control" disabled="{{!_orderService.flexible}}" min="1" type="text" (change)="_orderService.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
+                                <input class="touchspin text-center form-control" disabled="{{!_orderHelper.flexible}}" min="1" type="text" (change)="_orderHelper.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
 
-                                <button *ngIf="_orderService.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderService.increment(serv)">
+                                <button *ngIf="_orderHelper.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderHelper.increment(serv)">
                                   <i class="fa-regular fa-plus"></i>
                                 </button>
                               </div>
                             </div>
                           </td>
-                          <td *ngIf="_orderService.flexible" class="text-end">{{ _orderService.totalItemPrice(serv) }}</td>
-                          <td *ngIf="_orderService.flexible" class="text-center" (click)="_orderService.cmdRemoveProduct(serv)">
+                          <td *ngIf="_orderHelper.flexible" class="text-end">{{ _orderHelper.totalItemPrice(serv) }}</td>
+                          <td *ngIf="_orderHelper.flexible" class="text-center" (click)="_orderHelper.cmdRemoveProduct(serv)">
                             <i class="fa-regular fa-circle-xmark"></i>
                           </td>
                       </tr>
-                      <tr *ngIf="_orderService.cmd_services.length" class="tr-total">
-                        <td *ngIf="!_orderService.flexible" class="text-center">{{ 'order.text_8' | translate }}</td>
-                        <td *ngIf="_orderService.flexible" class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
-                        <td *ngIf="!_orderService.flexible" class="text-center">{{ _orderService.calcPrice(current_pack_price) }}</td>
-                        <td *ngIf="_orderService.flexible" class="text-center" colspan="2">{{ _orderService.totalOrderPrice() }}</td>
+                      <tr *ngIf="_orderHelper.cmd_services.length" class="tr-total">
+                        <td *ngIf="!_orderHelper.flexible" class="text-center">{{ 'order.text_8' | translate }}</td>
+                        <td *ngIf="_orderHelper.flexible" class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
+                        <td *ngIf="!_orderHelper.flexible" class="text-center">{{ _orderHelper.calcPrice(current_pack_price) }}</td>
+                        <td *ngIf="_orderHelper.flexible" class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
                       </tr>
                       <tr>
-                        <td colspan="4" *ngIf="!_orderService.cmd_services.length" class="text-center">{{ 'order.text_10' | translate }}</td>
+                        <td colspan="4" *ngIf="!_orderHelper.cmd_services.length" class="text-center">{{ 'order.text_10' | translate }}</td>
                       </tr>
                   </tbody>
                 </table>
-                <h3 *ngIf="_orderService.flexible" class="pt-5">{{ 'order.text_11' | translate }}</h3>
-                <form *ngIf="_orderService.flexible" id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
+                <h3 *ngIf="_orderHelper.flexible" class="pt-5">{{ 'order.text_11' | translate }}</h3>
+                <form *ngIf="_orderHelper.flexible" id="contact-form" [formGroup]="orderForm" class="contact-input position-relative" novalidate [ngClass]="{ 'was-validated': submitted }">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_12' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_1' | translate }}">
+                            <label class="form-label" for="firstname">{{ 'order.text_12' | translate }}<span style="color:red">*</span></label>
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('firstname')?.valid), 
+                            'form-control is-valid':(submitted && orderForm.get('firstname')?.valid)}" formControlName="firstname" type="text"  placeholder="{{ 'form.text_1' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_100' | translate }}</div>
                         </div> 
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_13' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_2' | translate }}">
+                            <label class="form-label" for="lastname">{{ 'order.text_13' | translate }}<span style="color:red">*</span></label>
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('lastname')?.valid), 
+                            'form-control is-valid':(submitted && orderForm.get('lastname')?.valid)}" formControlName="lastname" type="text"  placeholder="{{ 'form.text_2' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_14' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_3' | translate }}">
+                            <label class="form-label" for="email">{{ 'order.text_15' | translate }}<span style="color:red">*</span></label>
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('email')?.valid), 
+                            'form-control is-valid':(submitted && orderForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_4' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_15' | translate }}</label>
-                            <input type="email" placeholder="{{ 'form.text_4' | translate }}">
+                            <label class="form-label" for="phoneNumber">{{ 'order.text_14' | translate }}</label>
+                            <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('phoneNumber')?.valid), 
+                            'form-control is-valid':(submitted && orderForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text"  placeholder="{{ 'form.text_3' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label>{{ 'order.text_16' | translate }}</label>
-                            <textarea name="message" id="message" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
+                            <label class="form-label" for="description">{{ 'order.text_16' | translate }}</label>
+                            <textarea [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('description')?.valid), 
+                            'form-control is-valid':(submitted && orderForm.get('description')?.valid)}" formControlName="description" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
                         </div>
                         <div class="contact-btn-wrap d-flex justify-content-end">
-                            <button type="submit" class="common-btn hover-black border-0">
+                            <button type="submit" class="common-btn hover-black border-0" [disabled]="orderForm.invalid" (click)="onSubmit()">
                                 <span>
                                   {{ 'order.text_17' | translate }}
                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,12 +128,12 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="_orderService.flexible" class="col-lg-4 pt-3 mobt-35 order-first order-lg-last">
+            <div *ngIf="_orderHelper.flexible" class="col-lg-4 pt-3 mobt-35 order-first order-lg-last">
                 <div class="sidebar-wrap">
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">{{ 'order.text_18' | translate }}</h2>
                         <form action="#" class="sidebar-search position-relative" >
-                            <input class="w-100" (keyup)="_orderService.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
+                            <input class="w-100" (keyup)="_orderHelper.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
                             <button class="border-0 position-absolute top-50 translate-middle-y" type="submit">
                                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.5938 6.5C13.5938 7.9375 13.125 9.28125 12.3438 10.3438L16.2812 14.3125C16.6875 14.6875 16.6875 15.3438 16.2812 15.7188C15.9062 16.125 15.25 16.125 14.875 15.7188L10.9062 11.75C9.84375 12.5625 8.5 13 7.09375 13C3.5 13 0.59375 10.0938 0.59375 6.5C0.59375 2.9375 3.5 0 7.09375 0C10.6562 0 13.5938 2.9375 13.5938 6.5ZM7.09375 11C9.5625 11 11.5938 9 11.5938 6.5C11.5938 4.03125 9.5625 2 7.09375 2C4.59375 2 2.59375 4.03125 2.59375 6.5C2.59375 9 4.59375 11 7.09375 11Z" fill="currentColor"/>
@@ -131,12 +141,12 @@
                             </button>
                         </form>
                         <ul class="sidebar-tag d-flex flex-wrap pt-3">
-                            <li *ngFor="let serv of _orderService.services" (click)="_orderService.addToList(serv)"><a>{{ serv.name | translate }}</a></li>
+                            <li *ngFor="let serv of _orderHelper.services" (click)="_orderHelper.addToList(serv)"><a>{{ serv.name | translate }}</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div *ngIf="!_orderService.flexible" class="col-md-12 pt-5">
+            <div *ngIf="!_orderHelper.flexible" class="col-md-12 pt-5">
                 <h3>{{ 'order.text_11' | translate }}</h3>
                 <form id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
                     <div class="row">
