@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
 import { OrderMemoryService } from 'src/app/_services/order-memory.service';
 import { OrderHelper } from 'src/app/_services/order-helper.service';
@@ -29,7 +28,6 @@ export class OrderComponent implements OnInit, OnDestroy{
     private _preloadService: PreloadService,
     private _orderService: OrderService,
     private fb: FormBuilder,
-    private toastr: ToastrService,
     public _httpResponseService: HttpResponseService,
   ){
     this.ordered_pack = this.route.snapshot.paramMap.get('pack');
