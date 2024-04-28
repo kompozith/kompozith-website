@@ -198,5 +198,19 @@
     "text_5": "Si possible, décrivez votre commande en quelques mots",
     "text_6": "Votre Nom",
     "text_7": "Votre Message"
+  },
+  
+  "notification": {
+    "contact": {
+      "success": "Votre message a été envoyé avec succès.",
+      "error": "Votre message n'a pas été envoyé. Veuillez ré-essayer plus tard"
+    },
+    "order": {
+      "empty": "Votre panier est vide.",
+      "sent": {
+        "success": "Votre commande a été envoyée avec succès.",
+        "error": "Votre commande n'a pas été envoyée. Veuillez réessayer plus tard."
+      }
+    }
   }
 }

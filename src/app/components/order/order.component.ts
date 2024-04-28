@@ -7,6 +7,7 @@ import { OrderMemoryService } from 'src/app/_services/order-memory.service';
 import { OrderHelper } from 'src/app/_services/order-helper.service';
 import { OrderService } from 'src/app/_services/order.service';
 import { PreloadService } from 'src/app/_services/preload.service';
+import { HttpResponseService } from 'src/app/_services/http-response.service';
 
 @Component({
   selector: 'app-order',
@@ -28,7 +29,8 @@ export class OrderComponent implements OnInit, OnDestroy{
     private _preloadService: PreloadService,
     private _orderService: OrderService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public _httpResponseService: HttpResponseService,
   ){
     this.ordered_pack = this.route.snapshot.paramMap.get('pack');
     
@@ -60,6 +62,9 @@ export class OrderComponent implements OnInit, OnDestroy{
       description:[''],
     });
     this._preloadService.preload();
+    this.orderForm.valueChanges.subscribe(changes => {
+      this._httpResponseService.response = {status: false, message: ''};
+    });
   }
   
   breadcrumbItems: BreadcrumbItem = {
@@ -81,24 +86,27 @@ export class OrderComponent implements OnInit, OnDestroy{
     }
     this._orderHelper.finalOrderItems();
     if(!this._orderHelper.cmd_services.length){
-      this.toastr.success('Success', 'Empty order!');
+      this._httpResponseService.response = {status: false, message: 'notification.order.empty'};
       return;
     }
     let items: [{id: string, quantity: any}];
     this._orderService.create({
       author: {
-        lastname: this.orderForm.value.lastname?this.orderForm.value.lastname:"",
-        firstname: this.orderForm.value.firstname?this.orderForm.value.firstname:"",
+        lastname: this.orderForm.value.lastname ?? "",
+        firstname: this.orderForm.value.firstname ?? "",
         email: this.orderForm.value.email,
         phoneNumber: this.orderForm.value.phoneNumber
       },
-      requirements : this.orderForm.value.requirements?this.orderForm.value.requirements:"", 
+      requirements : this.orderForm.value.requirements ?? "", 
       items: this._orderHelper.finalItems
     }).then(() => {
       this.submitted = false;
       this.orderForm.reset();
-      this.toastr.success('Success', 'Order sent!');
-    })
+      this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+    }).catch((err) => {
+      console.log(err);
+      this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
+    }) 
   }
   
 }

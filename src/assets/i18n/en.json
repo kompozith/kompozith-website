@@ -200,6 +200,20 @@
     "text_6": "Your Name",
     "text_61": "Your Subject",
     "text_7": "Your Message"
+  },
+  
+  "notification": {
+    "contact": {
+      "success": "Your message has been sent successfully.",
+      "error": "Your message was not sent. Please try again later."
+    },
+    "order": {
+      "empty": "Your cart is empty.",
+      "sent": {
+        "success": "Your order has been successfully submitted.",
+        "error": "Your order could not be processed. Please try again later."
+      }
+    }
   }
 
 }

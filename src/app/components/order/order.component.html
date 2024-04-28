@@ -114,6 +114,9 @@
                             'form-control is-valid':(submitted && orderForm.get('description')?.valid)}" formControlName="description" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
                             <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
                         </div>
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                            <app-http-response-status></app-http-response-status>
+                        </div>
                         <div class="contact-btn-wrap d-flex justify-content-end">
                             <button type="submit" class="common-btn hover-black border-0" [disabled]="orderForm.invalid" (click)="onSubmit()">
                                 <span>

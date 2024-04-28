@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
+import { HttpResponseService } from 'src/app/_services/http-response.service';
 import { IntouchService } from 'src/app/_services/intouch.service';
 import { PreloadService } from 'src/app/_services/preload.service';
 
@@ -13,13 +13,14 @@ import { PreloadService } from 'src/app/_services/preload.service';
 })
 export class ContactComponent implements OnInit {
   
-  public submitted: boolean = false;
+  submitted: boolean = false;
   contactForm!: FormGroup;
+  
   constructor(
     private _preloadService: PreloadService,
     private  intouchService: IntouchService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    public _httpResponseService: HttpResponseService,
   ){
   }
   ngOnInit(): void {
@@ -30,6 +31,9 @@ export class ContactComponent implements OnInit {
       body:['', [Validators.required, Validators.minLength]],
       phoneNumber:[''],
       subject:[''],
+    });
+    this.contactForm.valueChanges.subscribe(changes => {
+      this._httpResponseService.response = {status: false, message: ''};
     });
   }
   
@@ -49,8 +53,11 @@ export class ContactComponent implements OnInit {
     }).then(() => {
       this.submitted = false;
       this.contactForm.reset();
-      this.toastr.success('Success', 'Message sent!');
-    })
+      this._httpResponseService.response = {status: true, message: 'notification.contact.success'};
+    }).catch((err) => {
+      console.log(err);
+      this._httpResponseService.response = {status: false, message: 'notification.contact.error'};
+    }) 
   }
   
   getAll(){
