@@ -30,7 +30,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -73,7 +74,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    BrowserAnimationsModule, // required animations module
+    AngularFireDatabaseModule, // required animations module
   ],
   providers: [TranslateService,provideAnimations()],
   bootstrap: [AppComponent]

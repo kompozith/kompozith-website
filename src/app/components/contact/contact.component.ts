@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit {
       phoneNumber:[''],
       subject:[''],
     });
-    this.contactForm.valueChanges.subscribe(changes => {
+    this.contactForm.valueChanges.subscribe(() => {
       this._httpResponseService.response = {status: false, message: ''};
     });
   }
@@ -54,7 +54,7 @@ export class ContactComponent implements OnInit {
       this.submitted = false;
       this.contactForm.reset();
       this._httpResponseService.response = {status: true, message: 'notification.contact.success'};
-    }).catch((err) => {
+    }).catch((err: any) => {
       console.log(err);
       this._httpResponseService.response = {status: false, message: 'notification.contact.error'};
     }) 

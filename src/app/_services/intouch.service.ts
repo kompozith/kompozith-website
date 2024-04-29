@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ContactMessage } from '../modeles/contact-message';
 
@@ -7,32 +8,32 @@ import { ContactMessage } from '../modeles/contact-message';
 })
 export class IntouchService {
 
-  messagesRef: any;
+  private dbPath = '/messages';
+
+  messagesRef: AngularFireList<ContactMessage>;
   
-  constructor(
-    private firebase: AngularFirestore,
-  ) { 
-    this.messagesRef = this.firebase.collection('messages');
+  constructor(private afd: AngularFireDatabase, private db: AngularFirestore) { 
+    this.messagesRef = this.afd.list(this.dbPath);
   }
   //Lister tous les messages d eprise de contact
-  list(): any {
+  list(): AngularFireList<ContactMessage> {
     return this.messagesRef;
   }
   //Ajouter un nouveau message dans la base de donnes.
-  create(data: ContactMessage): Promise<any> {
-    return this.messagesRef.add(data);
+  create(data: ContactMessage): any {
+    return this.messagesRef.push(data);
   }
   //Recevoir un message particulier par son ID
-  getById(id : string){
-    return this.firebase.collection('messages/' + id).get();
+  getById(id : string): any {
+    return this.db.collection('messages').doc(id).get();
   }
   //Modifier un message de prise de contact
-  update(id : string, data: ContactMessage){
-    return this.messagesRef.doc(id).update(data);
+  update(id : string, data: ContactMessage): Promise<void> {
+    return this.messagesRef.update(id, data);
   }
   //Supprimer un message
   delete(id: any): Promise<any> {
-    return this.messagesRef.doc(id).delete();
+    return this.messagesRef.remove(id);
   }
   
 }
