@@ -101,7 +101,7 @@ export class OrderComponent implements OnInit, OnDestroy{
       this.submitted = false;
       this.orderForm.reset();
       this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
-    }).catch((err) => {
+    }).catch((err: any) => {
       console.log(err);
       this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
     }) 

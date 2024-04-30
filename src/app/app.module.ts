@@ -28,7 +28,6 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -73,8 +72,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SwiperModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireDatabaseModule, // required animations module
+    AngularFireDatabaseModule
   ],
   providers: [TranslateService,provideAnimations()],
   bootstrap: [AppComponent]

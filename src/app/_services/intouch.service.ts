@@ -15,23 +15,23 @@ export class IntouchService {
   constructor(private afd: AngularFireDatabase, private db: AngularFirestore) { 
     this.messagesRef = this.afd.list(this.dbPath);
   }
-  //Lister tous les messages d eprise de contact
+  // Lister tous les messages d eprise de contact
   list(): AngularFireList<ContactMessage> {
     return this.messagesRef;
   }
-  //Ajouter un nouveau message dans la base de donnes.
+  // Ajouter un nouveau message dans la base de donnes.
   create(data: ContactMessage): any {
     return this.messagesRef.push(data);
   }
-  //Recevoir un message particulier par son ID
+  // Recevoir un message particulier par son ID
   getById(id : string): any {
     return this.db.collection('messages').doc(id).get();
   }
-  //Modifier un message de prise de contact
+  // Modifier un message de prise de contact
   update(id : string, data: ContactMessage): Promise<void> {
     return this.messagesRef.update(id, data);
   }
-  //Supprimer un message
+  // Supprimer un message
   delete(id: any): Promise<any> {
     return this.messagesRef.remove(id);
   }
