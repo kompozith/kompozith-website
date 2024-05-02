@@ -1,0 +1,11 @@
+.history-img-wrap {
+    width: 100%;
+    height: 100vh; /* Vous pouvez ajuster la hauteur selon vos besoins */
+    overflow: hidden;
+}
+
+.history-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

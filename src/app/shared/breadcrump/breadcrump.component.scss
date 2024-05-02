@@ -1,0 +1,9 @@
+
+.breadcrumb-area {
+    background: url(../../../assets/images/hero/baner.jpg), -webkit-gradient(linear, left top, left bottom, color-stop(100%, #242424), to(#242424));
+    background: url(../../../assets/images/hero/baner.jpg), linear-gradient(#242424 100%, #242424 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    // padding: 182px 0 100px;
+    overflow: hidden;
+  }

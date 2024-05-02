@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Kompozith - Creative Digital Agency</title>
+
+	<link rel="icon" href="assets/images/favicon.svg" type="image/gif" sizes="20x20">
+
+	<!-- Box Icon CSS -->
+	<link rel="stylesheet" href="assets/css/boxicons.min.css">
+	<!-- Bootstrap Icon CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+	<!-- Swiper Carousel CSS -->
+	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+	<!-- Magnific Popup CSS -->
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- Odometer CSS -->
+	<link rel="stylesheet" href="assets/css/odometer.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+
+</head>
+
+<body>
+
+	<div class="cursor d-none d-lg-block"></div>
+
+
+	<!-- back to to button start-->
+	<a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
+	<!-- back to to button end-->
+
+	<div id="smooth-wrapper">
+        
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Informations de base</h5>
+                <hr />
+                <div class="container">
+                    <div class="services-cap">
+                        <form method="POST"
+                            action="{{ route('update_basic_infos', ['account_login' => Auth::user()->login]) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group row  mx-5 mt-4 mb-1 d-flex align-items-center">
+                                <div class="col-sm-12 col-md-6" id="image_ontainer_default">
+                              
+                                         <img class="image rounded-circle text-center"
+                                src="{{ asset('storage/images/' . Auth::user()->profil->image) }}"
+                                alt="profile_image"
+                              
+                                style="width: 250px;height: 250px; padding: 10px; margin: 0px; object-fit: cover">
+                                
+                      
+                                <div>
+                                
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" {{ $profile_show->image_profil ? 'checked="checked"' : '' }} type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Afficher/Masuqer</label>
+                                </div>
+                                <!-- <button type="button" class="masquer-link" data-champ="image">Masquer</button>|
+                                <button type="button" class="afficher-link" data-champ="image">Afficher</button> -->
+                                    <style>
+                                        .masquer-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .masquer-link:hover {
+                                            color: blue;
+                                        }
+
+                                        .afficher-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .afficher-link:hover {
+                                            color: blue;
+                                        }
+                                    </style>
+
+                                </div>
+                                <div class="col-sm-12 col-md-6 ml-50" id="imageContainer"
+                                    style="display:none";>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="title" class="mx-3">Uploadez votre Photo
+                                        </label>
+                                        <div class="d-flex justify-contant start">
+                                            <input class="form-control-file rounded" type="file"
+                                            id="imageInput" name="image"
+                                            accept="image/png, image/jpeg" />
+                                            <button type="button" class="btn-primary"
+                                                onclick="chargerImage()">Charger</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row  mx-5 mt-4 mb-1">
+                                <div class="form group col-sm-12 col-md-6">
+                                    <label for="title" class="mx-3">Intitulé du profil: 
+                                    </label>
+                                   
+                                        <input type="text" class="form-control rounded" required
+                                        id="titleP" name="title"
+                                        placeholder="Entrer l'intitulé de votre profil"
+                                        value="{{ $basic_infos ? $basic_infos->title : '' }}">
+                                   
+                                    
+                                    <button type="button" class="masquer-link" data-champ="intitule">Masquer</button>|
+                                    <button type="button" class="afficher-link" data-champ="intitule">Afficher</button>
+                                    <style>
+                                        .masquer-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .masquer-link:hover {
+                                            color: blue;
+                                        }
+
+                                        .afficher-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .afficher-link:hover {
+                                            color: blue;
+                                        }
+                                    </style>
+                                </div>
+                                <div class="form group col-sm-12 col-md-6">
+                                    <label for="description" class="mx-3">Description: </label>
+                                    <textarea class="form-control" id="descriptionP" name="description" required rows="3"
+                                    placeholder="Entrer la description de votre profil">{{ $basic_infos ? $basic_infos->description : '' }}</textarea >
+                                    <button type="button" class="masquer-link" data-champ="description">Masquer</button>|
+                                    <button type="button" class="afficher-link" data-champ="description">Afficher</button>
+                                    <style>
+                                        .masquer-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .masquer-link:hover {
+                                            color: blue;
+                                        }
+
+                                        .afficher-link {
+                                            color: orange;
+                                            border: none;
+                                            background: none;
+                                        }
+
+                                        .afficher-link:hover {
+                                            color: blue;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="form-group d-flex justify-content-start">
+
+                                    </div>
+                                    <div class="form-group d-flex justify-content-start mx-5 mb-2">
+
+                                    </div>
+                                </div>
+
+
+                               
+
+                                <div class="col-6">
+                                    <div class="form-group d-flex justify-content-start mx-5 mt-4 mb-1">
+                                        
+                                    </div>
+                                    <div class="form-group d-flex justify-content-start mx-5 mb-2">
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group d-flex justify-content-start mx-5 mt-4 mb-1">
+                                       
+                                    </div>
+                                    <div class="form-group d-flex justify-content-start mx-5 mb-2">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offset-lg-8 mt-3">
+                                <button type="reset" class="btn1 btn-sm btn-danger">Annuler</button>
+                                <button type="submit"
+                                    class="btn1 btn-sm btn-success">Enregistrer</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	</div>
+
+	<!-- Jquery JS -->
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Gsap -->
+	<script src="assets/js/gsap.min.js"></script>
+	<script src="assets/js/ScrollTrigger.min.js"></script>
+	<script src="assets/js/ScrollSmoother.min.js"></script>
+	<script src="assets/js/SplitText.min.js"></script>
+	<!-- Swiper Carousel JS -->
+	<script src="assets/js/swiper-bundle.min.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- Odometer JS -->
+	<script src="assets/js/odometer.min.js"></script>
+	<script src="assets/js/viewport.jquery.js"></script>
+	<!-- Mean menu JS -->
+	<script src="assets/js/jquery.meanmenu.min.js"></script>
+	<!-- Main JS -->
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
