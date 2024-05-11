@@ -13,7 +13,7 @@ import { HttpResponseService } from '../../_services/http-response.service';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit, OnDestroy{
+export class OrderComponent implements OnInit, OnDestroy {
   
   public submitted: boolean = false;
   public loading: boolean = false;
@@ -76,6 +76,8 @@ export class OrderComponent implements OnInit, OnDestroy{
   
   ngOnDestroy(){
     this._orderHelper.flexible = false;
+    this.loading = false;
+    this._httpResponseService.response = {status: false, message: ''};
   }
   
   onSubmit(){

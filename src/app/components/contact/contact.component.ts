@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
@@ -11,7 +11,7 @@ import { PreloadService } from '../../_services/preload.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   
   submitted: boolean = false;
   contactForm!: FormGroup;
@@ -76,6 +76,10 @@ export class ContactComponent implements OnInit {
     })
   }
   
+  ngOnDestroy(){
+    this.loading = false;
+    this._httpResponseService.response = {status: false, message: ''};
+  }
   
   breadcrumbItems: BreadcrumbItem = {
     title: 'contact.text_0',
