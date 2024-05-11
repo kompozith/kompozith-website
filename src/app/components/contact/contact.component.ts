@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
-import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
-import { HttpResponseService } from 'src/app/_services/http-response.service';
-import { IntouchService } from 'src/app/_services/intouch.service';
-import { PreloadService } from 'src/app/_services/preload.service';
+import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
+import { HttpResponseService } from '../../_services/http-response.service';
+import { IntouchService } from '../../_services/intouch.service';
+import { PreloadService } from '../../_services/preload.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +15,7 @@ export class ContactComponent implements OnInit {
   
   submitted: boolean = false;
   contactForm!: FormGroup;
+  public loading: boolean = false;
   
   constructor(
     private _preloadService: PreloadService,
@@ -42,6 +43,7 @@ export class ContactComponent implements OnInit {
     if (!this.contactForm.valid) {
       return;
     }
+    this.loading = true;
     this.intouchService.create({
       subject : this.contactForm.value.subject, 
       body : this.contactForm.value.body, 
@@ -53,9 +55,11 @@ export class ContactComponent implements OnInit {
     }).then(() => {
       this.submitted = false;
       this.contactForm.reset();
+      this.loading = false;
       this._httpResponseService.response = {status: true, message: 'notification.contact.success'};
     }).catch((err: any) => {
       console.log(err);
+      this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.contact.error'};
     }) 
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpResponseService } from 'src/app/_services/http-response.service';
+import { HttpResponseService } from '../../_services/http-response.service';
 
 @Component({
   selector: 'app-http-response-status',

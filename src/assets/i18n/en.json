@@ -133,8 +133,6 @@
     "text_6": "Français",
     "text_7": "English",
     "text_8": "Free Quote"
-
-
   },
 
   "footer": {
@@ -199,7 +197,8 @@
     "text_5":"If possible, describe your order in a few words",
     "text_6": "Your Name",
     "text_61": "Your Subject",
-    "text_7": "Your Message"
+    "text_7": "Your Message",
+    "text_8": "Processing..."
   },
   
   "notification": {

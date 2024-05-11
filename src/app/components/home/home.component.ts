@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PreloadService } from 'src/app/_services/preload.service';
+import { PreloadService } from '../../_services/preload.service';
 
 @Component({
   selector: 'app-home',

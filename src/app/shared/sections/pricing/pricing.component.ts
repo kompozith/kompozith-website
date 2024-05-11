@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OrderMemoryService } from 'src/app/_services/order-memory.service';
-import { OrderHelper } from 'src/app/_services/order-helper.service';
+import { OrderMemoryService } from '../../../_services/order-memory.service';
+import { OrderHelper } from '../../../_services/order-helper.service';
 
 @Component({
   selector: 'app-pricing',

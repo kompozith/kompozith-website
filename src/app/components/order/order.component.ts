@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
-import { OrderMemoryService } from 'src/app/_services/order-memory.service';
-import { OrderHelper } from 'src/app/_services/order-helper.service';
-import { OrderService } from 'src/app/_services/order.service';
-import { PreloadService } from 'src/app/_services/preload.service';
-import { HttpResponseService } from 'src/app/_services/http-response.service';
+import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
+import { OrderMemoryService } from '../../_services/order-memory.service';
+import { OrderHelper } from '../../_services/order-helper.service';
+import { OrderService } from '../../_services/order.service';
+import { PreloadService } from '../../_services/preload.service';
+import { HttpResponseService } from '../../_services/http-response.service';
 
 @Component({
   selector: 'app-order',
@@ -14,8 +14,9 @@ import { HttpResponseService } from 'src/app/_services/http-response.service';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit, OnDestroy{
-
+  
   public submitted: boolean = false;
+  public loading: boolean = false;
   ordered_pack: any;
   current_pack_price : any;
   orderTranslatedTitle : string = 'Commande';
@@ -87,7 +88,7 @@ export class OrderComponent implements OnInit, OnDestroy{
       this._httpResponseService.response = {status: false, message: 'notification.order.empty'};
       return;
     }
-    let items: [{id: string, quantity: any}];
+    this.loading = true;
     this._orderService.create({
       author: {
         lastname: this.orderForm.value.lastname ?? "",
@@ -100,9 +101,11 @@ export class OrderComponent implements OnInit, OnDestroy{
     }).then(() => {
       this.submitted = false;
       this.orderForm.reset();
+      this.loading = false;
       this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
     }).catch((err: any) => {
       console.log(err);
+      this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
     }) 
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbItem } from 'src/app/shared/breadcrump/breadcrump.component';
-import { PreloadService } from 'src/app/_services/preload.service';
+import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
+import { PreloadService } from '../../_services/preload.service';
 
 @Component({
   selector: 'app-about-us',

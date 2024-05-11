@@ -26,10 +26,10 @@ import { BreadcrumpComponent } from './shared/breadcrump/breadcrump.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from '../environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
