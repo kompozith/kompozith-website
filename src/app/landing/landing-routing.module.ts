@@ -8,36 +8,19 @@ import { HomeComponent } from './components/home/home.component';
 import { LandingComponent } from './landing.component';
 
 const routes: Routes =  [
-  {
-    path: '',
-    component: LandingComponent,
+  { path: '', component: LandingComponent,
     children: [
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'order/:pack',
-        component: OrderComponent, 
-      },
-      {
-        path: 'about-us',
-        component: AboutUsComponent, 
-      },
-      {
-        path: 'contact',
-        component: ContactComponent, 
-      },
-      {
-        path: 'services',
-        component: OurServicesComponent, 
-      },
+      { path:'', component: HomeComponent },
+      { path: 'order/:pack', component: OrderComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'services', component: OurServicesComponent },
     ]
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class LandingRoutingModule { }

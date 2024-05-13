@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminRoutingModule } from './landing-routing.module';
+import { LandingRoutingModule } from './landing-routing.module';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from '../app.module';
@@ -50,7 +50,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    LandingRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

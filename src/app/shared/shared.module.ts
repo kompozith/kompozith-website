@@ -24,8 +24,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-      RouterModule,
-    ],
+    RouterModule,
+  ],
   providers: [],
   exports: [HttpResponseStatusComponent],
 })
