@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
-import { HttpResponseService } from '../../_services/http-response.service';
-import { IntouchService } from '../../_services/intouch.service';
-import { PreloadService } from '../../_services/preload.service';
+import { HttpResponseService } from '../../../_services/http-response.service';
+import { IntouchService } from '../../../_services/intouch.service';
+import { PreloadService } from '../../../_services/preload.service';
 
 @Component({
   selector: 'app-contact',

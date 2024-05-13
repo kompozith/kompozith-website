@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
-import { OrderMemoryService } from '../../_services/order-memory.service';
-import { OrderHelper } from '../../_services/order-helper.service';
-import { OrderService } from '../../_services/order.service';
-import { PreloadService } from '../../_services/preload.service';
-import { HttpResponseService } from '../../_services/http-response.service';
+import { OrderMemoryService } from '../../../_services/order-memory.service';
+import { OrderHelper } from '../../../_services/order-helper.service';
+import { OrderService } from '../../../_services/order.service';
+import { PreloadService } from '../../../_services/preload.service';
+import { HttpResponseService } from '../../../_services/http-response.service';
 
 @Component({
   selector: 'app-order',
