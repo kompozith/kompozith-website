@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { LandingModule } from './landing/landing.module';
 import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
+import { SidebarModule, DropdownModule } from '@coreui/angular';
+import { IconSetService } from '@coreui/icons-angular';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -42,7 +44,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [TranslateService,provideAnimations()],
+  providers: [
+    TranslateService,provideAnimations(),
+    importProvidersFrom(SidebarModule, DropdownModule),
+    IconSetService,
+    provideAnimations()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
