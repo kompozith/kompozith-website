@@ -7,6 +7,7 @@ import { OrderHelper } from '../../../_services/order-helper.service';
 import { OrderService } from '../../../_services/order.service';
 import { PreloadService } from '../../../_services/preload.service';
 import { HttpResponseService } from '../../../_services/http-response.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-order',
@@ -30,6 +31,7 @@ export class OrderComponent implements OnInit, OnDestroy {
     private _orderService: OrderService,
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
+    private datePipe: DatePipe
   ){
     this.ordered_pack = this.route.snapshot.paramMap.get('pack');
     
@@ -91,7 +93,7 @@ export class OrderComponent implements OnInit, OnDestroy {
       return;
     }
     this.loading = true;
-    this._orderService.create({
+    let datas = {
       author: {
         lastname: this.orderForm.value.lastname ?? "",
         firstname: this.orderForm.value.firstname ?? "",
@@ -99,8 +101,11 @@ export class OrderComponent implements OnInit, OnDestroy {
         phoneNumber: this.orderForm.value.phoneNumber
       },
       requirements : this.orderForm.value.requirements ?? "", 
-      items: this._orderHelper.finalItems
-    }).then(() => {
+      items: this._orderHelper.finalItems,
+      date: this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm')
+    };
+    console.log(datas);
+    this._orderService.create(datas).then(() => {
       this.submitted = false;
       this.orderForm.reset();
       this.loading = false;

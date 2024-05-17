@@ -7,6 +7,7 @@ export interface Order {
     }
     requirements: string;
     items: OrderItem[];
+    date: string | null;
 }
 
 export interface OrderItem {

@@ -5,6 +5,7 @@ import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
 import { HttpResponseService } from '../../../_services/http-response.service';
 import { IntouchService } from '../../../_services/intouch.service';
 import { PreloadService } from '../../../_services/preload.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
@@ -22,6 +23,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     private  intouchService: IntouchService,
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
+    private datePipe: DatePipe
   ){
   }
   ngOnInit(): void {
@@ -46,7 +48,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.intouchService.create({
       subject : this.contactForm.value.subject, 
-      body : this.contactForm.value.body, 
+      body : this.contactForm.value.body,
+      date: this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm'),
       author: {
         email: this.contactForm.value.email, 
         name: this.contactForm.value.name, 
@@ -62,18 +65,6 @@ export class ContactComponent implements OnInit, OnDestroy {
       this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.contact.error'};
     }) 
-  }
-  
-  getAll(){
-    this.intouchService.list().snapshotChanges().pipe(
-      map((changes: any) =>
-        changes.map((c: any) =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe((messages: any) => {
-      console.log(messages);
-    })
   }
   
   ngOnDestroy(){

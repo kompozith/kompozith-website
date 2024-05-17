@@ -1,1 +1,40 @@
-<p>order works!</p>
+<table cTable>
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Order Total (FCFA)</th>
+      <th scope="col" class="text-center">Phone Number</th>
+      <th scope="col" class="text-center">Date</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for(order of orders; track order.id) {
+    <tr>
+      <td>{{ order.author.firstname +' '+ order.author.lastname }}</td>
+      <td class="text-center">{{ order.author.email }}</td>
+      <td class="text-center">12000</td>
+      <td class="text-center">{{ order.author.phoneNumber }}</td>
+      <td class="text-center">{{ order.date }}</td>
+      <td class="text-center">
+        <c-badge class="text-info">
+            <i class="fa-regular fa-eye"></i>
+        </c-badge>
+        <c-badge class="mx-1 text-secondary">
+            <i class="fa-regular fa-pencil"></i>
+        </c-badge>
+        <c-badge class="text-danger">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </c-badge>
+      </td>
+    </tr>
+    } @empty {
+    <tr>
+      <td class="text-center" colspan="6">
+        Empty order list
+      </td>
+    </tr>
+    }
+    </tbody>
+  </table>

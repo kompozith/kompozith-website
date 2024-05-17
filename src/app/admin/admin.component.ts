@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgScrollbar } from 'ngx-scrollbar';
 
-import { IconDirective } from '@coreui/icons-angular';
+import { IconDirective, IconSetService } from '@coreui/icons-angular';
 import {
   ContainerComponent,
   ShadowOnScrollDirective,
@@ -17,6 +17,8 @@ import {
 
 import { DefaultFooterComponent, DefaultHeaderComponent } from './shared/layout';
 import { navItems } from './shared/layout/default-layout/_nav';
+import { Title } from '@angular/platform-browser';
+import { iconSubset } from './shared/icons/icon-subset';
 
 function isOverflown(element: HTMLElement) {
   return (
@@ -47,11 +49,30 @@ function isOverflown(element: HTMLElement) {
     DefaultFooterComponent
   ]
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   public adminModule: boolean = true;
   public navItems = navItems;
+  title = 'CoreUI Angular Admin Template';
 
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private iconSetService: IconSetService
+  ) {
+    this.titleService.setTitle(this.title);
+    // iconSet singleton
+    this.iconSetService.icons = { ...iconSubset };
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+    });
+  }
+  
   onScrollbarUpdate($event: any) {
     // if ($event.verticalUsed) {
     // console.log('verticalUsed', $event.verticalUsed);
