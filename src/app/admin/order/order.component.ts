@@ -1,24 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, BadgeComponent } from '@coreui/angular';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, BadgeComponent, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective } from '@coreui/angular';
 import { OrderService } from '../../_services/order.service';
 import { map } from 'rxjs';
 import { IconDirective, IconSetService } from '@coreui/icons-angular';
-
+import { OrderSkeletonComponent } from "./order-skeleton/order-skeleton.component";
+import { OrderHelper } from '../../_services/order-helper.service';
+import { Order } from '../../modeles/order';
+import { ConfirmModalComponent } from "./confirm-modal/confirm-modal.component";
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { DetailsModalComponent } from "./details-modal/details-modal.component";
 
 @Component({
-  selector: 'app-order',
-  standalone: true,
-  templateUrl: './order.component.html',
-  styleUrl: './order.component.scss',
-  imports: [IconDirective, BadgeComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective],
+    selector: 'app-order',
+    standalone: true,
+    templateUrl: './order.component.html',
+    styleUrl: './order.component.scss',
+    providers: [BsModalService],
+    imports: [ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, IconDirective, BadgeComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, OrderSkeletonComponent, ConfirmModalComponent, DetailsModalComponent]
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, AfterViewInit {
+  @ViewChild(ConfirmModalComponent) confirmModalComponent: any;
 
-  public orders:any[] = [];
+  orders:any[] = [];
+  loading: boolean = true;
+  c_order!: Order;
+  modalRef?: BsModalRef;
+  skeleton: number[] = Array.from({length: 10}, (_, i) => i + 1);
   
   constructor(
     public iconSet: IconSetService,
-    private orderSErvice: OrderService
+    public _orderHelper: OrderHelper,
+    private orderSErvice: OrderService,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -30,8 +43,23 @@ export class OrderComponent implements OnInit {
       )
     ).subscribe((data: any) => {
         this.orders = data;
+        this.loading = false;
         console.log(data);
-    })
+    });
   }
+  ngAfterViewInit(): void {
+    this.confirmModalComponent.getSelectedOption().subscribe((value: boolean) => {
+      console.log(value);
+    });
+  }
+
+  openModal(confirmDeleteOrderTemplate: TemplateRef<any>, orderKey: string) {
+    if (orderKey) {
+      this.modalRef = this.modalService.show(confirmDeleteOrderTemplate);
+    }
+  }
+  exitModal = (): void => {
+    this.modalRef?.hide();
+  };
 
 }

@@ -10,31 +10,60 @@
     </tr>
     </thead>
     <tbody>
-    @for(order of orders; track order.id) {
-    <tr>
-      <td>{{ order.author.firstname +' '+ order.author.lastname }}</td>
-      <td class="text-center">{{ order.author.email }}</td>
-      <td class="text-center">12000</td>
-      <td class="text-center">{{ order.author.phoneNumber }}</td>
-      <td class="text-center">{{ order.date }}</td>
-      <td class="text-center">
-        <c-badge class="text-info">
-            <i class="fa-regular fa-eye"></i>
-        </c-badge>
-        <c-badge class="mx-1 text-secondary">
-            <i class="fa-regular fa-pencil"></i>
-        </c-badge>
-        <c-badge class="text-danger">
-            <i class="fa-regular fa-circle-xmark"></i>
-        </c-badge>
-      </td>
-    </tr>
-    } @empty {
-    <tr>
-      <td class="text-center" colspan="6">
-        Empty order list
-      </td>
-    </tr>
+    @if(!loading) {
+      @for(order of orders; track order.id) {
+      <tr>
+        <td>{{ order.author.firstname +' '+ order.author.lastname }}</td>
+        <td class="text-center">{{ order.author.email }}</td>
+        <td class="text-center">{{ _orderHelper.totalServicesPrice(order.items) }}</td>
+        <td class="text-center">{{ order.author.phoneNumber }}</td>
+        <td class="text-center">{{ order.date }}</td>
+        <td class="text-center">
+          <c-badge class="text-info" (click)="openModal(showOrderDetails, order.key)">
+              <i class="fa-regular fa-eye"></i>
+          </c-badge>
+          <c-badge class="text-danger" (click)="openModal(confirmDeleteOrderTemplate, order.key)">
+              <i class="fa-regular fa-circle-xmark"></i>
+          </c-badge>
+        </td>
+      </tr>
+      <ng-template #confirmDeleteOrderTemplate>
+        <order-delete-confirm-modal [orderKey]="order.key" [exitModal]="exitModal" />
+      </ng-template>
+      <ng-template #showOrderDetails  id="modalXl" size="xl">
+        <order-details-modal [orderKey]="order.key" [order]="order" [exitModal]="exitModal" />
+      </ng-template>
+      } @empty {
+      <tr>
+        <td class="text-center" colspan="6">
+          Empty order list
+        </td>
+      </tr>
+      }
+    } @else {
+      @for(skel of skeleton; track skel) {
+      <tr>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+        <td>
+          <app-order-skeleton></app-order-skeleton>
+        </td>
+      </tr>
+      }
     }
     </tbody>
   </table>
+  

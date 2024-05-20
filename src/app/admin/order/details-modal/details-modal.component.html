@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="myModalLabel160">{{ title }}</h5>
+    <button (click)="exitModal()" cButtonClose></button>
+</div>
+<div class="modal-body" tabindex="0" ngbAutofocus>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>{{ 'order.text_4' | translate }}</th>
+            <th class="text-center">{{ 'order.text_5' | translate }}</th>
+            <th class="text-center">{{ 'order.text_6' | translate }}</th>
+            <th class="text-end">{{ 'order.text_7' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(serv of _orderHelper.cmd_services; track serv.id) {
+            <tr>
+                <td>
+                  {{ _orderHelper.serviceCall(serv).name | translate }}
+                  <span *ngIf="!serv.netPrice" class="text-danger">({{ 'order.text_20' | translate}})</span>
+                </td>
+                <td class="d-flex justify-content-center">
+                  <div class="qty-box">
+                    <div class="input-group">
+                      <button class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderHelper.decrement(serv)">
+                          <i class="fa-regular fa-minus"></i>
+                      </button>
+    
+                      <input class="touchspin text-center form-control" disabled="true" min="1" type="text" (change)="_orderHelper.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
+    
+                      <button class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderHelper.increment(serv)">
+                        <i class="fa-regular fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-end">{{ _orderHelper.totalItemPrice(serv) }}</td>
+                <td class="text-center" (click)="_orderHelper.cmdRemoveProduct(serv)">
+                  <i class="fa-regular fa-circle-xmark"></i>
+                </td>
+            </tr>
+            <tr *ngIf="_orderHelper.cmd_services.length" class="tr-total">
+              <td class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
+              <td class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
+            </tr>
+            } @empty {
+            <tr>
+              <td colspan="4" class="text-center">{{ 'order.text_10' | translate }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary text-light" (click)="saveUpdates()" cButton>
+    Enregistrer les modification
+  </button>
+</div>

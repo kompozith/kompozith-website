@@ -274,6 +274,15 @@ export class OrderHelper {
     return this.calcPrice(pack_price);
   }
   
+  totalServicesPrice(services: any){
+    let total_price = 0;
+    services.map((serv: any) => {
+      let elem = this.getService(serv.id);
+      total_price += serv.wholesalePrice ? this.fibonacci(elem.price, elem.qty) : elem.price * elem.qty;
+    })
+    return this.calcPrice(total_price);
+  }
+  
   totalOrderPrice(){
     let cmd_price = 0;
     this.cmd_services.map((serv: any) => {
