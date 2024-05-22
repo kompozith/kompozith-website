@@ -76,12 +76,6 @@ export class OrderComponent implements OnInit, OnDestroy {
     ]
   };
   
-  ngOnDestroy(){
-    this._orderHelper.flexible = false;
-    this.loading = false;
-    this._httpResponseService.response = {status: false, message: ''};
-  }
-  
   onSubmit(){
     this.submitted = true;
     if (!this.orderForm.valid) {
@@ -115,6 +109,12 @@ export class OrderComponent implements OnInit, OnDestroy {
       this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
     }) 
+  }
+  
+  ngOnDestroy(){
+    this._orderHelper.flexible = false;
+    this.loading = false;
+    this._httpResponseService.response = {status: false, message: ''};
   }
   
 }

@@ -25,7 +25,7 @@ export class OrderService {
   }
   // Recevoir un order particulier par son ID
   getById(id : string): any {
-    return this.db.collection('orders').doc(id).get();
+    return this.afd.object(this.dbPath+`/${id}`).valueChanges();
   }
   // Modifier un order de prise de contact
   update(id : string, data: Order): Promise<void> {
