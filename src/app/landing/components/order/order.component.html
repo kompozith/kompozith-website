@@ -47,8 +47,8 @@
                   <tbody>
                       <tr *ngFor="let serv of _orderHelper.cmd_services">
                           <td>
-                            {{ _orderHelper.serviceCall(serv).name | translate }}
-                            <span *ngIf="!serv.netPrice" class="text-danger">({{ 'order.text_20' | translate}})</span>
+                            {{ _orderHelper.getService(serv.id).name | translate }}
+                            <span *ngIf="!_orderHelper.getService(serv.id).netPrice" class="text-danger">({{ 'order.text_20' | translate}})</span>
                           </td>
                           <td class="d-flex justify-content-center">
                             <div class="qty-box">
@@ -57,7 +57,7 @@
                                     <i class="fa-regular fa-minus"></i>
                                 </button>
 
-                                <input class="touchspin text-center form-control" disabled="{{!_orderHelper.flexible}}" min="1" type="text" (change)="_orderHelper.setQty($event, serv)" name="id" value="{{serv.qty}}" data-original-title="" title="" onlyNumbers />
+                                <input class="touchspin text-center form-control" disabled="{{!_orderHelper.flexible}}" min="1" type="text" (change)="_orderHelper.setQty($event, serv)" name="id" value="{{serv.quantity}}" data-original-title="" title="" onlyNumbers />
 
                                 <button *ngIf="_orderHelper.flexible" class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderHelper.increment(serv)">
                                   <i class="fa-regular fa-plus"></i>
@@ -66,13 +66,14 @@
                             </div>
                           </td>
                           <td *ngIf="_orderHelper.flexible" class="text-end">{{ _orderHelper.totalItemPrice(serv) }}</td>
-                          <td *ngIf="_orderHelper.flexible" class="text-center" (click)="_orderHelper.cmdRemoveProduct(serv)">
+                          <td *ngIf="_orderHelper.flexible" class="text-center" (click)="_orderHelper.cmdRemoveService(serv.id)">
                             <i class="fa-regular fa-circle-xmark"></i>
                           </td>
                       </tr>
                       <tr *ngIf="_orderHelper.cmd_services.length" class="tr-total">
                         <td *ngIf="!_orderHelper.flexible" class="text-center">{{ 'order.text_8' | translate }}</td>
-                        <td *ngIf="_orderHelper.flexible" class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
+                        <td *ngIf="_orderHelper.flexible && _orderHelper.estimatedTotal()" class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
+                        <td *ngIf="_orderHelper.flexible && !_orderHelper.estimatedTotal()" class="text-center" colspan="2">{{ 'order.text_91' | translate }}</td>
                         <td *ngIf="!_orderHelper.flexible" class="text-center">{{ _orderHelper.calcPrice(current_pack_price) }}</td>
                         <td *ngIf="_orderHelper.flexible" class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
                       </tr>
@@ -148,14 +149,14 @@
                             </button>
                         </form>
                         <ul class="sidebar-tag d-flex flex-wrap pt-3">
-                            <li *ngFor="let serv of _orderHelper.services" (click)="_orderHelper.addToList(serv)"><a>{{ serv.name | translate }}</a></li>
+                            <li *ngFor="let serv of _orderHelper.services" (click)="_orderHelper.addToList(serv.id)"><a>{{ serv.name | translate }}</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div *ngIf="!_orderHelper.flexible" class="col-md-12 pt-5">
                 <h3>{{ 'order.text_11' | translate }}</h3>
-                <form id="contact-form" action="mail.php" method="POST" class="contact-input position-relative">
+                <form id="contact-form" class="contact-input position-relative">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label>{{ 'order.text_12' | translate }}</label>

@@ -49,10 +49,10 @@ export class OrderComponent implements OnInit, OnDestroy {
       }
       else {
         let order = this._orderHelper.getPackByName(this.ordered_pack);
-        this._orderHelper.getOrder(order.services)
+        this._orderHelper.getOrder(order.items)
         this.current_pack_price = order.price;
       }
-      this._orderHelper.actualizeProduct(this._orderHelper.cmd_services);
+      this._orderHelper.refreshServices(this._orderHelper.cmd_services);
       this._orderHelper.services = this._orderHelper.services_copy;
     });
     this.orderForm = this.fb.group({

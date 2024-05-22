@@ -20,7 +20,7 @@ export class PricingComponent implements OnInit{
   ngOnInit(){
     this._orderMemoryService.getSavedOrder().subscribe((data: any) => {
        data ? (this._orderHelper.cmd_services = JSON.parse(data), 
-       this._orderHelper.packs[2].services.map((flex_elem: any) => {
+       this._orderHelper.packs[2].items.map((flex_elem: any) => {
          flex_elem.selected = false;
        })) : '';
        this._orderHelper.getSavedPack();

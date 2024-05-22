@@ -105,6 +105,7 @@
     "text_7": "Action",
     "text_8": "Total net à payer",
     "text_9": "Total Estimatif",
+    "text_91": "Total",
     "text_10":"Votre panier et vide !!!",
 
     "text_11": "Informations de contact",
@@ -118,7 +119,9 @@
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
     "text_19": "Soumettre",
-    "text_20":"Prix variant"
+    "text_20":"Prix variant",
+    "text_21":"Details de la commande",
+    "text_22":"Modifier la commande"
 
   },
 

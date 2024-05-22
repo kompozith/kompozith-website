@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, BadgeComponent, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective } from '@coreui/angular';
 import { OrderService } from '../../_services/order.service';
 import { map } from 'rxjs';
@@ -8,7 +8,7 @@ import { OrderHelper } from '../../_services/order-helper.service';
 import { Order } from '../../modeles/order';
 import { ConfirmModalComponent } from "./confirm-modal/confirm-modal.component";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { DetailsModalComponent } from "./details-modal/details-modal.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-order',
@@ -16,9 +16,9 @@ import { DetailsModalComponent } from "./details-modal/details-modal.component";
     templateUrl: './order.component.html',
     styleUrl: './order.component.scss',
     providers: [BsModalService],
-    imports: [ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, IconDirective, BadgeComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, OrderSkeletonComponent, ConfirmModalComponent, DetailsModalComponent]
+    imports: [RouterLink, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, IconDirective, BadgeComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, OrderSkeletonComponent, ConfirmModalComponent]
 })
-export class OrderComponent implements OnInit, AfterViewInit {
+export class OrderComponent implements OnInit {
   @ViewChild(ConfirmModalComponent) confirmModalComponent: any;
 
   orders:any[] = [];
@@ -44,18 +44,12 @@ export class OrderComponent implements OnInit, AfterViewInit {
     ).subscribe((data: any) => {
         this.orders = data;
         this.loading = false;
-        console.log(data);
-    });
-  }
-  ngAfterViewInit(): void {
-    this.confirmModalComponent.getSelectedOption().subscribe((value: boolean) => {
-      console.log(value);
     });
   }
 
-  openModal(confirmDeleteOrderTemplate: TemplateRef<any>, orderKey: string) {
+  openModal(template: TemplateRef<any>, orderKey: string) {
     if (orderKey) {
-      this.modalRef = this.modalService.show(confirmDeleteOrderTemplate);
+      this.modalRef = this.modalService.show(template, { class: 'modal-md modal-dialog-centered modal-dialog-scrollable'});
     }
   }
   exitModal = (): void => {

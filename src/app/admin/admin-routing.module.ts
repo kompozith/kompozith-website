@@ -4,6 +4,7 @@ import { OrderComponent } from './order/order.component';
 import { MessageComponent } from './message/message.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
+import { OrderDetailsComponent } from './order/details/details.component';
 
 // import { AdminGuard } from './shared/guard/auth.guard';
 
@@ -13,6 +14,7 @@ const routes: Routes =  [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'order', component: OrderComponent },
+      { path: 'order/:key', component: OrderDetailsComponent },
       { path: 'message', component: MessageComponent },
       { path: 'user', component: MessageComponent }
     ]

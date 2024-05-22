@@ -19,8 +19,10 @@
         <td class="text-center">{{ order.author.phoneNumber }}</td>
         <td class="text-center">{{ order.date }}</td>
         <td class="text-center">
-          <c-badge class="text-info" (click)="openModal(showOrderDetails, order.key)">
+          <c-badge class="text-info">
+            <a  [routerLink]="['/admin/order/',order.key]">
               <i class="fa-regular fa-eye"></i>
+            </a>
           </c-badge>
           <c-badge class="text-danger" (click)="openModal(confirmDeleteOrderTemplate, order.key)">
               <i class="fa-regular fa-circle-xmark"></i>
@@ -29,9 +31,6 @@
       </tr>
       <ng-template #confirmDeleteOrderTemplate>
         <order-delete-confirm-modal [orderKey]="order.key" [exitModal]="exitModal" />
-      </ng-template>
-      <ng-template #showOrderDetails  id="modalXl" size="xl">
-        <order-details-modal [orderKey]="order.key" [order]="order" [exitModal]="exitModal" />
       </ng-template>
       } @empty {
       <tr>

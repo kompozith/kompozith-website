@@ -107,6 +107,7 @@
     "text_7": "Action",
     "text_8": "Total net payable",
     "text_9": "Total Estimated",
+    "text_91": "Total",
     "text_10":"Your cart is empty !!!",
 
     "text_11": "Contact information",
@@ -120,7 +121,9 @@
     "text_17": "Finish",
     "text_18": "Select services",
     "text_19": "Submit",
-    "text_20":"Price varying"
+    "text_20":"Price varying",
+    "text_21":"Oredr details",
+    "text_22":"Update Order"
 
   },
 
