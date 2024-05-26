@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { LandingRoutingModule } from './landing-routing.module';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../app.module';
+import { TranslateModule } from '@ngx-translate/core';
 import { SwiperModule } from 'swiper/angular';
 
 import { PortfolioComponent } from './shared/sections/portfolio/portfolio.component';
@@ -22,10 +21,11 @@ import { TestimonialsComponent } from './shared/sections/testimonials/testimonia
 import { HistoryComponent } from './shared/sections/history/history.component';
 import { PricingComponent } from './shared/sections/pricing/pricing.component';
 import { HomeComponent } from './components/home/home.component';
-import { LandingSharedModule } from './shared/landing.shared.module';
 import { LandingComponent } from './landing.component';
-import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormModule } from '@coreui/angular';
+import { SharedModule } from '../shared/shared.module';
+import { LandingSharedModule } from './shared/landing.shared.module';
 
 
 @NgModule({
@@ -51,16 +51,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LandingRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
+    TranslateModule,
+    FormModule,
     ReactiveFormsModule,
+    SharedModule,
     LandingSharedModule,
-    SwiperModule,
+    SwiperModule
   ],
   providers: [DatePipe]
 })

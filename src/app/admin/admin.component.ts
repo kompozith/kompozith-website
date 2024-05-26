@@ -20,13 +20,6 @@ import { navItems } from './shared/layout/default-layout/_nav';
 import { Title } from '@angular/platform-browser';
 import { iconSubset } from './shared/icons/icon-subset';
 
-function isOverflown(element: HTMLElement) {
-  return (
-    element.scrollHeight > element.clientHeight ||
-    element.scrollWidth > element.clientWidth
-  );
-}
-
 @Component({
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',
@@ -46,7 +39,7 @@ function isOverflown(element: HTMLElement) {
     ShadowOnScrollDirective,
     ContainerComponent,
     RouterOutlet,
-    DefaultFooterComponent
+    DefaultFooterComponent,
   ]
 })
 export class AdminComponent implements OnInit {

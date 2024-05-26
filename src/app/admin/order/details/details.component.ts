@@ -3,7 +3,7 @@ import { Order } from '../../../modeles/order';
 import { OrderService } from '../../../_services/order.service';
 import { OrderHelper } from '../../../_services/order-helper.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonCloseDirective, CardComponent, RowComponent } from '@coreui/angular';
+import { ButtonCloseDirective, CardBodyComponent, CardComponent, ColComponent, RowComponent, TableDirective } from '@coreui/angular';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponseService } from '../../../_services/http-response.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,10 +12,11 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { SharedModule } from "../../../shared/shared.module";
 
 @Component({
-    selector: 'order-details-modal',
+    selector: 'app-order-details',
     standalone: true,
     templateUrl: './details.component.html',
     styleUrl: './details.component.scss',
+    providers: [DatePipe],
     imports: [
       CommonModule,
       ButtonCloseDirective,
@@ -24,7 +25,10 @@ import { SharedModule } from "../../../shared/shared.module";
       CardComponent,
       ReactiveFormsModule,
       OrderSkeletonComponent,
-      SharedModule
+      SharedModule,
+      TableDirective,
+      ColComponent,
+      CardBodyComponent
     ]
 })
 export class OrderDetailsComponent implements OnInit, OnDestroy {
@@ -68,7 +72,7 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.orderForm.valueChanges.subscribe(() => {
+    this.orderForm?.valueChanges.subscribe(() => {
       this._httpResponseService.response = {status: false, message: ''};
     });
   }
