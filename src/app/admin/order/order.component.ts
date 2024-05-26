@@ -9,6 +9,7 @@ import { Order } from '../../modeles/order';
 import { ConfirmModalComponent } from "./confirm-modal/confirm-modal.component";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-order',
@@ -16,7 +17,31 @@ import { RouterLink } from '@angular/router';
     templateUrl: './order.component.html',
     styleUrl: './order.component.scss',
     providers: [BsModalService],
-    imports: [RouterLink, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, IconDirective, BadgeComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, OrderSkeletonComponent, ConfirmModalComponent]
+    imports: [
+      RouterLink, 
+      ModalBodyComponent, 
+      ModalComponent, 
+      ModalFooterComponent, 
+      ModalHeaderComponent, 
+      ModalTitleDirective, 
+      ModalToggleDirective, 
+      IconDirective, 
+      BadgeComponent, 
+      RowComponent, 
+      ColComponent, 
+      TextColorDirective, 
+      CardComponent, 
+      CardHeaderComponent, 
+      CardBodyComponent, 
+      TableDirective, 
+      TableColorDirective, 
+      TableActiveDirective, 
+      BorderDirective, 
+      AlignDirective, 
+      OrderSkeletonComponent, 
+      ConfirmModalComponent,
+      TranslateModule
+    ]
 })
 export class OrderComponent implements OnInit {
   @ViewChild(ConfirmModalComponent) confirmModalComponent: any;

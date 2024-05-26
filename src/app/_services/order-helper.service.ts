@@ -311,12 +311,12 @@ export class OrderHelper {
   }
   
   totalOrderPrice(){
-    let cmd_price = 0;
+    let cmd_service = 0;
     this.cmd_services.map((serv: OrderItem) => {
       let elem = this.getService(serv.id);
-      cmd_price += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
+      cmd_service += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
     })
-    return this.calcPrice(cmd_price);
+    return this.calcPrice(cmd_service);
   }
   
   getService(id: any): _Service{
@@ -398,12 +398,15 @@ export class OrderHelper {
   }
   
   saveOrder(): void {
-    this._orderMemoryService.savedOrder(this.cmd_services).subscribe((elem: any) => {});
+    this._orderMemoryService.savedOrder(this.cmd_services).subscribe(() => {});
   }
   
   addToList(item_id: number): void {
-    let item: OrderItem = { id: item_id, quantity: 1 }
-    this.cmd_services.push(item);
+    let exist = this.cmd_services.some((item: OrderItem) => item.id == item_id);
+    if(!exist) {
+      let item: OrderItem = { id: item_id, quantity: 1 }
+      this.cmd_services.push(item);
+    }
     this.refreshServices(this.cmd_services);
     this.saveOrder();
   }
@@ -421,8 +424,8 @@ export class OrderHelper {
   refreshServices(items: OrderItem[]): void {
     let temp = this.all_services.filter((serv: _Service) => {
       var result = true;
-      items.map((cmd_pr: OrderItem) => {
-        (cmd_pr.id == serv.id)?
+      items.map((cmd_serv: OrderItem) => {
+        (cmd_serv.id == serv.id)?
         (result = false):
         '';
       });
@@ -460,9 +463,10 @@ export class OrderHelper {
   }
   
   //After all quantities have been set and ready to be saved.
-  finalOrderItems(): void {
-    this.cmd_services.map((cmd_pr: OrderItem) => {
-      this.finalItems.push({id: cmd_pr.id, quantity: cmd_pr.quantity});
+  finalizeOrder(): void {
+    this.finalItems = [];
+    this.cmd_services.map((cmd_serv: OrderItem) => {
+      this.finalItems.push({id: cmd_serv.id, quantity: cmd_serv.quantity});
     });
   }
   async savedToLocalStorage(pack: _Package){

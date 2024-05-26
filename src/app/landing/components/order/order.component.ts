@@ -81,7 +81,7 @@ export class OrderComponent implements OnInit, OnDestroy {
     if (!this.orderForm.valid) {
       return;
     }
-    this._orderHelper.finalOrderItems();
+    this._orderHelper.finalizeOrder();
     if(!this._orderHelper.cmd_services.length){
       this._httpResponseService.response = {status: false, message: 'notification.order.empty'};
       return;

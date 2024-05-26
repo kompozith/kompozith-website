@@ -20,7 +20,6 @@ import { SharedModule } from "../../../shared/shared.module";
     imports: [
       CommonModule,
       ButtonCloseDirective,
-      TranslateModule,
       RowComponent,
       CardComponent,
       ReactiveFormsModule,
@@ -28,7 +27,8 @@ import { SharedModule } from "../../../shared/shared.module";
       SharedModule,
       TableDirective,
       ColComponent,
-      CardBodyComponent
+      CardBodyComponent,
+      TranslateModule,
     ]
 })
 export class OrderDetailsComponent implements OnInit, OnDestroy {
@@ -62,8 +62,8 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
       this.orderService.getById(key!)
       .subscribe((data: any) => {
         this.order = data;
-        this._orderHelper.cmd_services = this.order.items;
-        this._orderHelper.refreshServices(this._orderHelper.cmd_services);
+        this._orderHelper.cmd_services = data.items;
+        this._orderHelper.refreshServices(data.items);
         this.loading = false;
         this.initForm();
       })
@@ -81,7 +81,7 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
     this.orderForm = this.fb.group({
       firstname:[this.order?.author.firstname, Validators.required],
       lastname:[this.order?.author.lastname, Validators.required],
-      email:[{value: this.order?.author.email, disabled: true}, [Validators.required, Validators.email]],
+      email:[{value: this.order?.author.email, disabled: true}],
       phoneNumber:[this.order?.author.phoneNumber],
       requirements:[this.order?.requirements],
     });
@@ -96,17 +96,17 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
     if (!this.orderForm.valid) {
       return;
     }
-    this._orderHelper.finalOrderItems();
     if(!this._orderHelper.cmd_services.length){
       this._httpResponseService.response = {status: false, message: 'notification.order.empty'};
       return;
     }
+    this._orderHelper.finalizeOrder();
     this.loading = true;
     let datas: Order = {
       author: {
         lastname: this.orderForm.value.lastname ?? "",
         firstname: this.orderForm.value.firstname ?? "",
-        email: this.orderForm.value.email,
+        email: this.order?.author.email,
         phoneNumber: this.orderForm.value.phoneNumber
       },
       requirements : this.orderForm.value.requirements ?? "", 
@@ -117,11 +117,11 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
       this.submitted = false;
       this.initForm();
       this.loading = false;
-      this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+      this._httpResponseService.response = {status: true, message: 'notification.order.saved.success'};
     }).catch(err => {
       console.log(err);
       this.loading = false;
-      this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
+      this._httpResponseService.response = {status: false, message: 'notification.order.saved.error'};
     });
   }
   

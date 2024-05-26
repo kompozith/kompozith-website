@@ -39,7 +39,7 @@ import { iconSubset } from './shared/icons/icon-subset';
     ShadowOnScrollDirective,
     ContainerComponent,
     RouterOutlet,
-    DefaultFooterComponent,
+    DefaultFooterComponent
   ]
 })
 export class AdminComponent implements OnInit {

@@ -122,7 +122,7 @@
     "text_18": "Select services",
     "text_19": "Submit",
     "text_20":"Price varying",
-    "text_21":"Oredr details",
+    "text_21":"Order details",
     "text_22":"Update Order"
 
   },
@@ -214,6 +214,10 @@
       "sent": {
         "success": "Your order has been successfully submitted.",
         "error": "Your order could not be processed. Please try again later."
+      },
+      "saved": {
+        "success": "The order has been successfully saved.",
+        "error": "The order could not be saved. Please try again later."
       }
     }
   }

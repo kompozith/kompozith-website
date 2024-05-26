@@ -214,6 +214,10 @@
       "sent": {
         "success": "Votre commande a été envoyée avec succès.",
         "error": "Votre commande n'a pas été envoyée. Veuillez réessayer plus tard."
+      },
+      "saved": {
+        "success": "La commande a étée enregistrée avec succès.",
+        "error": "La commande n'a pas été enregistrée. Veuillez réessayer plus tard."
       }
     }
   }
