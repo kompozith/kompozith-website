@@ -4,11 +4,11 @@ import { ButtonCloseDirective, ButtonDirective, ModalBodyComponent, ModalCompone
 import { OrderService } from '../../../_services/order.service';
 
 @Component({
-  selector: 'order-delete-confirm-modal',
+  selector: 'order-delete-modal',
   standalone: true,
   imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent],
-  templateUrl: './confirm-modal.component.html',
-  styleUrl: './confirm-modal.component.scss'
+  templateUrl: './delete-modal.component.html',
+  styleUrl: './delete-modal.component.scss'
 })
 export class ConfirmModalComponent {
   @Input() orderKey!: string;

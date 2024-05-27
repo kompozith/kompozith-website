@@ -12,10 +12,10 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { SharedModule } from "../../../shared/shared.module";
 
 @Component({
-    selector: 'app-order-details',
+    selector: 'order-detail',
     standalone: true,
-    templateUrl: './details.component.html',
-    styleUrl: './details.component.scss',
+    templateUrl: './detail.component.html',
+    styleUrl: './detail.component.scss',
     providers: [DatePipe],
     imports: [
       CommonModule,
@@ -31,7 +31,7 @@ import { SharedModule } from "../../../shared/shared.module";
       TranslateModule,
     ]
 })
-export class OrderDetailsComponent implements OnInit, OnDestroy {
+export class OrderDetailComponent implements OnInit, OnDestroy {
   order!: Order;
   orderKey!: string;
   message: string  = '';

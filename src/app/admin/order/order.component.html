@@ -40,7 +40,7 @@
             </td>
           </tr>
           <ng-template #confirmDeleteOrderTemplate>
-            <order-delete-confirm-modal [orderKey]="order.key" [exitModal]="exitModal" />
+            <order-delete-modal [orderKey]="order.key" [exitModal]="exitModal" />
           </ng-template>
           } @empty {
           <tr>

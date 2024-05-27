@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ContactMessage } from '../modeles/contact-message';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class IntouchService {
 
   messagesRef: AngularFireList<ContactMessage>;
   
-  constructor(private afd: AngularFireDatabase, private db: AngularFirestore) { 
+  constructor(private afd: AngularFireDatabase) { 
     this.messagesRef = this.afd.list(this.dbPath);
   }
   // Lister tous les messages d eprise de contact
@@ -25,7 +24,7 @@ export class IntouchService {
   }
   // Recevoir un message particulier par son ID
   getById(id : string): any {
-    return this.db.collection('messages').doc(id).get();
+    return this.afd.object(this.dbPath+`/${id}`).valueChanges();
   }
   // Modifier un message de prise de contact
   update(id : string, data: ContactMessage): Promise<void> {

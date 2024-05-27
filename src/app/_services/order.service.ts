@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Order } from '../modeles/order';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class OrderService {
   
   ordersRef: AngularFireList<Order>;
   
-  constructor(private afd: AngularFireDatabase, private db: AngularFirestore) { 
+  constructor(private afd: AngularFireDatabase) { 
     this.ordersRef = this.afd.list(this.dbPath);
   }
   // Lister tous les orders d eprise de contact

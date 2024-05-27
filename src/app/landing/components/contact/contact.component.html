@@ -62,7 +62,7 @@
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="phoneNumber">{{ 'contact.text_51' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('phoneNumber')?.valid), 
-                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" type="text" placeholder="{{ 'form.text_4' | translate }}">
+                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text" placeholder="{{ 'form.text_4' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">

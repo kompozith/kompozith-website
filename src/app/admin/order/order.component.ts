@@ -6,7 +6,7 @@ import { IconDirective, IconSetService } from '@coreui/icons-angular';
 import { OrderSkeletonComponent } from "./order-skeleton/order-skeleton.component";
 import { OrderHelper } from '../../_services/order-helper.service';
 import { Order } from '../../modeles/order';
-import { ConfirmModalComponent } from "./confirm-modal/confirm-modal.component";
+import { ConfirmModalComponent } from "./delete-modal/delete-modal.component";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
