@@ -88,31 +88,32 @@
                             <label class="form-label" for="firstname">{{ 'order.text_12' | translate }}<span style="color:red">*</span></label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('firstname')?.valid), 
                             'form-control is-valid':(submitted && orderForm.get('firstname')?.valid)}" formControlName="firstname" type="text"  placeholder="{{ 'form.text_1' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_100' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_1' | translate }}</div>
                         </div> 
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label class="form-label" for="lastname">{{ 'order.text_13' | translate }}<span style="color:red">*</span></label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('lastname')?.valid), 
                             'form-control is-valid':(submitted && orderForm.get('lastname')?.valid)}" formControlName="lastname" type="text"  placeholder="{{ 'form.text_2' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_2' | translate }}</div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label class="form-label" for="email">{{ 'order.text_15' | translate }}<span style="color:red">*</span></label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('email')?.valid), 
-                            'form-control is-valid':(submitted && orderForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_4' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
+                            'form-control is-valid':(submitted && orderForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_3' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_3' | translate }}</div>
                         </div>
+                      
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label class="form-label" for="phoneNumber">{{ 'order.text_14' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('phoneNumber')?.valid), 
-                            'form-control is-valid':(submitted && orderForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text"  placeholder="{{ 'form.text_3' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
+                            'form-control is-valid':(submitted && orderForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text"  placeholder="{{ 'form.text_4' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_4' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <label class="form-label" for="description">{{ 'order.text_16' | translate }}</label>
                             <textarea [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('description')?.valid), 
                             'form-control is-valid':(submitted && orderForm.get('description')?.valid)}" formControlName="description" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
-                            <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_5' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <app-http-response-status></app-http-response-status>

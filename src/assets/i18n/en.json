@@ -190,8 +190,8 @@
   },
   
   "form": {
-    "text_1":"Your Firstname",
-    "text_2":"Your Lastname",
+    "text_1":"Your First Name",
+    "text_2":"Your Last Name",
     "text_3":"Your Email",
     "text_4":"Your Phone Number",
     "text_5":"If possible, describe your order in a few words",

@@ -65,7 +65,7 @@
     "text_2": "Informations de contact",
     "text_3": "Localisation",
     "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
-    "text_5": "Téléphones",
+    "text_5": "Téléphone",
     "text_6": "E-mail",
     "text_7": "Nom",
     "text_8": "Message",
@@ -106,14 +106,13 @@
     "text_8": "Total net à payer",
     "text_9": "Total Estimatif",
     "text_10":"Votre panier et vide !!!",
-
+    
     "text_11": "Informations de contact",
     "text_12": "Prenom",
     "text_13": "Nom",
-    "text_131": "Nom",
     "text_14": "Téléphone",
     "text_15":"E-mail",
-    "text_16":"Exigences de la commande",
+    "text_16":"Exigences de la commande", 
 
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
