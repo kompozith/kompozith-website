@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { OrderComponent } from './order/order.component';
-import { MessageComponent } from './message/message.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { OrderDetailComponent } from './order/detail/detail.component';
+import { OrderComponent } from '../admin/order/order.component';
+import { MessageComponent } from '../admin/message/message.component';
+import { DashboardComponent } from '../admin/dashboard/dashboard.component';
+import { OrderDetailComponent } from '../admin/order/detail/detail.component';
 
 // import { AdminGuard } from './shared/guard/auth.guard';
 

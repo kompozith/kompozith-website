@@ -9,7 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { provideRouter } from '@angular/router';
-import { content as routes }  from './shared/routes/routes';
+import { content as routes }  from './routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [

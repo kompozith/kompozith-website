@@ -83,7 +83,7 @@
                   </tbody>
                 </table>
                 <h3 *ngIf="_orderHelper.flexible" class="pt-5">{{ 'order.text_11' | translate }}</h3>
-                <form *ngIf="_orderHelper.flexible" id="contact-form" [formGroup]="orderForm" class="contact-input position-relative" novalidate [ngClass]="{ 'was-validated': submitted }">
+                <form id="contact-form" [formGroup]="orderForm" class="contact-input position-relative" novalidate [ngClass]="{ 'was-validated': submitted }">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
                             <label class="form-label" for="firstname">{{ 'order.text_12' | translate }}<span style="color:red">*</span></label>
@@ -140,7 +140,7 @@
                 <div class="sidebar-wrap">
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">{{ 'order.text_18' | translate }}</h2>
-                        <form action="#" class="sidebar-search position-relative" >
+                        <form class="sidebar-search position-relative">
                             <input class="w-100" (keyup)="_orderHelper.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
                             <button class="border-0 position-absolute top-50 translate-middle-y" type="submit">
                                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,44 +153,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div *ngIf="!_orderHelper.flexible" class="col-md-12 pt-5">
-                <h3>{{ 'order.text_11' | translate }}</h3>
-                <form id="contact-form" class="contact-input position-relative">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_12' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_1' | translate }}">
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_13' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_2' | translate }}">
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_14' | translate }}</label>
-                            <input type="text"  placeholder="{{ 'form.text_4' | translate }}">
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-                            <label>{{ 'order.text_15' | translate }}</label>
-                            <input type="email" placeholder="{{ 'form.text_3' | translate }}">
-                        </div>
-                        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label>{{ 'order.text_16' | translate }}</label>
-                            <textarea name="message" id="message" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
-                        </div>
-                        <div class="contact-btn-wrap d-flex justify-content-end">
-                            <button type="submit" class="common-btn hover-black border-0">
-                                <span>
-                                  {{ 'order.text_19' | translate }}
-                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.6875 7.71875L8.6875 12.7188C8.3125 13.125 7.65625 13.125 7.28125 12.7188C6.875 12.3438 6.875 11.6875 7.28125 11.3125L10.5625 8H1C0.4375 8 0 7.5625 0 7C0 6.46875 0.4375 6 1 6H10.5625L7.28125 2.71875C6.875 2.34375 6.875 1.6875 7.28125 1.3125C7.65625 0.90625 8.3125 0.90625 8.6875 1.3125L13.6875 6.3125C14.0938 6.6875 14.0938 7.34375 13.6875 7.71875Z" fill="currentColor"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                        <p class="form-message"></p>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

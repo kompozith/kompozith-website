@@ -27,12 +27,14 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { IconDirective } from '@coreui/icons-angular';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { delay, filter, map, tap } from 'rxjs/operators';
+import { flagSet } from '@coreui/icons';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-default-header',
   templateUrl: './default-header.component.html',
   standalone: true,
-  imports: [ContainerComponent, HeaderTogglerDirective, SidebarToggleDirective, IconDirective, HeaderNavComponent, NavItemComponent, NavLinkDirective, RouterLink, RouterLinkActive, NgTemplateOutlet, BreadcrumbRouterComponent, ThemeDirective, DropdownComponent, DropdownToggleDirective, TextColorDirective, AvatarComponent, DropdownMenuDirective, DropdownHeaderDirective, DropdownItemDirective, BadgeComponent, DropdownDividerDirective, ProgressBarDirective, ProgressComponent, NgStyle]
+  imports: [TranslateModule, ContainerComponent, HeaderTogglerDirective, SidebarToggleDirective, IconDirective, HeaderNavComponent, NavItemComponent, NavLinkDirective, RouterLink, RouterLinkActive, NgTemplateOutlet, BreadcrumbRouterComponent, ThemeDirective, DropdownComponent, DropdownToggleDirective, TextColorDirective, AvatarComponent, DropdownMenuDirective, DropdownHeaderDirective, DropdownItemDirective, BadgeComponent, DropdownDividerDirective, ProgressBarDirective, ProgressComponent, NgStyle]
 })
 export class DefaultHeaderComponent extends HeaderComponent {
 
@@ -51,8 +53,16 @@ export class DefaultHeaderComponent extends HeaderComponent {
     const currentMode = this.colorMode();
     return this.colorModes.find(mode=> mode.name === currentMode)?.icon ?? 'cilSun';
   });
+  
+  languages: {currentFlag: string, data: languageModel[]} = {
+    currentFlag: '',
+    data: [
+      { name: 'nav.text_6', value:'fr', flag: 'cif-fr'},
+      { name: 'nav.text_7', value: 'en', flag: 'cif-us'},
+    ]
+  }
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     super();
     this.#colorModeService.localStorageItemName.set('coreui-free-angular-admin-template-theme-default');
     this.#colorModeService.eventName.set('ColorSchemeChange');
@@ -68,6 +78,19 @@ export class DefaultHeaderComponent extends HeaderComponent {
         takeUntilDestroyed(this.#destroyRef)
       )
       .subscribe();
+      
+      let prevLang = localStorage.getItem("language");
+      let lang = prevLang ?? 'fr';
+      switch(lang) {
+        case 'fr' : 
+          this.languages.currentFlag = this.languages.data[0].flag;
+          break;
+        case 'en' : 
+          this.languages.currentFlag = this.languages.data[1].flag;
+          break;
+        default :
+          this.languages.currentFlag = this.languages.data[0].flag;
+      }
   }
 
   @Input() sidebarId: string = 'sidebar1';
@@ -146,5 +169,16 @@ export class DefaultHeaderComponent extends HeaderComponent {
     { id: 3, title: 'Add new layouts', value: 75, color: 'info' },
     { id: 4, title: 'Angular Version', value: 100, color: 'success' }
   ];
-
+  
+  setLanguage(language: languageModel) {
+    this.translate.use(language.value);
+    localStorage.setItem("language", language.value);
+    this.languages.currentFlag = language.flag
+  }
+  
+}
+class languageModel {
+  name!: string;
+  value!: string;
+  flag!: string;
 }

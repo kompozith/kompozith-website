@@ -5,18 +5,15 @@ import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet />',
+  template: '<router-outlet/>',
   standalone: true,
-  imports: [
-    // AngularFireDatabaseModule,
-    RouterModule,
-    SharedModule,
-  ],
-  styleUrls: ['./app.component.scss']
+  imports: [RouterModule,SharedModule,],
 })
+
 export class AppComponent {
   constructor(private translate: TranslateService) {
+    this.translate.addLangs(['en', 'fr']);
     this.translate.setDefaultLang('fr');
-    this.translate.use(translate.getBrowserLang() || 'fr');
+    this.translate.use(translate.getBrowserLang() ?? 'fr');
   }
 }

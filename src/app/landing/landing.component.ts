@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
   
-  public adminModule: boolean = false;
+  public isAdminModule: boolean = false;
 }

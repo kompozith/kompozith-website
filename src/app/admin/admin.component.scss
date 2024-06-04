@@ -11,3 +11,12 @@
 ::ng-deep {
     @import '../../scss/styles.scss';
 }
+
+.sidebar-header {
+  padding: 0px !important;
+}
+
+.logo {
+  max-height: calc(100% - 10px);
+  padding: 10px;
+}

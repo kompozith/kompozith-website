@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { LandingRoutingModule } from './landing-routing.module';
+import { LandingRoutes } from '../routes/landing-routes.';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { SwiperModule } from 'swiper/angular';
@@ -50,7 +50,7 @@ import { LandingSharedModule } from './shared/landing.shared.module';
   ],
   imports: [
     CommonModule,
-    LandingRoutingModule,
+    LandingRoutes,
     TranslateModule,
     FormModule,
     ReactiveFormsModule,

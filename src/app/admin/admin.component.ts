@@ -19,6 +19,7 @@ import { DefaultFooterComponent, DefaultHeaderComponent } from './shared/layout'
 import { navItems } from './shared/layout/default-layout/_nav';
 import { Title } from '@angular/platform-browser';
 import { iconSubset } from './shared/icons/icon-subset';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -39,7 +40,8 @@ import { iconSubset } from './shared/icons/icon-subset';
     ShadowOnScrollDirective,
     ContainerComponent,
     RouterOutlet,
-    DefaultFooterComponent
+    DefaultFooterComponent,
+    TranslateModule
   ]
 })
 export class AdminComponent implements OnInit {
@@ -51,7 +53,8 @@ export class AdminComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private iconSetService: IconSetService
+    private iconSetService: IconSetService,
+    private translate: TranslateService
   ) {
     this.titleService.setTitle(this.title);
     // iconSet singleton
@@ -64,6 +67,7 @@ export class AdminComponent implements OnInit {
         return;
       }
     });
+    console.log('The used language is: '+this.translate.currentLang);
   }
   
   onScrollbarUpdate($event: any) {
