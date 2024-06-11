@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet/>',
   standalone: true,
-  imports: [RouterModule,SharedModule,],
+  imports: [RouterModule,SharedModule,TranslateModule],
+  providers: [TranslateService],
 })
 
 export class AppComponent {

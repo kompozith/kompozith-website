@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Order } from '../../../modeles/order';
 import { OrderService } from '../../../_services/order.service';
 import { OrderHelper } from '../../../_services/order-helper.service';

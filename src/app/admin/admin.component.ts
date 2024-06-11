@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgScrollbar } from 'ngx-scrollbar';
 
@@ -20,6 +20,7 @@ import { navItems } from './shared/layout/default-layout/_nav';
 import { Title } from '@angular/platform-browser';
 import { iconSubset } from './shared/icons/icon-subset';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -41,20 +42,20 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     ContainerComponent,
     RouterOutlet,
     DefaultFooterComponent,
-    TranslateModule
+    CommonModule,
+    TranslateModule,
   ]
 })
 export class AdminComponent implements OnInit {
 
   public adminModule: boolean = true;
   public navItems = navItems;
-  title = 'CoreUI Angular Admin Template';
+  title = 'Kompozith Admin';
 
   constructor(
     private router: Router,
     private titleService: Title,
     private iconSetService: IconSetService,
-    private translate: TranslateService
   ) {
     this.titleService.setTitle(this.title);
     // iconSet singleton
@@ -67,7 +68,6 @@ export class AdminComponent implements OnInit {
         return;
       }
     });
-    console.log('The used language is: '+this.translate.currentLang);
   }
   
   onScrollbarUpdate($event: any) {
