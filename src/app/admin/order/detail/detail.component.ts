@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Order } from '../../../modeles/order';
-import { OrderService } from '../../../_services/order.service';
+import { OrderService } from '../../../_services/API/order.service';
 import { OrderHelper } from '../../../_services/order-helper.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonCloseDirective, CardBodyComponent, CardComponent, ColComponent, RowComponent, TableDirective } from '@coreui/angular';

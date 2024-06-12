@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
 import { OrderMemoryService } from '../../../_services/order-memory.service';
 import { OrderHelper } from '../../../_services/order-helper.service';
-import { OrderService } from '../../../_services/order.service';
+import { OrderService } from '../../../_services/API/order.service';
 import { PreloadService } from '../../../_services/preload.service';
 import { HttpResponseService } from '../../../_services/http-response.service';
 import { DatePipe } from '@angular/common';
+import { AuthService } from '../../../_services/API/auth.service';
 
 @Component({
   selector: 'app-order',
@@ -22,6 +23,8 @@ export class OrderComponent implements OnInit, OnDestroy {
   current_pack_price : any;
   orderTranslatedTitle : string = 'Commande';
   orderForm!: FormGroup;
+  error: string = '';
+  success: string = '';
   constructor(
     public _orderHelper: OrderHelper,
     private route: ActivatedRoute,
@@ -29,6 +32,7 @@ export class OrderComponent implements OnInit, OnDestroy {
     private _orderMemoryService: OrderMemoryService,
     private _preloadService: PreloadService,
     private _orderService: OrderService,
+    private authService: AuthService,
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
     private datePipe: DatePipe
@@ -82,7 +86,7 @@ export class OrderComponent implements OnInit, OnDestroy {
       return;
     }
     this._orderHelper.finalizeOrder();
-    if(!this._orderHelper.cmd_services.length){
+    if(!this._orderHelper.cmd_services.length) {
       this._httpResponseService.response = {status: false, message: 'notification.order.empty'};
       return;
     }
@@ -98,14 +102,22 @@ export class OrderComponent implements OnInit, OnDestroy {
       items: this._orderHelper.finalItems,
       date: this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm')
     };
-    console.log(datas);
     this._orderService.create(datas).then(() => {
       this.submitted = false;
-      this.orderForm.reset();
       this.loading = false;
-      this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+      // this.authService.signInLink(this.orderForm.value.email).then(() => {
+      this.authService.signUp(this.orderForm.value.email, '12345678').then(() => {
+        this._httpResponseService.response = {status: true, message: 'auth.user.orderSentAndRegistrationSuccess'};
+
+      }).catch((error: any) => {
+        if(error.toString().includes('email address is already in use by another account')){
+          this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+          return;
+        }
+        this._httpResponseService.response = {status: false, message: 'auth.user.orderSentAndRegistrationError'}; 
+      });
+      this.orderForm.reset();
     }).catch((err: any) => {
-      console.log(err);
       this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};
     }) 

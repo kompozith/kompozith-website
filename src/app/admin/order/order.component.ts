@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, TableDirective, TableColorDirective, TableActiveDirective, BorderDirective, AlignDirective, BadgeComponent, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective } from '@coreui/angular';
-import { OrderService } from '../../_services/order.service';
+import { OrderService } from '../../_services/API/order.service';
 import { map } from 'rxjs';
 import { IconDirective, IconSetService } from '@coreui/icons-angular';
 import { OrderSkeletonComponent } from "./order-skeleton/order-skeleton.component";

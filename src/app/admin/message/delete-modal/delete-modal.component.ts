@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonCloseDirective, ButtonDirective, ModalBodyComponent, ModalComponent, ModalContentComponent, ModalFooterComponent, ModalHeaderComponent } from '@coreui/angular';
-import { IntouchService } from '../../../_services/intouch.service';
+import { IntouchService } from '../../../_services/API/intouch.service';
 
 @Component({
   selector: 'message-delete-modal',

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonCloseDirective, ButtonDirective, ModalBodyComponent, ModalComponent, ModalContentComponent, ModalFooterComponent, ModalHeaderComponent } from '@coreui/angular';
-import { OrderService } from '../../../_services/order.service';
+import { OrderService } from '../../../_services/API/order.service';
 
 @Component({
   selector: 'order-delete-modal',

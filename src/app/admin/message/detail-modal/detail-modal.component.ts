@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IntouchService } from '../../../_services/intouch.service';
+import { IntouchService } from '../../../_services/API/intouch.service';
 import { ContactMessage } from '../../../modeles/contact-message';
 import { CommonModule } from '@angular/common';
 import { ButtonCloseDirective, ButtonDirective, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent } from '@coreui/angular';

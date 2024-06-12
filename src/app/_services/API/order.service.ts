@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { Order } from '../modeles/order';
+import { Order } from '../../modeles/order';
 
 @Injectable({
   providedIn: 'root'

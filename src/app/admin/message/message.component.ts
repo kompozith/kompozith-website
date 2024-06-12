@@ -8,7 +8,7 @@ import { OrderSkeletonComponent } from '../order/order-skeleton/order-skeleton.c
 import { map } from 'rxjs';
 import { OrderHelper } from '../../_services/order-helper.service';
 import { Order } from '../../modeles/order';
-import { IntouchService } from '../../_services/intouch.service';
+import { IntouchService } from '../../_services/API/intouch.service';
 import { MessageDetailModalComponent } from './detail-modal/detail-modal.component';
 
 @Component({

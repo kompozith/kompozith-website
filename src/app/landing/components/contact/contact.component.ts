@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
 import { HttpResponseService } from '../../../_services/http-response.service';
-import { IntouchService } from '../../../_services/intouch.service';
+import { IntouchService } from '../../../_services/API/intouch.service';
 import { PreloadService } from '../../../_services/preload.service';
 import { DatePipe } from '@angular/common';
 
