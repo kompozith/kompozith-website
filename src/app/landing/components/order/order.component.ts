@@ -105,8 +105,8 @@ export class OrderComponent implements OnInit, OnDestroy {
     this._orderService.create(datas).then(() => {
       this.submitted = false;
       this.loading = false;
-      // this.authService.signInLink(this.orderForm.value.email).then(() => {
-      this.authService.signUp(this.orderForm.value.email, '12345678').then(() => {
+      this.authService.signInLink(this.orderForm.value.email).then(() => {
+      // this.authService.signUp(this.orderForm.value.email, '12345678').then(() => {
         this._httpResponseService.response = {status: true, message: 'auth.user.orderSentAndRegistrationSuccess'};
 
       }).catch((error: any) => {
