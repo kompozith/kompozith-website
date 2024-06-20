@@ -13,7 +13,6 @@
                 <div class="nav-wrap d-flex justify-content-end align-items-center">
                     <div class="mainmenu text-right">
                         <ul>
-
                             <li><a [routerLink]="['/']"*ngIf="'nav.text_1' | translate as translatedText">{{ translatedText || 'Home' }}</a></li>
                             <li><a [routerLink]="['/about-us']" *ngIf="'nav.text_2' | translate as translatedText">{{ translatedText || 'About Us' }}</a></li>
                             <li><a [routerLink]="['/services']"*ngIf="'nav.text_3' | translate as translatedText">{{ translatedText || 'About Us' }}</a></li>
