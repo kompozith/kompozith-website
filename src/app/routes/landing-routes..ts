@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrderComponent } from '../landing/components/order/order.component';
-import { AboutUsComponent } from '../landing/components/about-us/about-us.component';
-import { ContactComponent } from '../landing/components/contact/contact.component';
-import { OurServicesComponent } from '../landing/components/our-services/our-services.component';
-import { HomeComponent } from '../landing/components/home/home.component';
-import { LandingComponent } from '../landing/landing.component';
+import { OrderComponent } from '../modules/landing/components/order/order.component';
+import { AboutUsComponent } from '../modules/landing/components/about-us/about-us.component';
+import { ContactComponent } from '../modules/landing/components/contact/contact.component';
+import { OurServicesComponent } from '../modules/landing/components/our-services/our-services.component';
+import { HomeComponent } from '../modules/landing/components/home/home.component';
+import { LandingComponent } from '../modules/landing/landing.component';
 
 const landingRoutes: Routes =  [
   { path: '', component: LandingComponent,

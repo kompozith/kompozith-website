@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SharedModule } from './shared/shared.module';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet><router-outlet/>',
-  // imports: [RouterModule,SharedModule,TranslateModule],
+  template: '<router-outlet/>',
   providers: [TranslateService],
 })
 

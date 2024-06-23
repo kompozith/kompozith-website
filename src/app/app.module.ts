@@ -11,11 +11,11 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
 import { SidebarModule, DropdownModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { routes } from './routes';
-import { LandingModule } from './landing/landing.module';
+import { LandingModule } from './modules/landing/landing.module';
 import { SwiperModule } from 'swiper/angular';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -29,7 +29,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    TranslateModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
