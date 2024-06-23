@@ -7,7 +7,7 @@ import { OurServicesComponent } from '../landing/components/our-services/our-ser
 import { HomeComponent } from '../landing/components/home/home.component';
 import { LandingComponent } from '../landing/landing.component';
 
-const routes: Routes =  [
+const landingRoutes: Routes =  [
   { path: '', component: LandingComponent,
     children: [
       { path:'', component: HomeComponent },
@@ -20,7 +20,7 @@ const routes: Routes =  [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(landingRoutes)],
   exports: [RouterModule]
 })
 export class LandingRoutes { }

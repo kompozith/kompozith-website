@@ -5,9 +5,8 @@ import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet/>',
-  standalone: true,
-  imports: [RouterModule,SharedModule,TranslateModule],
+  template: '<router-outlet><router-outlet/>',
+  // imports: [RouterModule,SharedModule,TranslateModule],
   providers: [TranslateService],
 })
 
