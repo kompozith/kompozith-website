@@ -8,12 +8,12 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) { }
    
-  signUp(email: string, password: string): Promise<any> {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  signUp(data: {email: string, password: string}): Promise<any> {
+    return this.afAuth.createUserWithEmailAndPassword(data.email, data.password);
   }
   
-  signIn(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
+  signIn(data: {email: string, password: string}) {
+    return this.afAuth.signInWithEmailAndPassword(data.email, data.password)
   }
   
   signInLink(email: string): Promise<any> {

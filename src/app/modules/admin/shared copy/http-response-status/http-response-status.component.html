@@ -1,6 +1,0 @@
-<div *ngIf="_httpResponseService.response.status && _httpResponseService.response.message" class="alert alert-success text-success" role="alert">
-    {{ _httpResponseService.response.message | translate }}
-</div>
-<div *ngIf="!_httpResponseService.response.status && _httpResponseService.response.message" class="alert alert-danger text-danger" role="alert">
-    {{ _httpResponseService.response.message | translate }}
-</div>
