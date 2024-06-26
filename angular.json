@@ -42,6 +42,7 @@
               "src/assets/fontawesome/css/solid.css",
               "src/assets/css/style.css",
               "src/assets/css/responsive.css",
+              "src/assets/css/iconsax-icon.css",
               "src/styles.scss"
             ],
             "scripts": [

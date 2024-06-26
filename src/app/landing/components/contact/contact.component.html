@@ -60,15 +60,15 @@
                             <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
-                            <label class="form-label" for="phoneNumber">{{ 'contact.text_51' | translate }}</label>
+                            <label class="form-label" for="phoneNumber">{{ 'contact.text_5' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('phoneNumber')?.valid), 
                             'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text" placeholder="{{ 'form.text_4' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label class="form-label" for="subject">{{ 'contact.text_61' | translate }}</label>
+                            <label class="form-label" for="subject">{{ 'contact.text_6' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('subject')?.valid), 
-                            'form-control is-valid':(submitted && contactForm.get('subject')?.valid)}" formControlName="subject" type="text" placeholder="{{ 'form.text_61' | translate }}">
+                            'form-control is-valid':(submitted && contactForm.get('subject')?.valid)}" formControlName="subject" type="text" placeholder="{{ 'form.text_6' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">

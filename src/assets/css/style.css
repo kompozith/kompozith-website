@@ -28,9 +28,15 @@ Template Name: Vibetech - Creative Digital Agency HTML Template
 =================================================*/
 /*================================================
 1. Default CSS
-=================================================*/
+=================================================
 @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;400;500;600;700;800;900&display=swap");
+
+
+*{
+  color: #193049;
+}*/
+
 /* Font Variable */
 /* Color Variable */
 a {
@@ -54,9 +60,9 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
-  font-family: "Epilogue", sans-serif;
-  font-weight: 600;
-  color: #171717;
+  font-family: "poppins", sans-serif;
+  font-weight: 800;
+  color: #193049;
   line-height: 1.2;
 }
 
@@ -67,11 +73,12 @@ h2 {
 }
 
 html, body {
-  font-weight: 400;
-  font-size: 16px;
-  color: #67687A;
-  line-height: 2.06;
-  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #3f3f4e;
+  line-height: 1.87;
+  font-family: "poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 p {
@@ -150,11 +157,11 @@ input:-webkit-autofill:hover, input:-webkit-autofill:focus {
 }
 
 .bg-color-black {
-  background-color: #242424;
+  
 }
 
 .bg-color-of-white {
-  background-color: #FCFAF3;
+  background-color: #fcfaf3bb;
 }
 
 .z-index-one {
@@ -392,8 +399,8 @@ body::-webkit-scrollbar-thumb {
   display: -ms-inline-flexbox;
   display: inline-flex;
   line-height: 1;
-  font-family: "Epilogue", sans-serif;
-  font-weight: 600;
+  font-family: "poppins", sans-serif;
+  font-weight: 500;
   border-radius: 5px;
   letter-spacing: 0.8px;
   padding: 17px 27px;
@@ -425,7 +432,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .common-btn:hover {
-  color: #171717;
+  color: #193049;
 }
 
 .common-btn:hover::before {
@@ -517,7 +524,7 @@ body::-webkit-scrollbar-thumb {
 
 .section-title span, .section-title-two h2 span {
   color: #098dd7;
-  font-family: "Epilogue", sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -599,11 +606,14 @@ body::-webkit-scrollbar-thumb {
 .menu-area {
   width: 100%;
   z-index: 2;
-  padding: 23px 0px;
+  padding: 16px 0px;
+  background-color: transparent;
   z-index: 9;
 }
 
 .menu-area.sticky {
+  background-color: #242424a6;
+  backdrop-filter: blur(20px);
   position: fixed !important;
   -webkit-animation: slide_down_site 0.35s ease-out;
           animation: slide_down_site 0.35s ease-out;
@@ -666,14 +676,14 @@ body::-webkit-scrollbar-thumb {
   padding: 9px 0;
   -webkit-transition: .3s;
   transition: .3s;
-  font-weight: 600;
+  font-weight: 400;
   display: inline-block;
   color: #fff;
 }
 
 .mainmenu li ul {
   position: absolute;
-  background: #f3f3f3;
+  background: #fffffff8;
   width: 227px;
   left: 0px;
   top: 55px;
@@ -685,8 +695,8 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateY(60px);
           transform: translateY(60px);
   border-radius: 6px;
-  -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
-          box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .mainmenu li ul li {
@@ -699,12 +709,14 @@ body::-webkit-scrollbar-thumb {
   color: #000;
   -webkit-transition: .3s;
   transition: .3s;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .mainmenu li ul li > a:hover {
   -webkit-transform: translateX(2px);
           transform: translateX(2px);
+  cursor: pointer;
+  color: rgb(7, 77, 158);
 }
 
 .mainmenu li ul a {
@@ -720,6 +732,7 @@ body::-webkit-scrollbar-thumb {
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
+  backdrop-filter: blur(20px);
 }
 
 .mainmenu li:hover ul ul {
@@ -742,7 +755,7 @@ body::-webkit-scrollbar-thumb {
   top: 56%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  font-size: 13px;
+  font-size: 12px;
   font-family: bootstrap-icons !important;
   content: "\f282";
   -webkit-transition: all .5s;
@@ -888,7 +901,7 @@ body::-webkit-scrollbar-thumb {
   background: url(../images/hero/hero-img.png), linear-gradient(#242424 100%, #242424 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 220px 0 150px;
+  padding: 320px 0 300px;
   margin-top: -1px;
   overflow: hidden;
 }
@@ -1085,7 +1098,7 @@ body::-webkit-scrollbar-thumb {
 
 .history-img-wrap {
   overflow: hidden;
-  border-radius: 0px 20px 0px 20px;
+  border-radius: 20px;
 }
 
 .listing-box .single-listing-box {
@@ -1126,7 +1139,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #098dd7;
   width: 30px;
   height: 30px;
   -ms-flex-negative: 0;
@@ -1626,7 +1638,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .testimonial-box .testimonial-author-img {
-  margin-top: -35px;
+  margin-top: -45px;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 -3px 25px rgba(0, 0, 0, .2);
 }
 
 .slider-pagination .swiper-pagination-bullet {
@@ -2235,7 +2250,7 @@ body::-webkit-scrollbar-thumb {
 10. Footer CSS
 =================================================*/
 .footer-area {
-  padding: 80px 0 0;
+  padding: 100px 0 0;
 }
 
 .footer-widget {
@@ -2290,7 +2305,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer-widget.footer-black .footer-desc-wrap .footer-desc {
-  color: #fff;
+  color: #fff000;
 }
 
 .footer-widget.footer-black .footer-title {
@@ -2669,9 +2684,11 @@ body::-webkit-scrollbar-thumb {
 /*================================================
 11. Services CSS
 =================================================*/
+
+.service-three-area
 .service-box-wrap .service-box-single {
   border-top: 1px solid rgba(23, 23, 23, 0.1);
-  padding: 30px 0;
+  padding: 80px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2731,15 +2748,21 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 50px;
   -webkit-transition: all .4s;
   transition: all .4s;
-  padding: 10px;
+  padding: 30px;
+  height: 90%;
+  border: 1px solid transparent;
 }
 
 .service-three-box svg {
   color: #098dd7;
+  transform: scale(2);
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .service-three-box h2 {
   margin: 10px 0 5px;
+  color:#275dc2;
 }
 
 .service-three-box p {
@@ -2756,8 +2779,9 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   border-radius: 10px;
-  -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.9);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  border: 1px solid #275dc2;
+  -webkit-box-shadow: 0 10.5px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .service-three-box:hover a svg {
@@ -2766,7 +2790,10 @@ body::-webkit-scrollbar-thumb {
 
 .service-three-area {
   padding-bottom: 70px;
+  margin: 200px 0 200px;
 }
+
+
 
 .hover-item-image {
   height: 300px;
@@ -2786,7 +2813,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .service-sidebar-list li {
-  font-family: "Epilogue", sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   padding: 15px 40px;
@@ -2866,6 +2893,14 @@ body::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
+.border-round {
+  border-radius: 20px;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
 .about-img-wrap img {
   border-radius: 20px;
 }
@@ -2901,6 +2936,9 @@ body::-webkit-scrollbar-thumb {
 .about-top-one {
   -webkit-animation: up_top 5s linear infinite alternate;
           animation: up_top 5s linear infinite alternate;
+  transform: scale(0.7);
+  top: 0px;
+  left: 0px;
 }
 
 @-webkit-keyframes up_top {
@@ -3019,12 +3057,12 @@ body::-webkit-scrollbar-thumb {
   padding: 20px 0px;
   line-height: 1;
   margin: 0 auto;
-  font-family: "Epilogue", sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.96px;
   color: #fff;
-  background-color: #242424;
+  background-color: #193049;
   width: 100%;
   border-radius: 0;
 }
@@ -3056,7 +3094,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .price-box-wrap .price-tag h2 sub {
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
   bottom: 0;
@@ -3077,7 +3115,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .price-box-wrap .price-info ul li:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .price-box-wrap .price-info ul li svg, .price-box-wrap .price-info ul li i {
@@ -3087,7 +3125,7 @@ body::-webkit-scrollbar-thumb {
 .price-box-wrap .price-info .price-btn {
   padding: 12px 10px;
   border-radius: 45px;
-  border: 1px solid #171717;
+  border: 1px solid #193049;
   margin-top: 40px;
 }
 
@@ -3167,6 +3205,10 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.price-two-box .price-two-desc ul li i{
+  margin-right: 7px;
 }
 
 .price-two-box .price-two-desc ul li:not(:last-child) {
