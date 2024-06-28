@@ -1,15 +1,14 @@
 import { HttpClientModule, HttpClient, provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-
-import { DropdownModule, SidebarModule } from '@coreui/angular';
+import { DropdownModule, SharedModule, SidebarModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { provideRouter } from '@angular/router';
-import { content as routes }  from './shared/routes/routes';
+import { routes }  from './routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,8 +30,6 @@ export const appConfig: ApplicationConfig = {
     ),
   ]
 };
-
-
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

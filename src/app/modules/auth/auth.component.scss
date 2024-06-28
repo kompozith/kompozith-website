@@ -1,0 +1,41 @@
+::ng-deep {
+    @import '../../../scss/styles.scss';
+    c-input-group, .form-control, .form-floating {
+        border: 1px solid #787878;
+        border-radius: 5px;
+    }
+    .form-floating-custom .form-control:focus ~ label,
+    .form-floating-custom .form-control:not(:placeholder-shown) ~ label {
+        top: -0.1em;
+        left: 0.75rem;
+        padding: 0 0.25em;
+        font-size: 0.75rem;
+        background-color: white;
+    }
+    .form-floating-custom {
+        border: 1px solid #787878;
+        border-radius: 5px;
+        position: relative;
+    }
+    #floatingPasswordCustom {
+        position: relative;
+        background-color: transparent;
+    }
+    .form-floating-custom label {
+        position: absolute;
+        top: 50%;
+        left: 0.75rem;
+        transform: translateY(-50%);
+        transition: all 0.2s ease-in-out;
+        background-color: white;
+        padding: 0 0.25em;
+    }
+    .check-group {
+        align-items: center;
+    }
+    .custom-select {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+    }
+}
