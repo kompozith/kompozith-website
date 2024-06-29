@@ -21,10 +21,5 @@
       <i class="fa-solid fa-check fa-beat fa-xl custom-check" [ngClass]="{'toggle-visibility': passwordFunctions.specialChar(form.get('password')?.value)}" ></i>
       <p [translate]="'form.validator.pwdSpecialCharLength'" [translateParams]="{ minLength: specialCharLength}"></p>
     </li>
-    <li>
-      <input type="checkbox" class="checkbox-inside">
-      <i class="fa-solid fa-check fa-beat fa-xl custom-check" [ngClass]="{'toggle-visibility': !form.get('password')?.errors?.['required'] && passwordsMatch()}" ></i>
-      <p [translate]="'form.validator.pwdMatch'"></p>
-    </li>
   </ol>
 </div>

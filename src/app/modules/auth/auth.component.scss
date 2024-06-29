@@ -38,4 +38,13 @@
         height: 16px;
         margin-right: 10px;
     }
+    .logo {
+        max-width: 170px;
+    }
+    .invalid-feedback {
+        display: block;
+    }
+    .input-group .form-control.is-invalid, .input-group .form-select.is-invalid, .was-validated .input-group .form-control:invalid, .was-validated .input-group .form-select:invalid {
+        z-index: 0 !important;
+    }
 }

@@ -1,19 +1,57 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import firebase from 'firebase/compat/app';
+import { User } from '../../modeles/user';
+import { UserService } from './user.service';
+import { extractOwnProperties } from '../../modules/admin/shared/helpers/property-extractor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  private dbPath = '/users';
+  
+  userRef: AngularFireList<User>;
+
+  constructor(
+    private afAuth: AngularFireAuth, 
+    private afd: AngularFireDatabase,
+    private userService: UserService
+  ) {
+    this.userRef = this.afd.list(this.dbPath); 
+  }
    
-  signUp(data: {email: string, password: string}): Promise<any> {
-    return this.afAuth.createUserWithEmailAndPassword(data.email, data.password);
+  signUp(userData: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password).then(() => {
+        let user = new User(userData);
+        this.userService.create(user).then((response: any) => {
+          console.log(response);
+          resolve (response);
+        }, error => {
+          reject (error);
+        })
+      }, error => {
+        reject (error);
+      })
+    })
   }
   
-  signIn(data: {email: string, password: string}) {
-    return this.afAuth.signInWithEmailAndPassword(data.email, data.password)
+  signIn(data: {email: string, password: string, rememberMe: boolean}) {
+    return new Promise((resolve, reject) => {
+      const persistence = data.rememberMe ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION;
+      return this.afAuth.setPersistence(persistence).then(() => {
+        this.afAuth.signInWithEmailAndPassword(data.email, data.password).then((response: any) => {
+          resolve (response);
+        }, error => {
+          reject (error);
+        })
+      }, error => {
+        reject (error);
+      })
+    })
   }
   
   signInLink(email: string): Promise<any> {

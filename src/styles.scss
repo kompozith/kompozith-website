@@ -32,3 +32,12 @@ button, input {
         border: none !important;
         box-shadow: none !important;
 }
+.custom-alert {
+	border-radius: 5px;
+	padding: 15px;
+	margin-top: 5px;
+	color: white;
+}
+.custom-badge {
+        background: linear-gradient(-45deg, #88fc91 0%, #44cebe 50%, #098dd7 100%);
+}
