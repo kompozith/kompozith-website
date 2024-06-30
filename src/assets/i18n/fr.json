@@ -86,7 +86,7 @@
   "history": {
     "text_1": "Épopée",
     "text_2": "De la passion naît l'innovation",
-    "text_3": "À l'image d'un code astucieusement composé, notre agence façonne l'avenir.Ensemble, convertissons des éléments composites en triomphes numériques.",
+    "text_3": "À l'image d'un code astucieusement composé, notre agence façonne l'avenir. Ensemble, convertissons des éléments composites en triomphes numériques.",
     "text_4": "Innovation Permanente",
     "text_5": "Notre équipe, composée de jeunes talents passionnés et assidus, cultive quotidiennement des stratégies visant à demeurer à la pointe des technologies.",
     "text_6": "Engagements formels",
@@ -105,6 +105,7 @@
     "text_7": "Action",
     "text_8": "Total net à payer",
     "text_9": "Total Estimatif",
+    "text_91": "Total",
     "text_10":"Votre panier et vide !!!",
     
     "text_11": "Informations de contact",
@@ -117,7 +118,9 @@
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
     "text_19": "Soumettre",
-    "text_20":"Prix variant"
+    "text_20":"Prix variant",
+    "text_21":"Details de la commande",
+    "text_22":"Modifier la commande"
 
   },
 
@@ -210,6 +213,10 @@
       "sent": {
         "success": "Votre commande a été envoyée avec succès.",
         "error": "Votre commande n'a pas été envoyée. Veuillez réessayer plus tard."
+      },
+      "saved": {
+        "success": "La commande a étée enregistrée avec succès.",
+        "error": "La commande n'a pas été enregistrée. Veuillez réessayer plus tard."
       }
     }
   }
