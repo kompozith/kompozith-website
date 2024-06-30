@@ -62,13 +62,8 @@
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="phoneNumber">{{ 'contact.text_5' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('phoneNumber')?.valid), 
-<<<<<<< HEAD:src/app/landing/components/contact/contact.component.html
                             'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" type="text" placeholder="{{ 'form.text_4' | translate }}">
                             <div class="invalid-feedback text-danger">{{ 'form.text_4' | translate }}</div>
-=======
-                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text" placeholder="{{ 'form.text_4' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
->>>>>>> origin/bmis:src/app/modules/landing/components/contact/contact.component.html
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
                             <label class="form-label" for="subject">{{ 'contact.text_8' | translate }}</label>
