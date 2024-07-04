@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonCloseDirective, ButtonDirective, ModalBodyComponent, ModalComponent, ModalContentComponent, ModalFooterComponent, ModalHeaderComponent } from '@coreui/angular';
 import { IntouchService } from '../../../../_services/API/intouch.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'message-delete-modal',
   standalone: true,
-  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent],
+  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, ModalHeaderComponent, 
+    ModalBodyComponent, ModalFooterComponent, ModalContentComponent, TranslateModule],
   templateUrl: './delete-modal.component.html',
   styleUrl: './delete-modal.component.scss'
 })
