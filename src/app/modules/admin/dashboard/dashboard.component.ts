@@ -28,7 +28,11 @@ interface IUser {
   templateUrl: 'dashboard.component.html',
   styleUrl: 'dashboard.component.scss',
   standalone: true,
-  imports: [WidgetsDropdownComponent, WidgetsBrandComponent, TextColorDirective, CardFooterComponent, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, GutterDirective, ProgressBarDirective, TableDirective, ProgressComponent, CardHeaderComponent, AvatarComponent]
+  imports: [WidgetsDropdownComponent, WidgetsBrandComponent, 
+    TextColorDirective, CardFooterComponent, CardComponent, CardBodyComponent, 
+    RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, 
+    ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, GutterDirective, 
+    ProgressBarDirective, TableDirective, ProgressComponent, CardHeaderComponent, AvatarComponent]
 })
 
 export class DashboardComponent implements OnInit {

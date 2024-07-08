@@ -514,5 +514,39 @@
     "YEMEN": "Yemen",
     "ZAMBIA": "Zambia",
     "ZIMBABWE": "Zimbabwe"
+  },
+  "orderAdmin":{
+    "name":"nom",
+    "Email":"Email",
+    "Total":"Total (FCFA)",
+    "Phone":"Phone Number",
+    "Date":"Date",
+    "Actions":"Actions",
+    "EmptyOrder":"Empty order list",
+    "cancel":"Cancel",
+    "Delete":"Supprimer"
+           
+
+
+
+  },
+  "Message":{
+    "customer":"Customer",
+    "Sujet":"Sujet",
+    "Date":"Date",
+    "Actions":"Actions",
+    "EmptyMessage":"Empty Message List",
+    "Details":"Message detail",
+    "LastName":"Name:",
+    "Email":"Email:",
+    "Phone":"Phone Number:",
+    "sujet":"Sujet:",
+    "message":"Message:"
+  },
+  "header":{
+    "Dashboard":"Dashboard",
+    "User":"User",
+    "Settings":"Settings"
+   
   }
 }

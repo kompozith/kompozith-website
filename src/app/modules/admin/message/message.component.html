@@ -11,10 +11,10 @@
           >
           <thead>
           <tr>
-            <th scope="col">Auteur</th>
-            <th scope="col" class="text-center">Sujet</th>
-            <th scope="col" class="text-center">Date</th>
-            <th scope="col" class="text-center">Actions</th>
+            <th scope="col">{{ 'Message.customer' | translate }} </th>
+            <th scope="col" class="text-center">{{ 'Message.Sujet' | translate }}</th>
+            <th scope="col" class="text-center">{{ 'Message.Date' | translate }}</th>
+            <th scope="col" class="text-center">{{ 'Message.Actions' | translate }}</th>
           </tr>
           </thead>
           <tbody>
@@ -42,7 +42,7 @@
             } @empty {
             <tr>
               <td class="text-center" colspan="6">
-                Empty message list
+                {{ 'Message.EmptyMessage' | translate }}
               </td>
             </tr>
             }

@@ -51,31 +51,31 @@
                             <label class="form-label" for="name">{{ 'contact.text_7' | translate }}<span style="color:red">*</span></label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('name')?.valid), 
                                 'form-control is-valid':(submitted && contactForm.get('name')?.valid)}"  type="text" formControlName="name"  placeholder="{{ 'form.text_6' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_100' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_6' | translate }}</div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
                             <label class="form-label" for="email">{{ 'contact.text_6' | translate }}<span style="color:red">*</span></label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('email')?.valid), 
                                                 'form-control is-valid':(submitted && contactForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_3' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_3' | translate }}</div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-sm-12 col-12">
-                            <label class="form-label" for="phoneNumber">{{ 'contact.text_51' | translate }}</label>
+                            <label class="form-label" for="phoneNumber">{{ 'contact.text_5' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('phoneNumber')?.valid), 
-                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text" placeholder="{{ 'form.text_4' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
+                            'form-control is-valid':(submitted && contactForm.get('phoneNumber')?.valid)}" type="text" placeholder="{{ 'form.text_4' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_4' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label class="form-label" for="subject">{{ 'contact.text_61' | translate }}</label>
+                            <label class="form-label" for="subject">{{ 'contact.text_8' | translate }}</label>
                             <input [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('subject')?.valid), 
-                            'form-control is-valid':(submitted && contactForm.get('subject')?.valid)}" formControlName="subject" type="text" placeholder="{{ 'form.text_61' | translate }}">
-                            <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
+                            'form-control is-valid':(submitted && contactForm.get('subject')?.valid)}" formControlName="subject" type="text" placeholder="{{ 'form.text_7' | translate }}">
+                            <div class="invalid-feedback text-danger">{{ 'form.text_7' | translate }}</div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label class="form-label" for="body">{{ 'contact.text_8' | translate }}<span style="color:red">*</span></label>
+                            <label class="form-label" for="body">{{ 'contact.text_9' | translate }}<span style="color:red">*</span></label>
                             <textarea [ngClass]="{'form-control is-invalid':(submitted && !contactForm.get('body')?.valid), 
                             'form-control is-valid':(submitted && contactForm.get('body')?.valid)}" formControlName="body" id="message" cols="30" rows="4" placeholder="{{ 'form.text_7' | translate }}"></textarea>
-                            <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
+                            <div class="invalid-feedback text-danger">{{ 'form.text_7' | translate }}</div>
                         </div>
                         <div class="contact-btn-wrap">
                             <app-http-response-status></app-http-response-status>

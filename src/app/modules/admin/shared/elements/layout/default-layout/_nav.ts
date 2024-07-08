@@ -12,7 +12,7 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
-    name: 'Caustomer'
+    name: 'client'
   },
   {
     name: 'Commandes',
