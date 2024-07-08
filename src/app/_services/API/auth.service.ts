@@ -18,7 +18,7 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth, 
     private afd: AngularFireDatabase,
-    private userService: UserService
+    private userService: UserService,
   ) {
     this.userRef = this.afd.list(this.dbPath); 
   }
@@ -53,6 +53,29 @@ export class AuthService {
       })
     })
   }
+   
+  forgotPassword(email: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      // Vérifier l'existence de l'email dans Realtime Database
+      this.afd.list('users', ref => ref.orderByChild('email').equalTo(email)).snapshotChanges().subscribe(snapshot => {
+        if (snapshot.length > 0) {
+          // L'email existe, envoyer l'email de réinitialisation du mot de passe
+          this.afAuth.sendPasswordResetEmail(email)
+            .then(response => {
+              resolve(response);
+            })
+            .catch(error => {
+              reject(error);
+            });
+        } else {
+          // L'email n'existe pas
+          reject('Email not found in database');
+        }
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   
   signInLink(email: string): Promise<any> {
     return this.afAuth.sendSignInLinkToEmail(email, actionCodeSettings)
@@ -66,8 +89,6 @@ export class AuthService {
     return this.afAuth.currentUser !== null;
   }
 }
-
-
 
 
 var actionCodeSettings = {

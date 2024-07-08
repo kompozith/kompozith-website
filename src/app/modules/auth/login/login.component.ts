@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       })
       .catch((error: any) => {
         console.log(error)
-        if(error.toString().includes('The supplied auth credential is incorrect'))
+        if(error.toString().includes('The supplied auth credential is incorrect')) // Do not translate this
           this._httpResponseService.response = {status: false, message: 'auth.user.invalidUserCredentials'}; 
         else
           this._httpResponseService.response = {status: false, message: 'errorresponse.unexpectedError'}; 
