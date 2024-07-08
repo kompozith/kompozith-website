@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './link.component.html',
   styleUrl: './link.component.scss'
 })
-export class LinkVerificationComponent {
+export class EmailLinkComponent {
 
 }
