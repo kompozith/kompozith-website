@@ -1,0 +1,201 @@
+<c-card class="mb-4">
+  <c-card-body>
+    <c-row>
+      <c-col lg="{{ updatable || loading ? '8' : ''}}" class="pt-3 order">
+        <table
+            cTable
+            [hover]="true"
+            [responsive]="true"
+            [striped]="true"
+            align="middle"
+            class="mb-0 border table table-bordered"
+          >
+            <thead>
+              <tr>
+                <th>{{ 'order.text_4' | translate }}</th>
+                <th class="text-center">{{ 'order.text_5' | translate }}</th>
+                <th class="text-center">{{ 'order.text_6' | translate }}</th>
+                @if(updatable || loading) {
+                  <th class="text-center">{{ 'order.text_7' | translate }}</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @if(!loading) {
+                @for(serv of _orderHelper.cmd_services; track serv.id) {
+                <tr>
+                    <td>
+                      @if(!_orderHelper.getService(serv.id).netPrice) {
+                      {{ _orderHelper.getService(serv.id).name | translate }}
+                        <span class="text-danger">({{ 'order.text_20' | translate}})</span>
+                      } @else {
+                        {{ _orderHelper.getService(serv.id).name | translate }}
+                      }
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <div class="qty-box">
+                        <c-row class="input-group d-flex align-items-center">
+                          @if(updatable) {
+                          <button class="btn btn-outline-secondary btn-square bootstrap-touchspin-down" type="button" data-type="minus" (click)="_orderHelper.decrement(serv)">
+                              <i class="fa-regular fa-minus"></i>
+                          </button>
+                          }
+                          <input class="touchspin text-center form-control" disabled="true" min="1" type="text" (change)="_orderHelper.setQty($event, serv)" name="id" value="{{serv.quantity}}" data-original-title="" title="" onlyNumbers />
+                          @if(updatable) {
+                          <button class="btn btn-outline-secondary btn-square bootstrap-touchspin-up" type="button" data-type="plus" (click)="_orderHelper.increment(serv)">
+                            <i class="fa-regular fa-plus"></i>
+                          </button>
+                          }
+                        </c-row>
+                      </div>
+                    </td>
+                    <td class="text-center">{{ _orderHelper.totalItemPrice(serv) }}</td>
+                    @if(updatable) {
+                    <td class="text-center" (click)="_orderHelper.cmdRemoveService(serv.id)">
+                      <i class="fa-regular fa-circle-xmark"></i>
+                    </td>
+                    }
+                </tr>
+                } @empty {
+                <tr>
+                  <td colspan="4" class="text-center">{{ 'order.text_10' | translate }}</td>
+                </tr>
+                }
+                @if(_orderHelper.cmd_services.length && _orderHelper.estimatedTotal()) {
+                  <tr class="tr-total">
+                    <td class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
+                    <td class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
+                  </tr>
+                } @else if (_orderHelper.cmd_services.length && !_orderHelper.estimatedTotal()) {
+                  <tr class="tr-total">
+                    <td class="text-center" colspan="2">{{ 'order.text_91' | translate }}</td>
+                    <td class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
+                  </tr>
+                }
+              } @else { 
+                @for(skel of skeleton; track skel) {
+                <tr>
+                  <td>
+                    <app-order-skeleton></app-order-skeleton>
+                  </td>
+                  <td>
+                    <app-order-skeleton></app-order-skeleton>
+                  </td>
+                  <td>
+                    <app-order-skeleton></app-order-skeleton>
+                  </td>
+                  <td>
+                    <app-order-skeleton></app-order-skeleton>
+                  </td>
+                </tr>
+                }
+              }
+            </tbody>
+        </table>
+        @if(!loading && !updatable) {
+        <div class="contact-btn-wrap d-flex justify-content-end pt-3">
+          <button type="button" class="btn btn-primary text-light" (click)="enableUpdate()" cButton>
+            {{ 'order.text_22' | translate }}
+          </button>
+        </div>
+        }
+        
+        @if(updatable) {
+        <h3 class="pt-5">{{ 'order.text_11' | translate }}</h3>
+        <form id="contact-form" [formGroup]="orderForm" class="contact-input position-relative" novalidate [ngClass]="{ 'was-validated': submitted }">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                    <label class="form-label" for="firstname">{{ 'order.text_12' | translate }}<span style="color:red">*</span></label>
+                    <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('firstname')?.valid), 
+                    'form-control is-valid':(submitted && orderForm.get('firstname')?.valid)}" formControlName="firstname" type="text"  placeholder="{{ 'form.text_1' | translate }}">
+                    <div class="invalid-feedback text-danger">{{ 'form.text_100' | translate }}</div>
+                </div> 
+                <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                    <label class="form-label" for="lastname">{{ 'order.text_13' | translate }}<span style="color:red">*</span></label>
+                    <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('lastname')?.valid), 
+                    'form-control is-valid':(submitted && orderForm.get('lastname')?.valid)}" formControlName="lastname" type="text"  placeholder="{{ 'form.text_2' | translate }}">
+                    <div class="invalid-feedback text-danger">{{ 'form.text_101' | translate }}</div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                    <label class="form-label" for="email">{{ 'order.text_15' | translate }}<span style="color:red">*</span></label>
+                    <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('email')?.valid), 
+                    'form-control is-valid':(submitted && orderForm.get('email')?.valid)}" formControlName="email" type="email" placeholder="{{ 'form.text_4' | translate }}"/>
+                    <div class="invalid-feedback text-danger">{{ 'form.text_102' | translate }}</div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+                    <label class="form-label" for="phoneNumber">{{ 'order.text_14' | translate }}</label>
+                    <input [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('phoneNumber')?.valid), 
+                    'form-control is-valid':(submitted && orderForm.get('phoneNumber')?.valid)}" formControlName="phoneNumber" type="text"  placeholder="{{ 'form.text_3' | translate }}">
+                    <div class="invalid-feedback text-danger">{{ 'form.text_103' | translate }}</div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                    <label class="form-label" for="requirements">{{ 'order.text_16' | translate }}</label>
+                    <textarea [ngClass]="{'form-control is-invalid':(submitted && !orderForm.get('requirements')?.valid), 
+                    'form-control is-valid':(submitted && orderForm.get('requirements')?.valid)}" formControlName="requirements" cols="30" rows="4" placeholder="{{ 'form.text_5' | translate }}"></textarea>
+                    <div class="invalid-feedback text-danger">{{ 'form.text_104' | translate }}</div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                    <app-http-response-status></app-http-response-status>
+                </div>
+                <div class="contact-btn-wrap d-flex justify-content-end">
+                    <button *ngIf="!loading" type="submit" class="common-btn hover-black border-0" (click)="saveUpdates()">
+                        <span>
+                          {{ 'order.text_17' | translate }}
+                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.6875 7.71875L8.6875 12.7188C8.3125 13.125 7.65625 13.125 7.28125 12.7188C6.875 12.3438 6.875 11.6875 7.28125 11.3125L10.5625 8H1C0.4375 8 0 7.5625 0 7C0 6.46875 0.4375 6 1 6H10.5625L7.28125 2.71875C6.875 2.34375 6.875 1.6875 7.28125 1.3125C7.65625 0.90625 8.3125 0.90625 8.6875 1.3125L13.6875 6.3125C14.0938 6.6875 14.0938 7.34375 13.6875 7.71875Z" fill="currentColor"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <button *ngIf="loading" class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        {{ 'form.text_8' | translate }}
+                    </button>
+                </div>
+                <p class="form-message"></p>
+            </div>
+        </form>
+        }
+      </c-col>
+      @if(updatable || loading) {
+      <c-col lg="4" class="pt-3 mobt-35 order-first order-lg-last service">
+          <div class="sidebar-wrap">
+              <div class="single-sidebar">
+                  @if(!loading) {
+                  <h2 class="sidebar-title">{{ 'order.text_18' | translate }}</h2>
+                  <form action="#" class="sidebar-search position-relative" >
+                      <input class="w-100" (keyup)="_orderHelper.filterUpdate()" type="text" id="filter" placeholder="Rechercher...">
+                      <button class="border-0 position-absolute top-50 translate-middle-y" type="submit">
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13.5938 6.5C13.5938 7.9375 13.125 9.28125 12.3438 10.3438L16.2812 14.3125C16.6875 14.6875 16.6875 15.3438 16.2812 15.7188C15.9062 16.125 15.25 16.125 14.875 15.7188L10.9062 11.75C9.84375 12.5625 8.5 13 7.09375 13C3.5 13 0.59375 10.0938 0.59375 6.5C0.59375 2.9375 3.5 0 7.09375 0C10.6562 0 13.5938 2.9375 13.5938 6.5ZM7.09375 11C9.5625 11 11.5938 9 11.5938 6.5C11.5938 4.03125 9.5625 2 7.09375 2C4.59375 2 2.59375 4.03125 2.59375 6.5C2.59375 9 4.59375 11 7.09375 11Z" fill="currentColor"/>
+                          </svg>
+                      </button>
+                  </form>
+                  } @else {
+                    <h2 class="sidebar-title"><app-order-skeleton></app-order-skeleton></h2>
+                    <form action="#" class="sidebar-search position-relative" >
+                      <app-order-skeleton></app-order-skeleton>
+                      <app-order-skeleton></app-order-skeleton>
+                  </form>
+                  }
+                  <ul class="{{!loading? 'sidebar-tag d-flex flex-wrap' : ''}} pt-3">
+                    @if(!loading) {
+                      @for(serv of _orderHelper.services; track serv.id) {
+                        <li (click)="_orderHelper.addToList(serv.id)"><a>{{ serv.name | translate }}</a></li>
+                      } @empty {
+                        <span class="text-center">Aucun service disponible !</span>
+                      } 
+                    } @else { 
+                        @for(skel of skeleton2; track skel) {
+                          <div class="sidebar-title">
+                            <app-order-skeleton></app-order-skeleton>
+                          </div>
+                        }
+                      }
+                  </ul>
+              </div>
+          </div>
+      </c-col>
+      }
+    </c-row>
+  </c-card-body>
+</c-card>

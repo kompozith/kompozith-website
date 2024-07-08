@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="myModalLabel160">Details du message</h5>
+    <button (click)="exitModal()" cButtonClose></button>
+</div>
+<div class="modal-body" tabindex="0" ngbAutofocus>
+    <h5>Auteur</h5>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong>Nom: </strong>{{ message.author.name }}
+        </li>
+        <li class="list-group-item">
+            <strong>Email: </strong> {{ message.author.email }}
+        </li>
+        <li class="list-group-item">
+            <strong>Telephone: </strong> {{ message.author.phoneNumber }}
+        </li>
+    </ul>
+    <hr>
+    <div>
+        <h5>Sujet</h5>
+        {{ message.subject }}
+    </div>
+    <hr>
+        <h5>Message
+        </h5>{{ message.body }}
+    <div>
+       
+    </div>
+</div>

@@ -3510,3 +3510,8 @@ body::-webkit-scrollbar-thumb {
 .price-tab-btn .btw {
   border-right: 3px solid #ffffff;
 }
+
+.logo {
+  max-width: "200px";
+  cursor: pointer;
+}

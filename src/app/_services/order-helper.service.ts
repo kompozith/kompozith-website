@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Order, OrderItem } from '../modeles/order';
 import { OrderMemoryService } from './order-memory.service';
+import { _Service } from '../modeles/service';
+import { PackageItem, _Package } from '../modeles/package';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +13,19 @@ export class OrderHelper {
     private _orderMemoryService: OrderMemoryService,){
   }
 
-  public products: any = [];
-  public services: any = [];
-  public finalItems:OrderItem[] = [];
-  public services_copy: any = [];
+  public services: _Service[] = [];
+  public services_copy: _Service[] = [];
   flexible: boolean = false;
 
   public cmd_id: any;
-  public cmd_services:any[] = [];
-  public all_services:{id: number, name:string, price: number, qty: number, wholesalePrice: boolean, netPrice: boolean}[] =  [
+  public cmd_services: OrderItem[] = [];
+  public finalItems:OrderItem[] = [];
+  public all_services:_Service[] =  [
     {
       id: 1,
       name: 'pricing.service.name.branding',
       price: 90000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -32,7 +33,7 @@ export class OrderHelper {
       id: 2,
       name: 'pricing.service.name.min_website',
       price: 120000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -40,7 +41,7 @@ export class OrderHelper {
       id: 3,
       name: 'pricing.service.name.social_media',
       price: 25000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -48,7 +49,7 @@ export class OrderHelper {
       id: 4,
       name: 'pricing.service.name.marketing_plan',
       price: 30000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -56,7 +57,7 @@ export class OrderHelper {
       id: 5,
       name: 'pricing.service.name.communication_plan',
       price: 30000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -64,7 +65,7 @@ export class OrderHelper {
       id: 6,
       name: 'pricing.service.name.lead',
       price: 30000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -72,7 +73,7 @@ export class OrderHelper {
       id: 7,
       name: 'pricing.service.name.branding_study',
       price: 20000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -80,7 +81,7 @@ export class OrderHelper {
       id: 8,
       name: 'pricing.service.name.website_review',
       price: 80000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: true
     },
@@ -88,7 +89,7 @@ export class OrderHelper {
       id: 9,
       name: 'pricing.service.name.flyer',
       price: 18000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: true,
       netPrice: true
     },
@@ -96,7 +97,7 @@ export class OrderHelper {
       id: 10,
       name: 'pricing.service.name.roll_up',
       price: 20000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: true,
       netPrice: true
     },
@@ -104,7 +105,7 @@ export class OrderHelper {
       id: 11,
       name: 'pricing.service.name.logo',
       price: 35000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: true,
       netPrice: true
     },
@@ -112,7 +113,7 @@ export class OrderHelper {
       id: 12,
       name: 'pricing.service.name.business_card',
       price: 15000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: true,
       netPrice: true
     },
@@ -120,7 +121,7 @@ export class OrderHelper {
       id: 13,
       name: 'pricing.service.name.web_app',
       price: 300000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: false
     },
@@ -128,7 +129,7 @@ export class OrderHelper {
       id: 14,
       name: 'pricing.service.name.complexe_website',
       price: 200000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: false
     },
@@ -136,7 +137,7 @@ export class OrderHelper {
       id: 15,
       name: 'pricing.service.name.mobile_app',
       price: 250000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: false
     },
@@ -144,36 +145,57 @@ export class OrderHelper {
       id: 16,
       name: 'pricing.service.name.desk_app',
       price: 350000,
-      qty: 1,
+      quantity: 1,
       wholesalePrice: false,
       netPrice: false
     }
   ]
-  public packs = [
+  public packs: _Package[] = [
     {
-      id: '1',
+      id: 1,
       name: "Starter",
-      services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:true},{id:3,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
+      items: [
+        {id:1,quantity:1,selected:true},
+        {id:2,quantity:1,selected:true},
+        {id:3,quantity:1,selected:true},
+        {id:4,quantity:3,selected:true},
+        {id:5,quantity:3,selected:true},
+        {id:6,quantity:1,selected:true}
+      ],
       description: 'pricing.pack.description.starter',
       color: '#44cebe',
       price: 300000,
       duration: 1,
     },
     {
-      id: '2',
+      id: 2,
       name: "Boost",
       description: "pricing.pack.description.boost",
       color: '#098dd7',
-      services: [{id:7,qty:1,selected:true},{id:8,qty:1,selected:true},{id:9,qty:1,selected:true},{id:4,qty:3,selected:true},{id:5,qty:3,selected:true},{id:6,qty:1,selected:true}],
+      items: [
+        {id:7,quantity:1,selected:true},
+        {id:8,quantity:1,selected:true},
+        {id:9,quantity:1,selected:true},
+        {id:4,quantity:3,selected:true},
+        {id:5,quantity:3,selected:true},
+        {id:6,quantity:1,selected:true}
+      ],
       price: 250000,
       duration: 1,
     },
     {
-      id: '3',
+      id: 3,
       name: "Flex",
       description: "pricing.pack.description.flex",
       color: '#3d449e',
-      services: [{id:1,qty:1,selected:true},{id:2,qty:1,selected:false},{id:3,qty:1,selected:false},{id:4,qty:1,selected:true},{id:5,qty:1,selected:false},{id:6,qty:1,selected:true}],
+      items: [
+        {id:1,quantity:1,selected:true},
+        {id:2,quantity:1,selected:false},
+        {id:3,quantity:1,selected:false},
+        {id:4,quantity:1,selected:true},
+        {id:5,quantity:1,selected:false},
+        {id:6,quantity:1,selected:true}
+      ],
       price: 0,
       duration: 1,
       follow_up: 1,
@@ -182,12 +204,11 @@ export class OrderHelper {
   
   curency = 'XAF';
   
-  ngOnInit(){
-    let flex: any = JSON.stringify(this.packs[2].services);
+  ngOnInit() {
+    let flex: any = JSON.stringify(this.packs[2].items);
     localStorage.getItem('saved-flex-pack') ? flex = localStorage.getItem('saved-flex-pack'): "";
-    this.packs[2].services = JSON.parse(flex);
-    
- }
+    this.packs[2].items = JSON.parse(flex);
+  }
  
   filterUpdate() {
     // Reset ng-select on search
@@ -218,9 +239,11 @@ export class OrderHelper {
       }
       return ""+val;
   }
+  
   changeCure(cur: string){
     this.curency = cur;
   }
+  
   calcPrice(price: number){
     let old_cur = this.curency;
     let net_price;
@@ -242,11 +265,16 @@ export class OrderHelper {
     }
     return net_price;
   }
-  totalItemPrice(serv: any){
-    let price = this.getService(serv.id).price;
-    let qty = serv.qty;
-    let totalPrice = serv.wholesalePrice ? this.fibonacci(price, qty) : price*qty;
+  
+  totalItemPrice(item: OrderItem){
+    let servive: _Service = this.getService(item.id);
+    let qty = item.quantity;
+    let totalPrice = servive.wholesalePrice ? this.fibonacci(servive.price, qty) : servive.price*qty;
     return this.calcPrice(totalPrice);
+  }
+  
+  estimatedTotal(): boolean {
+    return this.cmd_services.some((elem: OrderItem) => !this.getService(elem.id).netPrice);
   }
   
 //Suite de Fibonacci pour l'accord de la réduction en fonction de la quantité commandée
@@ -261,34 +289,37 @@ export class OrderHelper {
     //Un
     return parseFloat(((((4/5)*this.fibonacci(u1, n-1)) + ((1/5)*this.fibonacci(u1, n-2))+ (u1/2)).toFixed(2)));
   }
-
   
-  totalPackPrice(services: any){
+  totalPackPrice(services: PackageItem[]){
     let pack_price = 0;
-    services.map((serv: any) => {
+    services.map((serv: PackageItem) => {
       let elem = this.getService(serv.id);
       if (serv.selected == true){ 
-        pack_price += serv.wholesalePrice ? this.fibonacci(elem.price, elem.qty) : elem.price * elem.qty;
+        pack_price += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
       }
     })
     return this.calcPrice(pack_price);
   }
   
-  totalOrderPrice(){
-    let cmd_price = 0;
-    this.cmd_services.map((serv: any) => {
+  totalServicesPrice(services: PackageItem[]){
+    let total_price = 0;
+    services.map((serv: PackageItem) => {
       let elem = this.getService(serv.id);
-      cmd_price += serv.wholesalePrice ? this.fibonacci(elem.price, elem.qty) : elem.price * elem.qty;
+      total_price += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
     })
-    return this.calcPrice(cmd_price);
+    return this.calcPrice(total_price);
   }
   
-  serviceCall(service: any){
-    let result = this.getService(service.id)
-    return {name: result?.name, qty: service.qty};
+  totalOrderPrice(){
+    let cmd_service = 0;
+    this.cmd_services.map((serv: OrderItem) => {
+      let elem = this.getService(serv.id);
+      cmd_service += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
+    })
+    return this.calcPrice(cmd_service);
   }
   
-  getService(id: any){
+  getService(id: any): _Service{
     let result: any;
     for (let i = 0; i < this.all_services.length; i++) {
       if(id == this.all_services[i].id){
@@ -299,93 +330,102 @@ export class OrderHelper {
     return result;
   }
   
-  selection(item: any){
-    item.selected ? this.addToList(item): this.cmdRemoveProduct(item);
+  toggleSelection(item: PackageItem): void {
     item.selected = !item.selected;
+    item.selected ? this.addToList(item.id): this.cmdRemoveService(item.id);
   }
   
   
-  getSavedPack(){
-    this.cmd_services.filter((cmd_elem: any) => {
-      this.packs[2].services.map((flex_elem: any) => {
+  getSavedPack(): void {
+    this.cmd_services.filter((cmd_elem: OrderItem) => {
+      this.packs[2].items.map((flex_elem: PackageItem) => {
         (flex_elem.id == cmd_elem.id)? flex_elem.selected = true : '';
       });
     });
   }
-  getOrder(order: any){
-    let temp_order: [] = order;
-    let temp = this.all_services.filter((cmd_elem: any) => {
+  
+  getOrder(order: PackageItem[]): void {
+    let temp_order: PackageItem[] = order;
+    let temp = this.all_services.filter((cmd_elem: _Service) => {
       let resp = false;
-      temp_order.map((flex_elem: any) => {
-        (flex_elem.id == cmd_elem.id)? (resp = true, cmd_elem.qty = flex_elem.qty) : '';
+      temp_order.map((flex_elem: PackageItem) => {
+        (flex_elem.id == cmd_elem.id)? (resp = true, cmd_elem.quantity = flex_elem.quantity) : '';
       });
       return resp;
     });
-    this.cmd_services = temp;
+    this.cmd_services = temp.map(elem => { return {id: elem.id, quantity: elem.quantity }});
   }
-  getPackByName(pack_name: any){
+  
+  getPackByName(pack_name: string): _Package {
     let pack = this.packs.filter((elem: any) => {
       return elem.name.toLowerCase() == pack_name.toLowerCase();
     });
     return pack[0];
   }
-  getSavedOrder(order: any){
-    let temp_order: [] = order;
-    let temp = this.all_services.filter((cmd_elem: any) => {
+  
+  getSavedOrder(order: OrderItem[]): void {
+    let temp_order: OrderItem[] = order;
+    let temp = this.all_services.filter((cmd_elem: _Service) => {
       let resp = false;
       temp_order.map((flex_elem: any) => {
         (flex_elem.id == cmd_elem.id)? resp = true : '';
       });
       return resp;
     });
-    this.cmd_services = temp;
+    this.cmd_services = temp.map(elem => { return {id: elem.id, quantity: elem.quantity }});
   }
-  getSavedFlex(){
+  
+  getSavedFlex(): void {
     let flex: any;
     localStorage.getItem('saved-order') ? flex = localStorage.getItem('saved-order'): "";
     let temp_order: [] = JSON.parse(flex);
-    let temp = this.all_services.filter((cmd_elem: any) => {
+    let temp = this.all_services.filter((cmd_elem: _Service) => {
       let resp = false;
-      temp_order.map((flex_elem: any) => {
+      temp_order.map((flex_elem: PackageItem) => {
         (flex_elem.id == cmd_elem.id)? resp = true : '';
       });
       return resp;
     });
-    this.cmd_services = temp;
+    this.cmd_services = temp.map(elem => { return {id: elem.id, quantity: elem.quantity }});
   }
-  total(pack: any){  
+  
+  total(pack: _Package): number {  
     let sum = 0;
-    pack.all_services.map((elem: any) => { 
+    pack.items.map((elem: PackageItem) => { 
       elem.selected ? sum += this.getService(elem.id)?.price: '' 
     })
     return sum;
   }
   
-  saveOrder(){
-    this._orderMemoryService.savedOrder(this.cmd_services).subscribe((elem: any) => {});
+  saveOrder(): void {
+    this._orderMemoryService.savedOrder(this.cmd_services).subscribe(() => {});
   }
-  addToList(serv: any){
-    serv.qty = 1;
-    this.cmd_services.push(serv);
-    this.actualizeProduct(this.cmd_services);
+  
+  addToList(item_id: number): void {
+    let exist = this.cmd_services.some((item: OrderItem) => item.id == item_id);
+    if(!exist) {
+      let item: OrderItem = { id: item_id, quantity: 1 }
+      this.cmd_services.push(item);
+    }
+    this.refreshServices(this.cmd_services);
     this.saveOrder();
   }
   
-  cmdRemoveProduct(serv: any){
+  cmdRemoveService(item_id: number): void {
     let servs = this.cmd_services;
     let temp = servs.filter((p: any) => {
-      return (p.id != serv.id);
+      return (p.id != item_id);
     });
     this.cmd_services = temp;  
-    this.actualizeProduct(temp); 
+    this.refreshServices(temp); 
     this.saveOrder();
   }
 
-  actualizeProduct(datas: any){
-    let temp = this.all_services.filter((serv: any) => {
+  refreshServices(items: OrderItem[]): void {
+    let temp = this.all_services.filter((serv: _Service) => {
       var result = true;
-      datas.map((cmd_pr: any) => {
-        (cmd_pr.id == serv.id)?
+      items.map((cmd_serv: OrderItem) => {
+        (cmd_serv.id == serv.id)?
         (result = false):
         '';
       });
@@ -396,39 +436,41 @@ export class OrderHelper {
     this.services_copy = temp; 
     this.flexible ?? this.filterUpdate();
   }
-  setQty(e: any, serv: any){
+  
+  setQty(e: any, serv: OrderItem): void{
     //Aucune valeur saisie
     if(!e.target.value){
-      serv.qty = e.target.value = 1;
+      serv.quantity = e.target.value = 1;
     }
     // Valeur normalement saisie
     else{
-      serv.qty = e.target.value
+      serv.quantity = e.target.value
     }
     // mis a jour du champ de saisie
-    e.target.value = serv.qty;
+    e.target.value = serv.quantity;
   }
   
-  public decrement(serv: any) {
-    if (serv.qty > 1) {
-      serv.qty -= 1;
+  public decrement(serv: OrderItem): void {
+    if (serv.quantity > 1) {
+      serv.quantity -= 1;
       this.saveOrder();
     }    
   }
 
-  public increment(serv: any) {
-    serv.qty += 1;
+  public increment(serv: OrderItem): void {
+    serv.quantity += 1;
     this.saveOrder();
   }
   
   //After all quantities have been set and ready to be saved.
-  finalOrderItems(): void {
-    this.cmd_services.map((cmd_pr: any) => {
-      this.finalItems.push({id: cmd_pr.id, quantity: cmd_pr.qty});
+  finalizeOrder(): void {
+    this.finalItems = [];
+    this.cmd_services.map((cmd_serv: OrderItem) => {
+      this.finalItems.push({id: cmd_serv.id, quantity: cmd_serv.quantity});
     });
   }
-  async savedToLocalStorage(pack: any){
-    pack.id < 2 ? localStorage.setItem('saved-order', JSON.stringify(pack.services)) : '';
+  async savedToLocalStorage(pack: _Package){
+    pack.id < 2 ? localStorage.setItem('saved-order', JSON.stringify(pack.items)) : '';
   }
   
 }

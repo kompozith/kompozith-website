@@ -1,0 +1,72 @@
+<c-card class="mb-4">
+    <c-card-body>
+      <c-row>
+        <table
+            cTable
+            [hover]="true"
+            [responsive]="true"
+            [striped]="true"
+            align="middle"
+            class="mb-0 border table table-bordered"
+          >
+          <thead>
+          <tr>
+            <th scope="col">Auteur</th>
+            <th scope="col" class="text-center">Sujet</th>
+            <th scope="col" class="text-center">Date</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          @if(!loading) {
+            @for(message of messages; track message.id) {
+            <tr>
+              <td>{{ message.author.email }}</td>
+              <td class="text-center">{{ message.subject }}</td>
+              <td class="text-center">{{ message.date }}</td>
+              <td class="text-center">
+                <c-badge class="text-info" (click)="openModal(messageDetailModalComponent, message.key)">
+                    <i class="fa-regular fa-eye"></i>
+                </c-badge>
+                <c-badge class="text-danger" (click)="openModal(deleteMessageModalComponent, message.key)">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </c-badge>
+              </td>
+            </tr>
+            <ng-template #messageDetailModalComponent>
+              <message-detail-modal [messageKey]="message.key" [exitModal]="exitModal" />
+            </ng-template>
+            <ng-template #deleteMessageModalComponent>
+              <message-delete-modal [messageKey]="message.key" [exitModal]="exitModal" />
+            </ng-template>
+            } @empty {
+            <tr>
+              <td class="text-center" colspan="6">
+                Empty message list
+              </td>
+            </tr>
+            }
+          } @else {
+            @for(skel of skeleton; track skel) {
+            <tr>
+              <td>
+                <app-order-skeleton></app-order-skeleton>
+              </td>
+              <td>
+                <app-order-skeleton></app-order-skeleton>
+              </td>
+              <td>
+                <app-order-skeleton></app-order-skeleton>
+              </td>
+              <td>
+                <app-order-skeleton></app-order-skeleton>
+              </td>
+            </tr>
+            }
+          }
+          </tbody>
+        </table>
+      </c-row>
+    </c-card-body>
+  </c-card>
+    
