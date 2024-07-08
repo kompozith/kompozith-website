@@ -117,7 +117,7 @@
                   </div>
                 </div>
                 <div class="form-group mb-3">
-                  <div class="form-floating-custom input-group mb-3">
+                  <div class="form-floating-custom input-group">
                     <input class="form-control" formControlName="password" [type]="passwordFunctions.hashedPassword ? 'password' : 'text'" id="password" placeholder=""
                       [ngClass]="{
                         'is-invalid': form.get('password')?.invalid && (submitted || form.get('password')?.touched), 'invalid-input': form.get('password')?.invalid && (submitted || form.get('password')?.touched), 'valid-input': form.get('password')?.valid,
@@ -149,7 +149,7 @@
                   *ngIf="!form.get('password')?.errors?.['required'] && form.get('password')?.invalid"
                 ></password-validator-template>
                 <div class="form-group mb-3">
-                  <div class="form-floating-custom input-group mb-3">
+                  <div class="form-floating-custom input-group">
                     <input class="form-control" formControlName="passwordConfirm" [type]="passwordFunctions.hashedPassword ? 'password' : 'text'" id="passwordcomfirm" placeholder=""
                       [ngClass]="{
                         'is-invalid':

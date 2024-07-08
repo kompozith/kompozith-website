@@ -77,6 +77,26 @@ export class AuthService {
     });
   }
   
+  resetPassword(oobCode: string, newPassword: string) {
+    return new Promise((resolve, reject) => {
+    // L'email existe, envoyer l'email de réinitialisation du mot de passe
+    this.afAuth.verifyPasswordResetCode(oobCode)
+      .then((result) => {
+        console.log(result);
+        this.afAuth.confirmPasswordReset(oobCode, newPassword)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+  
   signInLink(email: string): Promise<any> {
     return this.afAuth.sendSignInLinkToEmail(email, actionCodeSettings)
   }
