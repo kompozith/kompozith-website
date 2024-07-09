@@ -4,7 +4,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 import firebase from 'firebase/compat/app';
 import { User } from '../../modeles/user';
 import { UserService } from './user.service';
-import { extractOwnProperties } from '../../modules/admin/shared/helpers/property-extractor';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,7 @@ export class AuthService {
     private afAuth: AngularFireAuth, 
     private afd: AngularFireDatabase,
     private userService: UserService,
+    private router: Router
   ) {
     this.userRef = this.afd.list(this.dbPath); 
   }
@@ -98,9 +99,9 @@ export class AuthService {
   
   verificationLink(): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      const user = await this.afAuth.currentUser;
-      if (user) {
-        await user.sendEmailVerification()
+      if (this.isAuthenticated) {
+        const user = await this.afAuth.currentUser;
+        await user?.sendEmailVerification()
         .then(response => {
           resolve(response);
         })
@@ -108,13 +109,15 @@ export class AuthService {
           reject(error);
         });
       }
+      else {
+        reject('UnAutheticated');
+      }
     })
   }
   
   verifyAccount(oobCode: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      const user = await this.afAuth.currentUser;
-      if (user) {
+      if (this.isAuthenticated) {
         await this.afAuth.applyActionCode(oobCode)
         .then(response => {
           resolve(response);
@@ -122,6 +125,9 @@ export class AuthService {
         .catch(error => {
           reject(error);
         });
+      }
+      else {
+        reject('UnAutheticated');
       }
     })
   }
