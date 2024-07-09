@@ -24,11 +24,10 @@ export class AuthService {
   }
    
   signUp(userData: any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password).then(() => {
+    return new Promise(async (resolve, reject) => {
+      return await this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password).then(() => {
         let user = new User(userData);
         this.userService.create(user).then((response: any) => {
-          console.log(response);
           resolve (response);
         }, error => {
           reject (error);
@@ -69,7 +68,7 @@ export class AuthService {
             });
         } else {
           // L'email n'existe pas
-          reject('Email not found in database');
+          reject('Email not found in database'); // Do not translate this
         }
       }, error => {
         reject(error);
@@ -95,6 +94,36 @@ export class AuthService {
         reject(error);
       });
     });
+  }
+  
+  verificationLink(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const user = await this.afAuth.currentUser;
+      if (user) {
+        await user.sendEmailVerification()
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+      }
+    })
+  }
+  
+  verifyAccount(oobCode: string): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const user = await this.afAuth.currentUser;
+      if (user) {
+        await this.afAuth.applyActionCode(oobCode)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+      }
+    })
   }
   
   signInLink(email: string): Promise<any> {

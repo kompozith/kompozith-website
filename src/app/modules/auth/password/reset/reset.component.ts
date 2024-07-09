@@ -103,7 +103,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
       .catch((error: any) => {
         console.log(error)
         if(error.toString().includes('The action code is invalid')) { // Do not translate this
-          this._httpResponseService.response = {status: false, message: 'errorResponse.invalidORExpiredResetCode'}; 
+          this._httpResponseService.response = {status: false, message: 'errorResponse.invalidOrExpiredResetCode'}; 
         } else
           this._httpResponseService.response = {status: false, message: 'errorResponse.unexpectedError'}; 
         this.fetching = false;

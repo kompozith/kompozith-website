@@ -1,1 +1,40 @@
-<p>link works!</p>
+<div class="bg-light dark:bg-transparent min-vh-100 d-flex flex-row align-items-center">
+    <c-container breakpoint="md">
+      <c-row class="justify-content-center">
+        <c-col lg="5" xl="4">
+          <c-card>
+            <c-card-body class="text-center p-4">
+                <h1 [routerLink]="['/']">
+                  <img class="logo" src="../../../../assets/images/logo-light.svg" alt="{{'signIn' | translate}}">
+                </h1>
+                <p>
+                  Votre adresse e-mail n'a pas étée vérifiée. Veuillez vérifier votre messagerie et 
+                  suivre la procédure indiquée pour valider votre adresse. Si vous n'avez pas reçu 
+                  de lien, vous pouvez cliquer sur le bouton ci dessous pour en demander un nouveau.
+                </p>
+                <c-row>
+                  <c-col>
+                    <button *ngIf="!fetching" (click)="submit()" cButton class="px-4" color="primary">
+                      Resend
+                    </button>
+                    <button *ngIf="fetching" class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        {{ 'form.text_8' | translate }}
+                    </button>
+                  </c-col>
+                </c-row>
+                <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                  <app-http-response-status></app-http-response-status>
+                </div>
+            </c-card-body>
+            <c-card-footer>
+              <c-row class="text-center pt-3">
+                  <p>Retourner a l'<a [routerLink]="['/']">accueil</a></p> 
+              </c-row>
+            </c-card-footer>
+          </c-card>
+        </c-col>
+      </c-row>
+    </c-container>
+  </div>
+  

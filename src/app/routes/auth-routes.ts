@@ -13,7 +13,7 @@ export const authRoutes: Routes =  [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'email-link', component: EmailLinkComponent },
-    { path: 'email-verification', component: EmailVerificationComponent },
+    { path: 'email-verify', component: EmailVerificationComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent }
 ];

@@ -1,1 +1,25 @@
-<p>verify works!</p>
+<div class="bg-light dark:bg-transparent min-vh-100 d-flex flex-row align-items-center">
+    <c-container breakpoint="md">
+      <c-row class="justify-content-center">
+        <c-col lg="5" xl="4">
+            <c-card>
+              <c-card-body class="text-center p-4">
+                  <h1 [routerLink]="['/']">
+                    <img class="logo" src="../../../../assets/images/logo-light.svg" alt="{{'signIn' | translate}}">
+                  </h1>
+                  <app-email-verify-loader *ngIf="fetching"></app-email-verify-loader>
+                  <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                    <app-http-response-status></app-http-response-status>
+                  </div>
+              </c-card-body>
+              <c-card-footer>
+                <c-row class="text-center pt-3">
+                    <p>Retourner a l'<a [routerLink]="['/']">accueil</a></p> 
+                </c-row>
+              </c-card-footer>
+            </c-card>
+        </c-col>
+      </c-row>
+    </c-container>
+  </div>
+  
