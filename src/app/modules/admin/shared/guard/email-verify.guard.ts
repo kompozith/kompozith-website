@@ -6,18 +6,19 @@ import { map, take } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class EmailVerifyGuard implements CanActivate {
   
   constructor(private router: Router, private authService: AuthService) {}
   
   canActivate: CanActivateFn = () => {
-    return this.authService.isAuthenticated().pipe(
+    return this.authService.isEmailVerified().pipe(
       take(1),
-      map((isLoggedIn: boolean) => {
-        if (!isLoggedIn) {
-          this.router.navigate(['/auth/login']);
+      map((isEmailVerified: boolean) => {
+        if (!isEmailVerified) {
+          this.router.navigate(['/auth/email-link']);
           return false;
         }
+        this.router.navigate(['/admin']);
         return true;
       })
     );

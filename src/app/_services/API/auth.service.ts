@@ -5,6 +5,8 @@ import firebase from 'firebase/compat/app';
 import { User } from '../../modeles/user';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -99,36 +101,29 @@ export class AuthService {
   
   verificationLink(): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      if (this.isAuthenticated) {
-        const user = await this.afAuth.currentUser;
-        await user?.sendEmailVerification()
-        .then(response => {
-          resolve(response);
-        })
-        .catch(error => {
-          reject(error);
-        });
-      }
-      else {
-        reject('UnAutheticated');
-      }
+      const user = await this.afAuth.currentUser;
+      await user?.sendEmailVerification()
+      .then(response => {
+        resolve(response);
+      })
+      .catch(error => {
+        reject(error);
+      });
     })
   }
   
   verifyAccount(oobCode: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      if (this.isAuthenticated) {
-        await this.afAuth.applyActionCode(oobCode)
-        .then(response => {
-          resolve(response);
-        })
-        .catch(error => {
-          reject(error);
-        });
-      }
-      else {
-        reject('UnAutheticated');
-      }
+      await this.afAuth.applyActionCode(oobCode)
+      .then(response => {
+        resolve(response);
+        setTimeout(() => {
+          this.router.navigate(['/admin']);
+        }, 5000)
+      })
+      .catch(error => {
+        reject(error);
+      });
     })
   }
   
@@ -136,12 +131,23 @@ export class AuthService {
     return this.afAuth.sendSignInLinkToEmail(email, actionCodeSettings)
   }
   
-  logout() {
-    return this.afAuth.signOut()
+  logOut() {
+    return this.afAuth.signOut().then(() => {
+      this.router.navigate(['/auth/login']);
+    });
   }
   
-  get isAuthenticated(): boolean {
-    return this.afAuth.currentUser !== null;
+  isAuthenticated(): Observable<boolean> {
+    return this.afAuth.authState.pipe(
+      map(user => !!user)
+    );
+  }
+  
+  // Vérifiez si l'email de l'utilisateur est vérifié
+  isEmailVerified(): Observable<boolean> {
+    return this.afAuth.authState.pipe(
+      map(user => user ? user.emailVerified : false)
+    );
   }
 }
 
