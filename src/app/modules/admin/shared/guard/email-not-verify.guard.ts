@@ -6,7 +6,7 @@ import { map, take } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EmailVerifyGuard implements CanActivate {
+export class EmailNotVerifyGuard implements CanActivate {
   
   constructor(private router: Router, private authService: AuthService) {}
   
@@ -14,8 +14,8 @@ export class EmailVerifyGuard implements CanActivate {
     return this.authService.isEmailVerified().pipe(
       take(1),
       map((isEmailVerified: boolean) => {
-        if (!isEmailVerified) {
-          this.router.navigate(['/auth/email-link']);
+        if (isEmailVerified) {
+          this.router.navigate(['/admin']);
           return false;
         }
         return true;

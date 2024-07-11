@@ -7,7 +7,7 @@ import { ResetPasswordComponent } from '../modules/auth/password/reset/reset.com
 import { EmailVerificationComponent } from '../modules/auth/email/verify/verify.component';
 import { AuthGuard } from '../modules/admin/shared/guard/auth.guard';
 import { GuestGuard } from '../modules/admin/shared/guard/guest.guard';
-import { EmailVerifyGuard } from '../modules/admin/shared/guard/email-verify.guard';
+import { EmailNotVerifyGuard } from '../modules/admin/shared/guard/email-not-verify.guard';
 
 // import { AdminGuard } from './shared/guard/auth.guard';
 
@@ -18,6 +18,6 @@ export const authRoutes: Routes =  [
     { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [GuestGuard] },
     { path: 'reset-password', component: ResetPasswordComponent, canActivate: [GuestGuard] },
     // Email verification guard
-    { path: 'email-link', component: EmailLinkComponent, canActivate: [AuthGuard,EmailVerifyGuard] },
+    { path: 'email-link', component: EmailLinkComponent, canActivate: [AuthGuard,EmailNotVerifyGuard] },
     { path: 'email-verify', component: EmailVerificationComponent, canActivate: [AuthGuard], },
 ];
