@@ -3076,6 +3076,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-transition: all .3s;
   transition: all .3s;
   margin-bottom: 24px;
+  min-height: 100%;
 }
 
 .price-box-wrap .price-desc {
@@ -3150,9 +3151,9 @@ body::-webkit-scrollbar-thumb {
 
 .price-two-box {
   border-radius: 20px;
-  margin-bottom: 24px;
   -webkit-transition: .4s;
   transition: .4s;
+  min-height: 100%;
 }
 
 .price-two-box:hover {
@@ -3186,6 +3187,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .price-two-box .price-two-desc {
+  position: relative;
   padding: 56px 30px 30px;
 }
 
