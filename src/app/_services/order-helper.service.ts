@@ -365,28 +365,23 @@ export class OrderHelper {
   
   getSavedOrder(order: OrderItem[]): void {
     let temp_order: OrderItem[] = order;
-    let temp = this.all_services.filter((cmd_elem: _Service) => {
-      let resp = false;
+    this.cmd_services = [];
+    this.all_services.filter((cmd_elem: _Service) => {
       temp_order.map((flex_elem: any) => {
-        (flex_elem.id == cmd_elem.id)? resp = true : '';
+        (flex_elem.id == cmd_elem.id) ? this.cmd_services.push(flex_elem) : '';
       });
-      return resp;
     });
-    this.cmd_services = temp.map(elem => { return {id: elem.id, quantity: elem.quantity }});
   }
   
   getSavedFlex(): void {
     let flex: any;
     localStorage.getItem('saved-order') ? flex = localStorage.getItem('saved-order'): "";
     let temp_order: [] = JSON.parse(flex);
-    let temp = this.all_services.filter((cmd_elem: _Service) => {
-      let resp = false;
+    this.all_services.filter((cmd_elem: _Service) => {
       temp_order.map((flex_elem: PackageItem) => {
-        (flex_elem.id == cmd_elem.id)? resp = true : '';
+        (flex_elem.id == cmd_elem.id) ? this.cmd_services.push(flex_elem) : '';
       });
-      return resp;
     });
-    this.cmd_services = temp.map(elem => { return {id: elem.id, quantity: elem.quantity }});
   }
   
   total(pack: _Package): number {  
