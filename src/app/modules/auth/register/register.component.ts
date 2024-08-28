@@ -107,7 +107,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .catch((error: any) => {
         console.log(error)
         if(error.toString().includes('The email address is already in use by another account')) { // Do not translate this
-          this._httpResponseService.response = {status: false, message: 'errorResponse.emailAlreadyUsed'}; 
+          // this._httpResponseService.response = {status: false, message: 'errorResponse.emailAlreadyUsed'}; 
           this.form.controls['email'].setErrors({ used: true });
         } else
           this._httpResponseService.response = {status: false, message: 'errorResponse.unexpectedError'}; 
