@@ -3,11 +3,12 @@ import { IntouchService } from '../../../../_services/API/intouch.service';
 import { ContactMessage } from '../../../../modeles/contact-message';
 import { CommonModule } from '@angular/common';
 import { ButtonCloseDirective, ButtonDirective, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent } from '@coreui/angular';
-
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'message-detail-modal',
   standalone: true,
-  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent],
+  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, 
+    ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent, TranslateModule],
   templateUrl: './detail-modal.component.html',
   styleUrl: './detail-modal.component.scss'
 })

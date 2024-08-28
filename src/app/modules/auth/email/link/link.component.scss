@@ -1,0 +1,18 @@
+@keyframes breathing {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25%, 75% {
+        transform: scale(2);
+    }
+}
+p span {
+    font-style: italic;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #df0d54 0%, #f3a712 50%, #098dd7 100%);
+    // background: linear-gradient(to right, #df0d54 0%, #f3a712 30%,#88fc91 80%, #44cebe 90%, #098dd7 100%);
+    -webkit-text-fill-color: transparent; 
+    background-clip:border-box;
+    -webkit-background-clip: text; 
+    animation: breathing 5s infinite;
+}

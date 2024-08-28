@@ -29,12 +29,18 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { delay, filter, map, tap } from 'rxjs/operators';
 import { flagSet } from '@coreui/icons';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../../../../../../_services/API/auth.service';
 
 @Component({
   selector: 'app-default-header',
   templateUrl: './default-header.component.html',
   standalone: true,
-  imports: [TranslateModule, ContainerComponent, HeaderTogglerDirective, SidebarToggleDirective, IconDirective, HeaderNavComponent, NavItemComponent, NavLinkDirective, RouterLink, RouterLinkActive, NgTemplateOutlet, BreadcrumbRouterComponent, ThemeDirective, DropdownComponent, DropdownToggleDirective, TextColorDirective, AvatarComponent, DropdownMenuDirective, DropdownHeaderDirective, DropdownItemDirective, BadgeComponent, DropdownDividerDirective, ProgressBarDirective, ProgressComponent, NgStyle]
+  imports: [TranslateModule, ContainerComponent, HeaderTogglerDirective, SidebarToggleDirective, 
+    IconDirective, HeaderNavComponent, NavItemComponent, NavLinkDirective, RouterLink, RouterLinkActive, 
+    NgTemplateOutlet, BreadcrumbRouterComponent, ThemeDirective, DropdownComponent, DropdownToggleDirective, 
+    TextColorDirective, AvatarComponent, DropdownMenuDirective, DropdownHeaderDirective, 
+    DropdownItemDirective, BadgeComponent, DropdownDividerDirective, ProgressBarDirective, 
+    ProgressComponent, NgStyle, TranslateModule ]
 })
 export class DefaultHeaderComponent extends HeaderComponent {
 
@@ -62,7 +68,10 @@ export class DefaultHeaderComponent extends HeaderComponent {
     ]
   }
 
-  constructor(private translate: TranslateService) {
+  constructor(
+    private translate: TranslateService,
+    private authService: AuthService
+  ) {
     super();
     this.#colorModeService.localStorageItemName.set('coreui-free-angular-admin-template-theme-default');
     this.#colorModeService.eventName.set('ColorSchemeChange');
@@ -174,6 +183,9 @@ export class DefaultHeaderComponent extends HeaderComponent {
     this.translate.use(language.value);
     localStorage.setItem("language", language.value);
     this.languages.currentFlag = language.flag
+  }
+  logout(){
+    this.authService.logOut();
   }
   
 }

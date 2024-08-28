@@ -73,12 +73,11 @@ h2 {
 }
 
 html, body {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
-  color: #3f3f4e;
-  line-height: 1.87;
-  font-family: "poppins", sans-serif;
-  scroll-behavior: smooth;
+  color: #67687A;
+  line-height: 2.06;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 p {
@@ -901,8 +900,7 @@ body::-webkit-scrollbar-thumb {
   background: url(../images/hero/hero-img.png), linear-gradient(#242424 100%, #242424 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 320px 0 300px;
-  margin-top: -1px;
+  padding: 220px 0 150px;
   overflow: hidden;
 }
 
@@ -1675,7 +1673,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .testimonial-padding-bottom {
-  padding-bottom: 236px;
+  padding-bottom: 130px;
 }
 
 .testimonial-box-two {
@@ -2746,6 +2744,9 @@ body::-webkit-scrollbar-thumb {
 
 .service-three-box {
   margin-bottom: 50px;
+  padding: 20px !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 7px;
   -webkit-transition: all .4s;
   transition: all .4s;
   padding: 30px;
@@ -2790,7 +2791,7 @@ body::-webkit-scrollbar-thumb {
 
 .service-three-area {
   padding-bottom: 70px;
-  margin: 200px 0 200px;
+  /* margin: 200px 0 200px; */
 }
 
 
@@ -3551,5 +3552,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .logo {
-  max-width: "200px"
+  max-width: "200px";
+  cursor: pointer;
 }

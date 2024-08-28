@@ -2,13 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonCloseDirective, ButtonDirective, ModalBodyComponent, ModalComponent, ModalContentComponent, ModalFooterComponent, ModalHeaderComponent } from '@coreui/angular';
 import { OrderService } from '../../../../_services/API/order.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'order-delete-modal',
   standalone: true,
-  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent],
+  imports: [ButtonCloseDirective,ButtonDirective, CommonModule, ModalComponent, 
+    ModalHeaderComponent, ModalBodyComponent, ModalFooterComponent, ModalContentComponent,TranslateModule,],
   templateUrl: './delete-modal.component.html',
-  styleUrl: './delete-modal.component.scss'
+  styleUrl: './delete-modal.component.scss',
+  
 })
 export class ConfirmModalComponent {
   @Input() orderKey!: string;

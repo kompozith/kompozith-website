@@ -8,8 +8,13 @@ import { PasswordFunctions } from '../functions';
 @Component({
   selector: 'password-validator-template',
   templateUrl: './validator-template.component.html',
-  styleUrls: ['./validator-template.component.css'],
-  providers: [PasswordFunctions]
+  styleUrls: ['./validator-template.component.scss'],
+  standalone: true,
+  providers: [PasswordFunctions,PasswordHeleper],
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
 })
 export class ValidatorTemplateComponent implements OnInit {
   @Input() form!: FormGroup;
@@ -26,10 +31,6 @@ export class ValidatorTemplateComponent implements OnInit {
 
   ngOnInit(): void {
   
-  }
-  
-  passwordsMatch(): boolean {
-    return this.form.get('password')?.value === this.form.get('password_confirm')?.value;
   }
 
 }

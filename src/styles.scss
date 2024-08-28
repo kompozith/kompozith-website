@@ -32,3 +32,25 @@ button, input {
         border: none !important;
         box-shadow: none !important;
 }
+.custom-alert {
+	border-radius: 5px;
+	padding: 15px;
+	margin-top: 5px;
+	color: white;
+}
+.custom-badge {
+        background: linear-gradient(-45deg, #88fc91 0%, #44cebe 50%, #098dd7 100%);
+}
+/* Désactive la couleur de fond lors de l'autocompletion */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+}

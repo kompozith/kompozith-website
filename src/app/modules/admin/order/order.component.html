@@ -11,12 +11,12 @@
         >
         <thead>
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col" class="text-center">Email</th>
-          <th scope="col" class="text-center">Total (FCFA)</th>
-          <th scope="col" class="text-center">Phone Number</th>
-          <th scope="col" class="text-center">Date</th>
-          <th scope="col" class="text-center">Actions</th>
+          <th scope="col">{{ 'orderAdmin.name' | translate }}</th>
+          <th scope="col" class="text-center">{{ 'orderAdmin.Email' | translate }}</th>
+          <th scope="col" class="text-center">{{ 'orderAdmin.Total' | translate }}</th>
+          <th scope="col" class="text-center">{{ 'orderAdmin.Phone' | translate }}</th>
+          <th scope="col" class="text-center">{{ 'orderAdmin.Date' | translate }}</th>
+          <th scope="col" class="text-center">{{ 'orderAdmin.Actions' | translate }}</th>
         </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
           <tr>
             <td>{{ order.author.firstname +' '+ order.author.lastname }}</td>
             <td class="text-center">{{ order.author.email }}</td>
-            <td class="text-center">{{ _orderHelper.totalServicesPrice(order.items) }}</td>
+            <td class="text-center">{{ _orderHelper.totalizeServicesAmount(order.items) }}</td>
             <td class="text-center">{{ order.author.phoneNumber }}</td>
             <td class="text-center">{{ order.date }}</td>
             <td class="text-center">
@@ -45,8 +45,7 @@
           } @empty {
           <tr>
             <td class="text-center" colspan="6">
-              Empty order list
-            </td>
+              {{ 'orderAdmin.EmptyOrder' | translate }} 
           </tr>
           }
         } @else {

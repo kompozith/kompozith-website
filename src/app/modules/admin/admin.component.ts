@@ -15,13 +15,12 @@ import {
   SidebarTogglerDirective
 } from '@coreui/angular';
 
-import { DefaultFooterComponent, DefaultHeaderComponent } from './shared/layout';
-import { navItems } from './shared/layout/default-layout/_nav';
+import { DefaultFooterComponent, DefaultHeaderComponent } from './shared/elements/layout';
+import { navItems } from './shared/elements/layout/default-layout/_nav';
 import { Title } from '@angular/platform-browser';
-import { iconSubset } from './shared/icons/icon-subset';
+import { iconSubset } from './shared/elements/icons/icon-subset';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-
 @Component({
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',
@@ -56,6 +55,8 @@ export class AdminComponent implements OnInit {
     private router: Router,
     private titleService: Title,
     private iconSetService: IconSetService,
+   // private navItems: NavService,  // Inject NavService
+    private translate: TranslateService  // Inject TranslateService
   ) {
     this.titleService.setTitle(this.title);
     // iconSet singleton

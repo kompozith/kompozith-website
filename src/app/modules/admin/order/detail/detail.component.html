@@ -64,12 +64,12 @@
                 @if(_orderHelper.cmd_services.length && _orderHelper.estimatedTotal()) {
                   <tr class="tr-total">
                     <td class="text-center" colspan="2">{{ 'order.text_9' | translate }}</td>
-                    <td class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
+                    <td class="text-center" colspan="2">{{ _orderHelper.totalizeOrderAmount() }}</td>
                   </tr>
                 } @else if (_orderHelper.cmd_services.length && !_orderHelper.estimatedTotal()) {
                   <tr class="tr-total">
                     <td class="text-center" colspan="2">{{ 'order.text_91' | translate }}</td>
-                    <td class="text-center" colspan="2">{{ _orderHelper.totalOrderPrice() }}</td>
+                    <td class="text-center" colspan="2">{{ _orderHelper.totalizeOrderAmount() }}</td>
                   </tr>
                 }
               } @else { 

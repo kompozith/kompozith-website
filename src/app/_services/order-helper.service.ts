@@ -244,7 +244,7 @@ export class OrderHelper {
     this.curency = cur;
   }
   
-  calcPrice(price: number){
+  formatAmount(price: number){
     let old_cur = this.curency;
     let net_price;
     switch (this.curency) {
@@ -270,7 +270,7 @@ export class OrderHelper {
     let servive: _Service = this.getService(item.id);
     let qty = item.quantity;
     let totalPrice = servive.wholesalePrice ? this.fibonacci(servive.price, qty) : servive.price*qty;
-    return this.calcPrice(totalPrice);
+    return this.formatAmount(totalPrice);
   }
   
   estimatedTotal(): boolean {
@@ -298,25 +298,25 @@ export class OrderHelper {
         pack_price += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
       }
     })
-    return this.calcPrice(pack_price);
+    return this.formatAmount(pack_price);
   }
   
-  totalServicesPrice(services: PackageItem[]){
+  totalizeServicesAmount(services: PackageItem[]){
     let total_price = 0;
     services.map((serv: PackageItem) => {
       let elem = this.getService(serv.id);
       total_price += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
     })
-    return this.calcPrice(total_price);
+    return this.formatAmount(total_price);
   }
   
-  totalOrderPrice(){
-    let cmd_service = 0;
+  totalizeOrderAmount() {
+    let totalToPay = 0;
     this.cmd_services.map((serv: OrderItem) => {
       let elem = this.getService(serv.id);
-      cmd_service += elem.wholesalePrice ? this.fibonacci(elem.price, elem.quantity) : elem.price * elem.quantity;
+      totalToPay += elem.wholesalePrice ? this.fibonacci(elem.price, serv.quantity) : elem.price * serv.quantity;
     })
-    return this.calcPrice(cmd_service);
+    return this.formatAmount(totalToPay);
   }
   
   getService(id: any): _Service{
@@ -416,21 +416,20 @@ export class OrderHelper {
     let temp = servs.filter((p: any) => {
       return (p.id != item_id);
     });
-    this.cmd_services = temp;  
-    this.refreshServices(temp); 
+    this.cmd_services = temp; 
+    this.refreshServices(this.cmd_services);
     this.saveOrder();
   }
 
   refreshServices(items: OrderItem[]): void {
     let temp = this.all_services.filter((serv: _Service) => {
-      var result = true;
+      let include = true;
       items.map((cmd_serv: OrderItem) => {
         (cmd_serv.id == serv.id)?
-        (result = false):
+        (include = false):
         '';
       });
-      return result;
-      
+      return include;
     });
     this.services = temp; 
     this.services_copy = temp; 
@@ -448,6 +447,12 @@ export class OrderHelper {
     }
     // mis a jour du champ de saisie
     e.target.value = serv.quantity;
+    this.saveOrder();
+  }
+
+  public increment(serv: OrderItem): void {
+    serv.quantity += 1;
+    this.saveOrder();
   }
   
   public decrement(serv: OrderItem): void {
@@ -455,11 +460,6 @@ export class OrderHelper {
       serv.quantity -= 1;
       this.saveOrder();
     }    
-  }
-
-  public increment(serv: OrderItem): void {
-    serv.quantity += 1;
-    this.saveOrder();
   }
   
   //After all quantities have been set and ready to be saved.

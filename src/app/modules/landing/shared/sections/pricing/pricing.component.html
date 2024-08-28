@@ -31,7 +31,7 @@
                 <div *ngIf="pack.id != 3" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{ pack.name | translate }}</abbr>
-                        <h2>{{ _orderHelper.calcPrice(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
+                        <h2>{{ _orderHelper.formatAmount(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     <div class="price-two-desc">
                         <h5>{{ pack.description | translate }}</h5>
