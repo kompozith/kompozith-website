@@ -16,20 +16,20 @@
         <div class="nav-wrap d-flex justify-content-end align-items-center">
           <div class="mainmenu text-right">
             <ul>
-              <li><a [routerLink]="['/']"
+              <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['/']"
                   *ngIf="'nav.text_1' | translate as translatedText">{{ translatedText || 'Home' }}</a></li>
-              <li><a [routerLink]="['/about-us']"
+              <li [routerLinkActive]="['active']"><a [routerLink]="['/about-us']"
                   *ngIf="'nav.text_2' | translate as translatedText">{{ translatedText || 'About Us' }}</a></li>
-              <li><a [routerLink]="['/services']"
-                  *ngIf="'nav.text_3' | translate as translatedText">{{ translatedText || 'About Us' }}</a></li>
-              <li><a [routerLink]="['/contact']"
-                  *ngIf="'nav.text_4' | translate as translatedText">{{ translatedText || 'About Us' }}</a></li>
+              <li [routerLinkActive]="['active']"><a [routerLink]="['/services']"
+                  *ngIf="'nav.text_3' | translate as translatedText">{{ translatedText || 'Services' }}</a></li>
+              <li [routerLinkActive]="['active']"><a [routerLink]="['/contact']"
+                  *ngIf="'nav.text_4' | translate as translatedText">{{ translatedText || 'Contact' }}</a></li>
 
               <li class="has-child-menu">
                 <a [routerLink]="['/']"
                   *ngIf="'nav.text_5' | translate as translatedText">{{ translatedText || 'About Us' }}
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <title>language-circle</title>
+                    <!-- <title>language-circle</title> -->
                     <g fill="none">
                       <path opacity=".4"
                         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
@@ -42,10 +42,10 @@
                 </a>
                 <ul>
                   <li class="nav-item" (click)="useLanguage('fr')">
-                    <a *ngIf="'nav.text_6' | translate as translatedText">{{ translatedText || 'About Us' }}</a>
+                    <a *ngIf="'nav.text_6' | translate as translatedText">{{ translatedText || 'Français' }}</a>
                   </li>
                   <li class="nav-item" (click)="useLanguage('en')">
-                    <a *ngIf="'nav.text_7' | translate as translatedText">{{ translatedText || 'About Us' }}</a>
+                    <a *ngIf="'nav.text_7' | translate as translatedText">{{ translatedText || 'English' }}</a>
                   </li>
                 </ul>
               </li>

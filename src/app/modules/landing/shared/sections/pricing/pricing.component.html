@@ -27,15 +27,14 @@
             </div>
         </div>
         <div class="row mt-60 justify-content-center">
-            <div *ngFor="let pack of _orderHelper.packs" class="col-lg-4 col-md-6 mb-0 fade_left h-100 object-fit-fill">
-                
+            <div *ngFor="let pack of _orderHelper.packs" class="col-lg-4 col-md-6 mb-0 fade_left object-fit-fill">
                 <div *ngIf="pack.id != 3" class="price-two-box bg-color-of-white overflow-hidden">
                     <div class="price-two-tag text-center" [style.background-color]="pack.color">
                         <abbr>{{ pack.name | translate }}</abbr>
                         <h2>{{ _orderHelper.formatAmount(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
                     </div>
                     
-                    <div class="price-two-desc">
+                    <div class="d-flex flex-column align-items-between price-two-desc">
                         <div>
                             <h5>{{ pack.description | translate }}</h5>
                             <ul>
@@ -54,8 +53,6 @@
                         </div>
                     </div>
                 </div>
-
-                
                     <div *ngIf="pack.id == 3" class="price-two-box bg-color-of-white overflow-hidden">
                         <div class="price-two-tag text-center" [style.background-color]="pack.color">
                             <abbr>{{pack.name | translate}}</abbr>

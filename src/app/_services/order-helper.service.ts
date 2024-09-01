@@ -32,7 +32,7 @@ export class OrderHelper {
     {
       id: 2,
       name: 'pricing.service.name.min_website',
-      price: 120000,
+      price: 150000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -128,7 +128,7 @@ export class OrderHelper {
     {
       id: 14,
       name: 'pricing.service.name.complexe_website',
-      price: 200000,
+      price: 350000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: false
@@ -136,7 +136,7 @@ export class OrderHelper {
     {
       id: 15,
       name: 'pricing.service.name.mobile_app',
-      price: 250000,
+      price: 400000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: false
