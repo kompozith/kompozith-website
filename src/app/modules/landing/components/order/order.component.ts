@@ -105,22 +105,24 @@ export class OrderComponent implements OnInit, OnDestroy {
     this._orderService.create(datas).then(() => {
       this.submitted = false;
       this.loading = false;
-      const data = {
-        email:this.orderForm.value.email, 
-        password:(Math.random() + 1).toString(36).substring(7)
-      }
-      // this.authService.signInLink(this.orderForm.value.email).then(() => {
-      this.authService.signUp(data).then(() => {
-        this._httpResponseService.response = {status: true, message: 'auth.user.orderSentAndRegistrationSuccess'};
-
-      }).catch((error: any) => {
-        if(error.toString().includes('email address is already in use by another account')){
-          this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
-          return;
-        }
-        this._httpResponseService.response = {status: false, message: 'auth.user.orderSentAndRegistrationError'}; 
-      });
       this.orderForm.reset();
+      this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+      // const data = {
+      //   email:this.orderForm.value.email, 
+      //   password:(Math.random() + 1).toString(36).substring(7)
+      // }
+      // this.authService.signInLink(this.orderForm.value.email).then(() => {
+      // this.authService.signUp(data).then(() => {
+      //   this._httpResponseService.response = {status: true, message: 'auth.user.orderSentAndRegistrationSuccess'};
+
+      // }).catch((error: any) => {
+      //   if(error.toString().includes('email address is already in use by another account')){
+      //     this._httpResponseService.response = {status: true, message: 'notification.order.sent.success'};
+      //     return;
+      //   }
+      //   this._httpResponseService.response = {status: false, message: 'auth.user.orderSentAndRegistrationError'}; 
+      // });
+      // this.orderForm.reset();
     }).catch((err: any) => {
       this.loading = false;
       this._httpResponseService.response = {status: false, message: 'notification.order.sent.error'};

@@ -541,7 +541,10 @@ body::-webkit-scrollbar-thumb {
   margin-top: 20px;
 }
 
-.section-title.section-title-white h2, .section-title.section-title-white p {
+/* .section-title.section-title-white h2, .section-title.section-title-white p {
+  color: #fff;
+} */
+.section-title.section-title-white p {
   color: #fff;
 }
 
@@ -715,7 +718,10 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateX(2px);
           transform: translateX(2px);
   cursor: pointer;
-  color: rgb(7, 77, 158);
+  color: #098dd7;
+}
+.mainmenu ul li > a:hover, .mainmenu ul li.active > a {
+  color: #70caff;
 }
 
 .mainmenu li ul a {
@@ -3154,7 +3160,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   -webkit-transition: .4s;
   transition: .4s;
-  min-height: 100%;
+  min-height: 100% !important;
 }
 
 .price-two-box:hover {
