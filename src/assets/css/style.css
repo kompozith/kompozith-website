@@ -3408,6 +3408,8 @@ body::-webkit-scrollbar-thumb {
   background-color: #fff;
   border-radius: 5px;
   border: none;
+}
+.contact-input .form-group {
   margin-bottom: 30px;
 }
 
@@ -3556,4 +3558,19 @@ body::-webkit-scrollbar-thumb {
 .logo {
   max-width: "200px";
   cursor: pointer;
+}
+
+.sticky-content {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  overflow-y: auto;
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sticky-content::-webkit-scrollbar {
+  display: none; /* Safari et Chrome */
 }

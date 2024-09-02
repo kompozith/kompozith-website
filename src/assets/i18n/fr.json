@@ -64,14 +64,13 @@
     "text_1": "Nous sommes joignables",
     "text_2": "Informations de contact",
     "text_3": "Localisation",
-    "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
+    "text_4": "240 rue sainte marie, Sainte-Marthe-sur-le-Lac, QC",
     "text_5": "Téléphone",
     "text_6": "E-mail",
+    "text_61": "Sujet",
     "text_7": "Nom",
     "text_8": "Message",
-    "text_9": "Laisser un commentaire"
-
-
+    "text_9": "Envoyer"
   },
 
   "team": {
@@ -146,7 +145,7 @@
     "text_6": "Formations",
     "text_7": "Consulting",
     "text_8": "Contacts",
-    "text_9": "Douala Cameroun",
+    "text_9": "Québec, Canada",
     "text_10":"Médias Sociaux",
 
     "text_11": "Nous publions fréquemment sur nos pages de médias sociaux. Suivez-nous pour rester informé(e) de nos dernières actualités.",
@@ -215,6 +214,7 @@
     "text_4": "Votre Numéro de Téléphone",
     "text_5": "Si possible, décrivez votre commande en quelques mots",
     "text_6": "Votre Nom",
+    "text_61": "Votre Sujet",
     "text_7": "Votre Message",
     "text_8": "En cours...",
     "authDefaultHeader": "Un voyage de mille lieues commence par un seul pas",
@@ -273,7 +273,8 @@
     },
     "validator": {
       "emailRequired": "L'adresse E-mail est obligatoire",
-      "emailInvalid": "Entrez un E-mail valide",
+      "emailInvalid": "Veillez entrer une adresse E-mail valide",
+      "nameRequired": "Le nom est obligatoire",
       "passwordRequired": "Le mot de passe est obligatoire",
       "passwordInvalid": "Format de mot de passe invalide",
       "passwordConfirmRequired": "Le mot de passe doit être confirmé",
@@ -294,7 +295,9 @@
       "pwdUpperCaseLength": "Minimum {{minLength}} lettre majuscule",
       "pwdNumberLength": "Minimum {{minLength}} chiffre",
       "pwdSpecialCharLength": "Minimum {{minLength}} caractère spécial",
-      "pwdMatch": "Doit correspondre à la confirmation du mot de passe"
+      "pwdMatch": "Doit correspondre à la confirmation du mot de passe",
+      "subjectRequired": "Le sujet est obligatoire",
+      "messageRequired": "Le message est obligatoire"
     }
   },
   "watningResponse": {

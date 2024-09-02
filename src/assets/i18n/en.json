@@ -65,15 +65,13 @@
     "text_1": "We can be reached",
     "text_2": "Contact information",
     "text_3": "Location",
-    "text_4": "Carrefour lycée, Bonamoussadi, Douala cameroun",
+    "text_4": "240 rue sainte marie, Sainte-Marthe-sur-le-Lac, QC",
     "text_5": "Phone Number",
     "text_6": "E-mail",
     "text_61": "Subject",
     "text_7": "Name",
     "text_8": "Message",
     "text_9": "Send"
-
-
   },
 
   "team": {
@@ -146,7 +144,7 @@
     "text_6": "Training",
     "text_7": "Consulting",
     "text_8": "Contacts",
-    "text_9": "Douala Cameroon",
+    "text_9": "Québec, Canada",
     "text_10":"Social Media",
 
     "text_11": "We post frequently on our social media pages. Follow us to keep up to date with our latest news.",
@@ -274,6 +272,7 @@
     "validator": {
       "emailRequired": "E-mail adress is required",
       "emailInvalid": "Enter a valid E-mail",
+      "nameRequired": "Name is required",
       "passwordRequired": "Password is required",
       "passwordInvalid": "Invalid password Format",
       "passwordConfirmRequired": "Password should be confirmed",
@@ -294,7 +293,9 @@
       "pwdUpperCaseLength":"Minnimum {{minLength}} capital letter",
       "pwdNumberLength":"Minnimum {{minLength}} number",
       "pwdSpecialCharLength":"Minnimum {{minLength}} special char",
-      "pwdMatch":"Should match password confirm"
+      "pwdMatch":"Should match password confirm",
+      "subjectRequired": "Subject is required",
+      "messageRequired": "Message is required"
     }
   },
   "watningResponse":{
