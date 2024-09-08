@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbItem } from '../../shared/breadcrump/breadcrump.component';
 import { PreloadService } from '../../../../_services/preload.service';
+import { SeoService } from '../../../../_services/seo.service';
 
 @Component({
   selector: 'app-our-services',
@@ -9,7 +10,11 @@ import { PreloadService } from '../../../../_services/preload.service';
 })
 export class OurServicesComponent implements OnInit {
 
-  constructor(private _preloadService: PreloadService){
+  constructor(
+    private _preloadService: PreloadService,
+    private seoService: SeoService
+  ) { 
+    this.seoService.updateMetaTags('seo.services.title','seo.services.description','seo.services.keywords')
   }
   ngOnInit(): void {
     this._preloadService.preload();

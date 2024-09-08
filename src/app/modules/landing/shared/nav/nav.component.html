@@ -42,10 +42,10 @@
                 </a>
                 <ul>
                   <li class="nav-item" (click)="useLanguage('fr')">
-                    <a *ngIf="'nav.text_6' | translate as translatedText">{{ translatedText || 'Français' }}</a>
+                    <span *ngIf="'nav.text_6' | translate as translatedText">{{ translatedText || 'Français' }}</span>
                   </li>
                   <li class="nav-item" (click)="useLanguage('en')">
-                    <a *ngIf="'nav.text_7' | translate as translatedText">{{ translatedText || 'English' }}</a>
+                    <span *ngIf="'nav.text_7' | translate as translatedText">{{ translatedText || 'English' }}</span>
                   </li>
                 </ul>
               </li>

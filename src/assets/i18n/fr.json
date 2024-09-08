@@ -7,7 +7,6 @@
       "text_3": "Explorer",
       "text_4": "Comment ça marche?"
     },
-
     "about": {
       "text_0": "À propos",
       "about": "À PROPOS DE NOUS",
@@ -19,9 +18,7 @@
       "text_6": "Des suggestions visant à améliorer les résultats de vos attentes.",
       "text_7": "Des réalisations de haute qualité grâce au professionnalisme de notre équipe hautement qualifiée.",
       "text_8": "Un suivi basé sur la construction d'une relation professionnelle solide."
-
     },
-
     "services": {
       "text_0": "Services",
       "text_1": "Pour vous",
@@ -34,9 +31,7 @@
       "text_8": "Profitez de notre offre complète d'identité graphique pour vous démarquer efficacement grâce à une image de marque distinctive.",
       "text_9": "Formations.",
       "text_10": "Formations en développement logiciel et graphisme pour renforcer vos compétences et enrichir votre professionnalisme."
-
     },
-
     "pricing": {
       "text_1": "Nos Forfaits",
       "text_2": "Élevez votre marque dans la sphère digitale",
@@ -44,21 +39,16 @@
       "text_4": "Commander",
       "text_5": "Explorer"
     },
-
     "portfolio": {
       "text_1": "Portfolio",
       "text_2": "Projets Réalisés"
     },
-
     "testimonials": {
       "text_1": "Avis des clients",
       "text_2": "Comme eux, faites nous confiance",
-      "text_3": "Il y a de cela quelques mois qui vous avez fait ma carte de visite pour mon entreprise. Vous avez été à l’écoute et respecté les indications, vous nous avez d’ailleurs proposé plusieurs idées de logo (vous faites preuve de beaucoup d’imagination) qui nous ont énormément plu.Désormais je vous fait confiance et j’aime faire appel à vous pour des différents projets. Vous formez une superbe équipe."
-
-
+      "text_3": "Il y a de cela quelques mois qui vous avez fait ma carte de visite pour mon entreprise. Vous avez été à l'écoute et respecté les indications, vous nous avez d'ailleurs proposé plusieurs idées de logo (vous faites preuve de beaucoup d'imagination) qui nous ont énormément plu.Désormais je vous fait confiance et j'aime faire appel à vous pour des différents projets. Vous formez une superbe équipe."
     }
   },
-
   "contact": {
     "text_0": "Contact",
     "text_1": "Nous sommes joignables",
@@ -72,16 +62,13 @@
     "text_8": "Message",
     "text_9": "Envoyer"
   },
-
   "team": {
     "text_1": "À votre service",
     "text_2": "Notre équipe d'experts qualifiés",
     "text_3": "Designer graphique",
     "text_4": "Développeur Fullstack",
     "text_5": "Développeur Backend"
-
   },
-
   "history": {
     "text_1": "Épopée",
     "text_2": "De la passion naît l'innovation",
@@ -90,9 +77,7 @@
     "text_5": "Notre équipe, composée de jeunes talents passionnés et assidus, cultive quotidiennement des stratégies visant à demeurer à la pointe des technologies.",
     "text_6": "Engagements formels",
     "text_7": "Guidés par la passion et la compétence, nous relevons avec ardeur le défi de concrétiser les rêves de nos partenaires."
-
   },
-
   "order": {
     "text_0": "Commande",
     "text_1": "Faites vous plaisir",
@@ -106,23 +91,19 @@
     "text_9": "Total Estimatif",
     "text_91": "Total",
     "text_10":"Votre panier et vide !!!",
-    
     "text_11": "Informations de contact",
     "text_12": "Prenom",
     "text_13": "Nom",
     "text_14": "Téléphone",
     "text_15":"E-mail",
     "text_16":"Exigences de la commande", 
-
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
     "text_19": "Soumettre",
     "text_20":"Prix variant",
     "text_21":"Details de la commande",
     "text_22":"Modifier la commande"
-
   },
-
   "nav": {
     "text_1": "Accueil",
     "text_2": "À propos",
@@ -132,10 +113,7 @@
     "text_6": "Français",
     "text_7": "English",
     "text_8": "Devis gratuit"
-
-
   },
-
   "footer": {
     "text_1": "Agence de communication digitale et développement de solutions web sur mesure, offrant à ses partenaires des services innovants et un suivi assuré.",
     "text_2": "Nos Services",
@@ -147,15 +125,11 @@
     "text_8": "Contacts",
     "text_9": "Québec, Canada",
     "text_10":"Médias Sociaux",
-
     "text_11": "Nous publions fréquemment sur nos pages de médias sociaux. Suivez-nous pour rester informé(e) de nos dernières actualités.",
-    
     "text_allright": "Tous droits réservés",
     "text_term": "Termes et conditions",
     "text_policy": "politique de confidentialité"
-
   },
-  
   "pricing": {
     "service": {
       "name":{
@@ -518,7 +492,6 @@
     "ZAMBIA": "Zambie",
     "ZIMBABWE": "Zimbabwe"
   },
-
   "orderAdmin":{
     "name":"Nom",
     "Email":"Email",
@@ -529,8 +502,6 @@
      "EmptyOrder":"Liste de commande vide",
      "cancel":"Annuler",
      "Delete":"Supprimer"
-            
-
   },
   "Message":{
     "customer":"Client",
@@ -546,12 +517,37 @@
     "message":"Message:",
     "cancel":"Annuler",
     "Delete":"Supprimer"
-   
   },
   "header":{
     "Dashboard":"Tableau de bord",
     "User":"Utilisateur",
     "Settings":"Paramètre"
-   
+  },
+  "seo": {
+    "home": {
+      "title": "Kompozith | Agence de Marketing Digital et de Développement Logiciel",
+      "description": "Kompozith est une agence spécialisée dans le marketing digital, le design UI/UX et le développement logiciel sur mesure, offrant des solutions innovantes et personnalisées à une clientèle internationale. Que vous soyez basé au Canada, en France, aux États-Unis ou ailleurs, nous adaptons nos services pour répondre à vos besoins spécifiques, tout en garantissant une approche créative et des résultats à la hauteur de vos attentes.",
+      "keywords": "Agence de marketing digital, Agence de développement logiciel, Design UI/UX sur mesure, Développement d'applications web, Services de développement mobile, Solutions de marketing digital, Agence de transformation digitale, Agence créative internationale, Design d'interface utilisateur (UI), Expérience utilisateur optimisée (UX), Stratégie de marketing digital, Optimisation SEO pour les entreprises, Publicité en ligne ciblée, Gestion des réseaux sociaux, Campagnes Google Ads, Marketing de contenu international, Marketing entrant pour les entreprises, Agence de branding international, Marketing digital en France, Marketing digital au Canada, Marketing digital aux États-Unis, Marketing digital au Cameroun, Consultants en marketing digital, Développement logiciel sur mesure, Développement d'applications SaaS, Solutions de développement Full-Stack, Développement Backend et Frontend, Conception de logiciels pour entreprises, Développement logiciel au Cameroun, Développement logiciel agile, Développement d'applications mobiles iOS, Développement d'applications mobiles Android, Développement web professionnel, Développement logiciel international, Développement logiciel au Cameroun, Design UX/UI intuitif, Agence de design UX/UI, Amélioration de l'expérience utilisateur, Conception d'interface utilisateur sur mesure, Création de prototypes UX/UI, Tests utilisateurs pour UX, Design UX pour applications mobiles, Design UI réactif, Conception ergonomique d'applications web, Agence UI/UX pour entreprises internationales, Agence de marketing digital au Cameroun, Développement logiciel en Afrique pour le Canada, Agence de design UI/UX en France, Services de marketing digital aux États-Unis, Agence internationale basée au Cameroun, Marketing digital pour les entreprises américaines, Développement logiciel pour startups au Canada, Solutions de développement logiciel en France, Design UI/UX pour le marché américain, Développement d'applications web pour entreprises françaises, Agence de développement logiciel sur mesure au Cameroun, Meilleure agence de design UI/UX au Cameroun, Meilleure agence de design UI/UX au Canada, Services de marketing digital pour entreprises françaises, Agence spécialisée dans la transformation digitale aux États-Unis, Développement d'applications mobiles sur mesure au Cameroun, Conception d'interface utilisateur pour le marché international, Agence internationale de marketing digital basée au Cameroun, Développement logiciel et stratégie digitale en France, Agence de design UX/UI pour entreprises aux États-Unis, Solutions de marketing et développement logiciel au Cameroun, Marketing et développement logiciel au Canada."
+    },
+    "order":{
+      "title":"Kompozith | Simulez et passez votre commande en ligne",
+      "description":"Utilisez notre outil de simulation et passez votre commande en ligne rapidement et en toute sécurité. Obtenez une estimation de prix immédiate et personnalisez vos besoins avec Kompozith.",
+      "keywords":"Combien coûte un site web au Cameroun, Combien coûte une application web, Prix de développement d’un site internet, Tarifs de création de site web, Combien coûte un site e-commerce, Prix d’une application mobile sur mesure, Coût de création de site vitrine, Combien coûte un site web professionnel, Tarifs de développement d’application web, Estimation du prix d’un site internet, Coût de développement web Cameroun."
+    },
+    "about_us": {
+      "title": "Kompozith | À propos de notre agence de marketing digital et de développement logiciel",
+      "description": "Kompozith est une agence internationale spécialisée dans le marketing digital, le design UI/UX et le développement logiciel sur mesure. Nous nous engageons à offrir des solutions innovantes adaptées aux besoins spécifiques de nos clients au Cameroun, au Canada, en France, aux États-Unis et dans le monde entier.",
+      "keywords": "À propos de Kompozith, Agence de marketing digital, Agence de développement logiciel, Solutions sur mesure, Développement d'applications web, Design UI/UX, Agence internationale de marketing numérique, Services numériques au Cameroun, Entreprise de développement logiciel en Afrique, Agence digitale pour entreprises internationales, Transformation digitale, Agence de design et développement logiciel"
+    },
+    "contact": {
+      "title": "Kompozith | Contactez-nous pour vos besoins en marketing et développement logiciel",
+      "description": "Vous avez un projet en marketing digital, design UI/UX ou développement logiciel ? Contactez Kompozith dès aujourd'hui pour des solutions sur mesure adaptées à vos besoins. Nous sommes disponibles pour vous assister dans vos projets au Cameroun, au Canada, en France et aux États-Unis.",
+      "keywords": "Contact Kompozith, Agence de marketing digital, Contact développement logiciel, Services UI/UX, Agence internationale de développement logiciel, Marketing numérique, Solutions sur mesure, Support client Kompozith, Contactez notre agence au Cameroun, Agence marketing et développement international"
+    },
+    "services": {
+      "title": "Kompozith | Services de marketing digital, design UI/UX et développement logiciel",
+      "description": "Découvrez les services que nous offrons chez Kompozith : marketing digital, design UI/UX sur mesure, développement d'applications web et mobiles, ainsi que des solutions complètes pour la transformation digitale de votre entreprise. Nous opérons à l'international, avec des clients au Cameroun, au Canada, en France et aux États-Unis.",
+      "keywords": "Services de Kompozith, Marketing digital, Design UI/UX sur mesure, Développement d'applications web, Développement mobile, Agence de développement logiciel, Transformation digitale, Services numériques, Agence internationale, Services de marketing au Cameroun, Développement de logiciels sur mesure"
+    }
   }
 }

@@ -6,6 +6,7 @@ import { HttpResponseService } from '../../../../_services/http-response.service
 import { IntouchService } from '../../../../_services/API/intouch.service';
 import { PreloadService } from '../../../../_services/preload.service';
 import { DatePipe } from '@angular/common';
+import { SeoService } from '../../../../_services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -23,8 +24,10 @@ export class ContactComponent implements OnInit, OnDestroy {
     private  intouchService: IntouchService,
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
-    private datePipe: DatePipe
-  ){
+    private datePipe: DatePipe,
+    private seoService: SeoService
+  ) { 
+    this.seoService.updateMetaTags('seo.contact.title','seo.contact.description','seo.contact.keywords')
   }
   ngOnInit(): void {
     this._preloadService.preload();

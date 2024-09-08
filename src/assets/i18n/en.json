@@ -8,7 +8,6 @@
       "text_3": "Explore",
       "text_4": "How it works?"
     },
-
     "about": {
       "text_0": "About",
       "about": "ABOUT US",
@@ -20,9 +19,7 @@
       "text_6": "Suggestions to improve the results of your expectations.",
       "text_7": "High-quality realizations thanks to the professionalism of our highly qualified team.",
       "text_8": "Follow-up based on building a solid professional relationship."
-
     },
-
     "services": {
       "text_0": "Services",
       "text_1": "For you",
@@ -35,9 +32,7 @@
       "text_8": "Take advantage of our complete graphic identity offer to stand out effectively thanks to a distinctive brand image.",
       "text_9": "Training courses.",
       "text_10": "Training courses in software development and graphic design to enhance your skills and enrich your professionalism."
-
     },
-
     "pricing": {
       "text_1": "Our Packages",
       "text_2": "Elevate your brand in the digital sphere",
@@ -45,21 +40,16 @@
       "text_4": "Order",
       "text_5": "Explore"
     },
-
     "portfolio": {
       "text_1": "Portfolio",
       "text_2": "Completed Projects"
-
     },
-
     "testimonials": {
       "text_1": "Customer reviews",
       "text_2": "Like them, trust us",
       "text_3": "A few months ago, you designed my company's business card. You listened carefully and followed instructions, and came up with several logo ideas (you're very imaginative) that we liked enormously. You make a great team."
-
     }
   },
-
   "contact": {
     "text_0": "Contact",
     "text_1": "We can be reached",
@@ -73,16 +63,13 @@
     "text_8": "Message",
     "text_9": "Send"
   },
-
   "team": {
     "text_1": "At your service",
     "text_2": "Our team of qualified experts",
     "text_3": "Graphic Designer ",
     "text_4": "Fullstack Developper ",
     "text_5": "Backend Developper "
-
   },
-
   "history": {
     "text_1": "Epic",
     "text_2": "From passion comes innovation",
@@ -92,7 +79,6 @@
     "text_6": "Formal commitments",
     "text_7": "Guided by passion and competence, we eagerly accept the challenge of making our partners' dreams come true."
   },
-
   "order": {
     "text_0": "Order",
     "text_1": "Treat yourself",
@@ -106,7 +92,6 @@
     "text_9": "Total Estimated",
     "text_91": "Total",
     "text_10":"Your cart is empty !!!",
-
     "text_11": "Contact information",
     "text_12": "Firstname",
     "text_13": "Lastname",
@@ -114,16 +99,13 @@
     "text_14": "Telephone",
     "text_15":"E-mail",
     "text_16":"Order requirements",
-
     "text_17": "Finish",
     "text_18": "Select services",
     "text_19": "Submit",
     "text_20":"Price varying",
     "text_21":"Order details",
     "text_22":"Update Order"
-
   },
-
   "nav": {
     "text_1": "Home",
     "text_2": "About",
@@ -134,7 +116,6 @@
     "text_7": "English",
     "text_8": "Free Quote"
   },
-
   "footer": {
     "text_1": "Digital communications agency and development of customized web solutions, offering its partners innovative services and guaranteed follow-up.",
     "text_2": "Our Services",
@@ -146,14 +127,11 @@
     "text_8": "Contacts",
     "text_9": "Québec, Canada",
     "text_10":"Social Media",
-
     "text_11": "We post frequently on our social media pages. Follow us to keep up to date with our latest news.",
-    
     "text_allright": "All Rights Reserved",
     "text_term": "Terms & Condition",
     "text_policy": "Privacy Policy"
   },
-  
   "pricing": {
     "service": {
       "name": {
@@ -525,10 +503,6 @@
     "EmptyOrder":"Empty order list",
     "cancel":"Cancel",
     "Delete":"Supprimer"
-           
-
-
-
   },
   "Message":{
     "customer":"Customer",
@@ -547,6 +521,32 @@
     "Dashboard":"Dashboard",
     "User":"User",
     "Settings":"Settings"
-   
+  },
+  "seo": {
+    "home":{
+      "title":"Kompozith | Digital Marketing and Software Development Agency",
+      "description":"Kompozith is an agency specializing in digital marketing, UI/UX design and custom software development, offering innovative and personalized solutions to an international clientele. Whether you are based in Canada, France, the United States or elsewhere, we adapt our services to meet your specific needs, while ensuring a creative approach and results that meet your expectations.",
+      "keywords":"Digital Marketing Agency, Software Development Agency, Custom UI/UX Design, Web Application Development, Mobile Development Services, Digital Marketing Solutions, Digital Transformation Agency, International Creative Agency, User Interface (UI) Design, Optimized User Experience (UX), Digital Marketing Strategy, SEO Optimization for Business, Targeted Online Advertising, Social Media Management, Google Ads Campaigns, International Content Marketing, Inbound Marketing for Business, International Branding Agency, Digital Marketing in France, Digital Marketing in Canada, Digital Marketing in the USA, Digital Marketing in Cameroon, Digital Marketing Consultants, Custom Software Development, SaaS Application Development, Full-Stack Development Solutions, Backend and Frontend Development, Enterprise Software Design, Software Development in Cameroon, Agile Software Development, iOS Mobile Application Development, Android Mobile Application Development, Professional Web Development, International Software Development, Software Development in Cameroon, Intuitive UX/UI Design, UX/UI Design Agency, User Experience Improvement, Custom User Interface Design, Creation of UX/UI prototypes, User testing for UX, UX design for mobile applications, Responsive UI design, Ergonomic web application design, UI/UX agency for international companies, Digital marketing agency in Cameroon, Software development in Africa for Canada, UI/UX design agency in France, Digital marketing services in the USA, International agency based in Cameroon, Digital marketing for American companies, Software development for startups in Canada, Software development solutions in France, UI/UX design for the American market, Web application development for French companies, Custom software development agency in Cameroon, Best UI/UX design agency in Cameroon, Best UI/UX design agency in Canada, Digital marketing services for French companies, Agency specialized in digital transformation in the USA, Custom mobile application development in Cameroon, User interface design for the international market, International digital marketing agency based in Cameroon, Software development and digital strategy in France, UX/UI design agency for companies in the USA, Marketing and software development solutions in Cameroon, Marketing and software development in Canada."
+    },
+    "order": {
+      "title": "Kompozith | Simulate and place your order online",
+      "description": "Use our simulation tool and place your order online quickly and securely. Get an instant price estimate and customize your needs with Kompozith.",
+      "keywords": "How much does a website cost in Cameroon, How much does a web application cost, Website development prices, Website creation rates, How much does an e-commerce website cost, Custom mobile app pricing, Cost of creating a showcase website, How much does a professional website cost, Web application development rates, Website price estimate, Web development cost in Cameroon."
+    },
+    "about_us": {
+      "title": "Kompozith | About our digital marketing and software development agency",
+      "description": "Kompozith is an international agency specializing in digital marketing, UI/UX design, and custom software development. We are committed to providing innovative solutions tailored to the specific needs of our clients in Cameroon, Canada, France, the United States, and globally.",
+      "keywords": "About Kompozith, Digital Marketing Agency, Software Development Agency, Custom Solutions, Web Application Development, UI/UX Design, International Digital Marketing Agency, Digital Services in Cameroon, Software Development Company in Africa, Digital Agency for International Businesses, Digital Transformation, Design and Software Development Agency"
+    },
+    "contact": {
+      "title": "Kompozith | Contact us for your marketing and software development needs",
+      "description": "Do you have a digital marketing, UI/UX design, or software development project? Contact Kompozith today for customized solutions tailored to your needs. We are available to assist with projects in Cameroon, Canada, France, and the United States.",
+      "keywords": "Contact Kompozith, Digital Marketing Agency, Software Development Contact, UI/UX Services, International Software Development Agency, Digital Marketing, Custom Solutions, Kompozith Customer Support, Contact our agency in Cameroon, International Marketing and Development Agency"
+    },
+    "services": {
+      "title": "Kompozith | Digital marketing, UI/UX design, and software development services",
+      "description": "Explore the services we offer at Kompozith: digital marketing, custom UI/UX design, web and mobile application development, and comprehensive solutions for your business's digital transformation. We operate internationally, with clients in Cameroon, Canada, France, and the United States.",
+      "keywords": "Kompozith Services, Digital Marketing, Custom UI/UX Design, Web Application Development, Mobile Development, Software Development Agency, Digital Transformation, Digital Services, International Agency, Marketing Services in Cameroon, Custom Software Development"
+    }
   }
 }

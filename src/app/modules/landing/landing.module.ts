@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from '@coreui/angular';
 import { SharedModule } from '../shared/shared.module';
 import { LandingSharedModule } from './shared/landing.shared.module';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -58,6 +59,6 @@ import { LandingSharedModule } from './shared/landing.shared.module';
     LandingSharedModule,
     SwiperModule
   ],
-  providers: [DatePipe]
+  providers: [Meta,Title,DatePipe]
 })
 export class LandingModule { }

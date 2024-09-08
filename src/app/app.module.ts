@@ -1,6 +1,6 @@
-import { NgModule, importProvidersFrom } from '@angular/core';
+import { LOCALE_ID, NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -17,10 +17,16 @@ import { IconSetService } from '@coreui/icons-angular';
 import { routes } from './routes';
 import { LandingModule } from './modules/landing/landing.module';
 import { SwiperModule } from 'swiper/angular';
+import localeFr from '@angular/common/locales/fr';
+import localeEn from '@angular/common/locales/en';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
+
+registerLocaleData(localeFr, 'fr');
+registerLocaleData(localeEn, 'en');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TranslateService,provideAnimations(),
     importProvidersFrom(SidebarModule, DropdownModule),
     IconSetService,
-    provideAnimations()
+    provideAnimations(),
+    { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]
 })

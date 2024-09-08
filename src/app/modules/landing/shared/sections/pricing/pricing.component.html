@@ -1,88 +1,90 @@
 <section class="price-two-area pb-96">
-    <div class="container">
-        <div class="row d-flex justify-content-between align-items-center">
-            <div class="col-xxl-7 col-lg-8">
-                <div class="section-title text-center text-lg-start title-anim">
-                    <span>{{ 'home.pricing.text_1' | translate }}</span>
-                    <h2>{{ 'home.pricing.text_2' | translate }}</h2>
-                </div>
-            </div>
-            <div class="col-xxl-5 col-lg-4 mobt-24">
-                <div class="d-flex justify-content-lg-end justify-content-center">
-                    <!-- <div class="section-title text-center">
+  <div class="container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <div class="col-xxl-7 col-lg-8">
+        <div class="section-title text-center text-lg-start title-anim">
+          <span>{{ 'home.pricing.text_1' | translate }}</span>
+          <h2>{{ 'home.pricing.text_2' | translate }}</h2>
+        </div>
+      </div>
+      <div class="col-xxl-5 col-lg-4 mobt-24">
+        <div class="d-flex justify-content-lg-end justify-content-center">
+          <!-- <div class="section-title text-center">
                         <span>Devise</span>
                     </div> -->
-                    <ul class="nav nav-pills price-tab-btn" id="pills-tab" role="tablist">
-                        <li class="nav-item btw" role="presentation">
-                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="_orderHelper.changeCure('XAF')">XAF</button>
-                        </li>
-                        <li class="nav-item btw" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderHelper.changeCure('EUR')">EUR</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" (click)="_orderHelper.changeCure('USD')">USD</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          <ul class="nav nav-pills price-tab-btn" id="pills-tab" role="tablist">
+            <li class="nav-item btw" role="presentation">
+              <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+                role="tab" aria-controls="pills-home" aria-selected="true"
+                (click)="_orderHelper.changeCure('XAF')">XAF</button>
+            </li>
+            <li class="nav-item btw" role="presentation">
+              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
+                aria-controls="pills-profile" aria-selected="false"
+                (click)="_orderHelper.changeCure('EUR')">EUR</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
+                aria-controls="pills-profile" aria-selected="false"
+                (click)="_orderHelper.changeCure('USD')">USD</button>
+            </li>
+          </ul>
         </div>
-        <div class="row mt-60 justify-content-center">
-            <div *ngFor="let pack of _orderHelper.packs" class="col-lg-4 col-md-6 mb-0 fade_left object-fit-fill">
-                <div *ngIf="pack.id != 3" class="price-two-box bg-color-of-white overflow-hidden">
-                    <div class="price-two-tag text-center" [style.background-color]="pack.color">
-                        <abbr>{{ pack.name | translate }}</abbr>
-                        <h2>{{ _orderHelper.formatAmount(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
-                    </div>
-                    
-                    <div class="d-flex flex-column align-items-between price-two-desc">
-                        <div>
-                            <h5>{{ pack.description | translate }}</h5>
-                            <ul>
-                                <li *ngFor="let service of pack.items">
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                    {{ (_orderHelper.getService(service.id).quantity > 1) ? ""+(_orderHelper.getService(service.id).quantity+"X"+(_orderHelper.getService(service.id).name | translate)): (_orderHelper.getService(service.id).name | translate) }}
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="price-two-btn text-center">
-                            <a class="common-btn orange-border" (click)="submit(pack)">
-                                <span>
-                                  {{ 'home.pricing.text_4' | translate }}
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                    <div *ngIf="pack.id == 3" class="price-two-box bg-color-of-white overflow-hidden">
-                        <div class="price-two-tag text-center" [style.background-color]="pack.color">
-                            <abbr>{{pack.name | translate}}</abbr>
-                            <h2>{{ _orderHelper.totalPackPrice(pack.items) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
-                        </div>
-                        <div class="price-two-desc">
-                            <div>
-                                <h5>{{pack.description | translate}}</h5>
-                                <ul>
-                                    <li *ngFor="let service of pack.items" (click)="_orderHelper.toggleSelection(service)">
-                                        <i *ngIf="!service.selected" class="fa-solid fa-xmark text-danger"></i>
-                                        <i *ngIf="service.selected" class="fa-solid fa-check text-primary"></i>
-                                        {{ (_orderHelper.getService(service.id)).name| translate }}
-                                    </li>
-                                </ul>
-                            </div>
-                
-                            <div class="price-two-btn text-center">
-                                <a class="common-btn orange-border" (click)="submit(pack)">
-                                    <span>
-                                      {{ 'home.pricing.text_5' | translate }}
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="row mt-60 justify-content-center">
+      <div *ngFor="let pack of _orderHelper.packs" class="col-lg-4 col-md-6 mb-5 fade_left object-fit-fill">
+        <div *ngIf="pack.id != 3" class="price-two-box bg-color-of-white">
+          <div class="price-two-tag text-center" [style.background-color]="pack.color">
+            <abbr>{{ pack.name | translate }}</abbr>
+            <h2>{{ _orderHelper.formatAmount(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
+          </div>
+          <div class="price-two-desc">
+            <div>
+              <h5>{{ pack.description | translate }}</h5>
+              <ul>
+                <li *ngFor="let service of pack.items">
+                  <i class="fa-solid fa-check text-primary"></i>
+                  {{ (_orderHelper.getService(service.id).quantity > 1) ? ""+(_orderHelper.getService(service.id).quantity+"X"+(_orderHelper.getService(service.id).name | translate)): (_orderHelper.getService(service.id).name | translate) }}
+                </li>
+              </ul>
+            </div>
+            <div class="price-two-btn">
+              <a class="common-btn orange-border" (click)="submit(pack)">
+                <span>
+                  {{ 'home.pricing.text_4' | translate }}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="pack.id == 3" class="price-two-box bg-color-of-white">
+          <div class="price-two-tag text-center" [style.background-color]="pack.color">
+            <abbr>{{pack.name | translate}}</abbr>
+            <h2>{{ _orderHelper.totalPackPrice(pack.items) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
+          </div>
+          <div class="price-two-desc">
+            <div>
+              <h5>{{pack.description | translate}}</h5>
+              <ul>
+                <li *ngFor="let service of pack.items" (click)="_orderHelper.toggleSelection(service)">
+                  <i *ngIf="!service.selected" class="fa-solid fa-xmark text-danger"></i>
+                  <i *ngIf="service.selected" class="fa-solid fa-check text-primary"></i>
+                  {{ (_orderHelper.getService(service.id)).name| translate }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="price-two-btn">
+              <a class="common-btn orange-border" (click)="submit(pack)">
+                <span>
+                  {{ 'home.pricing.text_5' | translate }}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

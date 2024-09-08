@@ -9,6 +9,7 @@ import { PreloadService } from '../../../../_services/preload.service';
 import { HttpResponseService } from '../../../../_services/http-response.service';
 import { DatePipe } from '@angular/common';
 import { AuthService } from '../../../../_services/API/auth.service';
+import { SeoService } from '../../../../_services/seo.service';
 
 @Component({
   selector: 'app-order',
@@ -35,8 +36,10 @@ export class OrderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
-    private datePipe: DatePipe
-  ){
+    private datePipe: DatePipe,
+    private seoService: SeoService
+  ) { 
+    this.seoService.updateMetaTags('seo.order.title','seo.order.description','seo.order.keywords')
     this.ordered_pack = this.route.snapshot.paramMap.get('pack');
     
   }
