@@ -45,17 +45,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/js/jquery-3.6.0.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/gsap.min.js",
-              "src/assets/js/ScrollTrigger.min.js",
-              "src/assets/js/ScrollSmoother.min.js",
-              "src/assets/js/SplitText.min.js",
-              "src/assets/js/swiper-bundle.min.js",
-              "src/assets/js/jquery.magnific-popup.min.js",
-              "src/assets/js/viewport.jquery.js",
-              "src/assets/js/jquery.meanmenu.min.js",
-              "src/assets/js/main.js"
             ]
           },
           "configurations": {
