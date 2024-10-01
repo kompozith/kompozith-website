@@ -3,15 +3,15 @@
   {
     "text_0": "Home",
     "hero": {
-      "text_1": "We help to build your",
-      "text_2": "Digital empire",
+      "text_1": "Let's create the promising future of",
+      "text_2": "your brand together",
       "text_3": "Explore",
       "text_4": "How it works?"
     },
     "about": {
       "text_0": "About",
       "about": "ABOUT US",
-      "text_1": "Your success, our obsession.",
+      "text_1": "Our expertise at your service",
       "text_2": "We provide you with",
       "text_3": "services",
       "text_4": "and guarantee your success by accompanying you throughout the achievement of your objectives, as follows :",
@@ -24,13 +24,13 @@
       "text_0": "Services",
       "text_1": "For you",
       "text_2": "Our services",
-      "text_3": "E-Communication",
+      "text_3": "Digital marketing",
       "text_4": "Graphic design, marketing strategy, personalized support to achieve your business objectives.",
       "text_5": "Web development",
       "text_6": "Design and production of websites and applications to strengthen your online presence, tailored to your specific needs.",
-      "text_7": "UI/UX Design",
+      "text_7": "Graphic Design",
       "text_8": "Take advantage of our complete graphic identity offer to stand out effectively thanks to a distinctive brand image.",
-      "text_9": "Training courses.",
+      "text_9": "Training courses",
       "text_10": "Training courses in software development and graphic design to enhance your skills and enrich your professionalism."
     },
     "pricing": {
@@ -45,8 +45,8 @@
       "text_2": "Completed Projects"
     },
     "testimonials": {
-      "text_1": "Customer reviews",
-      "text_2": "Like them, trust us",
+      "text_1": "Partners' opinions",
+      "text_2": "Nous travaillons avec eux et ils nous font confiance",
       "text_3": "A few months ago, you designed my company's business card. You listened carefully and followed instructions, and came up with several logo ideas (you're very imaginative) that we liked enormously. You make a great team."
     }
   },
@@ -102,7 +102,7 @@
     "text_17": "Finish",
     "text_18": "Select services",
     "text_19": "Submit",
-    "text_20":"Price varying",
+    "text_20":"Minimum price",
     "text_21":"Order details",
     "text_22":"Update Order"
   },
@@ -135,20 +135,20 @@
   "pricing": {
     "service": {
       "name": {
-        "branding": "Branding",
-        "min_website": "Minimal website",
+        "branding": "Branding (Logos, business cards, graphic charters...)",
+        "min_website": "Minimal website (3 pages max)",
         "social_media": "Creation of social media pages",
         "marketing_plan": "Monthly marketing plan",
         "communication_plan": "Monthly communication plan",
         "lead": "Monthly accompaniment",
         "branding_study": "Evaluation and in-depth study of existing branding",
-        "website_review": "Website redesign",
+        "website_review": "Website redesign (3 pages max)",
         "flyer": "Flyer",
         "roll_up": "Roll up",
         "logo": "Logo",
         "business_card": "Business card",
         "web_app": "Web application",
-        "complexe_website": "Complex website",
+        "complexe_website": "Complex website (+3 pages)",
         "mobile_app": "Mobile application",
         "desk_app": "Desktop application"
       }

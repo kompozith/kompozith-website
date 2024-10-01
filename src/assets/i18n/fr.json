@@ -2,15 +2,15 @@
   "home": {
     "text_0": "Accueil",
     "hero": {
-      "text_1": "Nous vous aidons à bâtir votre",
-      "text_2": "Empire digital",
+      "text_1": "Créons ensemble l'avenir prometteur",
+      "text_2": "de votre marque",
       "text_3": "Explorer",
       "text_4": "Comment ça marche?"
     },
     "about": {
       "text_0": "À propos",
       "about": "À PROPOS DE NOUS",
-      "text_1": "Votre succès, notre obsession.",
+      "text_1": "Notre expertise à votre service",
       "text_2": "Nous mettons à votre disposition des",
       "text_3": "services",
       "text_4": "haut de gamme et vous garantissons le succès en vous accompagnant tout au long de la concrétisation de vos objectifs tout en procédant comme suit :",
@@ -23,13 +23,13 @@
       "text_0": "Services",
       "text_1": "Pour vous",
       "text_2": "Nos offres de service",
-      "text_3": "E-Communication",
+      "text_3": "Marketing digital",
       "text_4": "Conception graphique, stratégie marketing, accompagnement personnalisé pour atteindre vos objectifs commerciaux.",
       "text_5": "Développement Web",
       "text_6": "Conception et réalisation de sites web et d'applications pour renforcer votre présence en ligne, adaptés à vos besoins spécifiques.",
-      "text_7": "UI/UX Design",
+      "text_7": "Conception graphique",
       "text_8": "Profitez de notre offre complète d'identité graphique pour vous démarquer efficacement grâce à une image de marque distinctive.",
-      "text_9": "Formations.",
+      "text_9": "Formations",
       "text_10": "Formations en développement logiciel et graphisme pour renforcer vos compétences et enrichir votre professionnalisme."
     },
     "pricing": {
@@ -44,8 +44,8 @@
       "text_2": "Projets Réalisés"
     },
     "testimonials": {
-      "text_1": "Avis des clients",
-      "text_2": "Comme eux, faites nous confiance",
+      "text_1": "Avis des partenaires",
+      "text_2": "Nous travaillons avec eux et ils nous font confiance",
       "text_3": "Il y a de cela quelques mois qui vous avez fait ma carte de visite pour mon entreprise. Vous avez été à l'écoute et respecté les indications, vous nous avez d'ailleurs proposé plusieurs idées de logo (vous faites preuve de beaucoup d'imagination) qui nous ont énormément plu.Désormais je vous fait confiance et j'aime faire appel à vous pour des différents projets. Vous formez une superbe équipe."
     }
   },
@@ -100,7 +100,7 @@
     "text_17": "Terminer",
     "text_18": "Selectionnez les services",
     "text_19": "Soumettre",
-    "text_20":"Prix variant",
+    "text_20":"Prix mminimum",
     "text_21":"Details de la commande",
     "text_22":"Modifier la commande"
   },
@@ -133,20 +133,20 @@
   "pricing": {
     "service": {
       "name":{
-        "branding": "Identité visuelle (branding)",
-        "min_website": "Site web minimal",
+        "branding": "Identité visuelle (Logos, cartes de visite, chartes graphiques...)",
+        "min_website": "Site Web minimal (3 pages max)",
         "social_media": "Création de pages social media",
         "marketing_plan": "Plan marketing mensuel",
         "communication_plan": "Plan de communication mensuel",
         "lead": "Accompagnement mensuel",
         "branding_study": "Evaluation et étude approfondie du branding existant",
-        "website_review": "Redesign du site web",
+        "website_review": "Redesign du site web (3 pages max)",
         "flyer": "Flyer",
         "roll_up": "Roll up",
         "logo": "Logo",
         "business_card": "Carte de visite",
         "web_app": "Application web",
-        "complexe_website": "Site web complexe",
+        "complexe_website": "Site web complexe (+3 pages)",
         "mobile_app": "Application mobile",
         "desk_app": "Application de bureau"
       }

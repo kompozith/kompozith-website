@@ -32,7 +32,7 @@ export class OrderHelper {
     {
       id: 2,
       name: 'pricing.service.name.min_website',
-      price: 150000,
+      price: 200000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -48,7 +48,7 @@ export class OrderHelper {
     {
       id: 4,
       name: 'pricing.service.name.marketing_plan',
-      price: 30000,
+      price: 35000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -56,7 +56,7 @@ export class OrderHelper {
     {
       id: 5,
       name: 'pricing.service.name.communication_plan',
-      price: 30000,
+      price: 35000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -64,7 +64,7 @@ export class OrderHelper {
     {
       id: 6,
       name: 'pricing.service.name.lead',
-      price: 30000,
+      price: 35000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -72,7 +72,7 @@ export class OrderHelper {
     {
       id: 7,
       name: 'pricing.service.name.branding_study',
-      price: 20000,
+      price: 25000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -80,7 +80,7 @@ export class OrderHelper {
     {
       id: 8,
       name: 'pricing.service.name.website_review',
-      price: 80000,
+      price: 100000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: true
@@ -120,7 +120,7 @@ export class OrderHelper {
     {
       id: 13,
       name: 'pricing.service.name.web_app',
-      price: 300000,
+      price: 600000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: false
@@ -136,7 +136,7 @@ export class OrderHelper {
     {
       id: 15,
       name: 'pricing.service.name.mobile_app',
-      price: 400000,
+      price: 450000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: false
@@ -144,7 +144,7 @@ export class OrderHelper {
     {
       id: 16,
       name: 'pricing.service.name.desk_app',
-      price: 350000,
+      price: 700000,
       quantity: 1,
       wholesalePrice: false,
       netPrice: false
