@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { BreadcrumbItem } from "../../shared/breadcrump/breadcrump.component";
 import { PreloadService } from "../../../../_services/preload.service";
 import { SeoService } from "../../../../_services/seo.service";
+import { NavigationEnd, Router } from "@angular/router";
+
+declare let gtag: Function;
 
 @Component({
   selector: "app-about-us",
@@ -11,7 +14,8 @@ import { SeoService } from "../../../../_services/seo.service";
 export class AboutUsComponent implements OnInit {
   constructor(
     private _preloadService: PreloadService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private router: Router
   ) {
     // this.seoService.updateMetaTags('seo.about_us.title','seo.about_us.description','seo.about_us.keywords')
     this.seoService.updateMetaTags(
@@ -21,6 +25,13 @@ export class AboutUsComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag("config", "G-C7TZH79K70", {
+          page_path: event.urlAfterRedirects,
+        });
+      }
+    });
     this._preloadService.preload();
   }
 

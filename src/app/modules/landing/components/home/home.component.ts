@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { PreloadService } from "../../../../_services/preload.service";
 import { SeoService } from "../../../../_services/seo.service";
+import { NavigationEnd, Router } from "@angular/router";
 
+declare let gtag: Function;
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -10,7 +12,8 @@ import { SeoService } from "../../../../_services/seo.service";
 export class HomeComponent implements OnInit {
   constructor(
     private _preloadService: PreloadService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private router: Router
   ) {
     // this.seoService.updateMetaTags('seo.home.title','seo.home.description','seo.home.keywords')
     this.seoService.updateMetaTags(
@@ -20,6 +23,13 @@ export class HomeComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag("config", "G-C7TZH79K70", {
+          page_path: event.urlAfterRedirects,
+        });
+      }
+    });
     this._preloadService.preload();
   }
 }

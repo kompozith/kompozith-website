@@ -477,6 +477,9 @@ body::-webkit-scrollbar-thumb {
 .common-btn.hover-black::before {
   background: #171717;
 }
+.text-primary {
+  color: #098dd7 !important;
+}
 
 @-webkit-keyframes UpInitial {
   to {
@@ -2144,6 +2147,9 @@ body::-webkit-scrollbar-thumb {
   padding: 10px 15px;
   -webkit-transition: .4s;
   transition: .4s;
+}
+.sidebar-tag li.service-item {
+  cursor: pointer;
 }
 
 .sidebar-tag li a:hover {

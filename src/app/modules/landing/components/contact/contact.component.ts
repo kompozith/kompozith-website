@@ -7,7 +7,9 @@ import { IntouchService } from "../../../../_services/API/intouch.service";
 import { PreloadService } from "../../../../_services/preload.service";
 import { DatePipe } from "@angular/common";
 import { SeoService } from "../../../../_services/seo.service";
+import { NavigationEnd, Router } from "@angular/router";
 
+declare let gtag: Function;
 @Component({
   selector: "app-contact",
   templateUrl: "./contact.component.html",
@@ -24,7 +26,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     public _httpResponseService: HttpResponseService,
     private datePipe: DatePipe,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private router: Router
   ) {
     // this.seoService.updateMetaTags('seo.contact.title','seo.contact.description','seo.contact.keywords')
     this.seoService.updateMetaTags(
@@ -34,6 +37,13 @@ export class ContactComponent implements OnInit, OnDestroy {
     );
   }
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag("config", "G-C7TZH79K70", {
+          page_path: event.urlAfterRedirects,
+        });
+      }
+    });
     this._preloadService.preload();
     this.contactForm = this.fb.group({
       name: ["", Validators.required],

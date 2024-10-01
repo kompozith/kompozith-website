@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { BreadcrumbItem } from "../../shared/breadcrump/breadcrump.component";
 import { OrderMemoryService } from "../../../../_services/order-memory.service";
 import { OrderHelper } from "../../../../_services/order-helper.service";
@@ -11,6 +11,7 @@ import { DatePipe } from "@angular/common";
 import { AuthService } from "../../../../_services/API/auth.service";
 import { SeoService } from "../../../../_services/seo.service";
 
+declare let gtag: Function;
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -48,6 +49,13 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag("config", "G-C7TZH79K70", {
+          page_path: event.urlAfterRedirects,
+        });
+      }
+    });
     if (
       this.ordered_pack != "starter" &&
       this.ordered_pack != "boost" &&

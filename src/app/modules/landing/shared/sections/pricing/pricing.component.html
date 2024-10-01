@@ -37,7 +37,11 @@
         <div *ngIf="pack.id != 3" class="price-two-box bg-color-of-white">
           <div class="price-two-tag text-center" [style.background-color]="pack.color">
             <abbr>{{ pack.name | translate }}</abbr>
-            <h2>{{ _orderHelper.formatAmount(pack.price) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
+            <h2>
+              {{ _orderHelper.formatAmount(pack.price) }} 
+              <!-- <sub>{{ 'home.pricing.text_3' | translate }}</sub> -->
+              <sub>{{ _orderHelper.curency }}</sub>
+            </h2>
           </div>
           <div class="price-two-desc">
             <div>
@@ -61,7 +65,11 @@
         <div *ngIf="pack.id == 3" class="price-two-box bg-color-of-white">
           <div class="price-two-tag text-center" [style.background-color]="pack.color">
             <abbr>{{pack.name | translate}}</abbr>
-            <h2>{{ _orderHelper.totalPackPrice(pack.items) }} <sub>{{ 'home.pricing.text_3' | translate }}</sub></h2>
+            <h2>
+              {{ _orderHelper.totalPackPrice(pack.items) }} 
+              <!-- <sub>{{ 'home.pricing.text_3' | translate }}</sub> -->
+              <sub>{{ _orderHelper.curency }}</sub>
+            </h2>
           </div>
           <div class="price-two-desc">
             <div>
