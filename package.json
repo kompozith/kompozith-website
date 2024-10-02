@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate-sitemap": "node generate-sitemap.js"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "ngx-captcha": "^13.0.0",
     "ngx-scrollbar": "^13.0.3",
     "rxjs": "~7.8.0",
+    "sitemap": "^8.0.0",
     "swiper": "^7.4.1",
     "tslib": "^2.3.0",
     "zone.js": "^0.14.5"
