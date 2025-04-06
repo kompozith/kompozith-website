@@ -1,27 +1,130 @@
-# NgKompozithWebsite
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+# Kompozith Website – Version 2.0
 
-## Development server
+Bienvenue dans la version 2.0 du site web **Kompozith**.  
+Ce guide est destiné à toute l'équipe, y compris les intégrateurs, pour bien configurer l’environnement de développement, cloner le projet, installer les dépendances, et intégrer le prototype Angular dans les bons fichiers.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📦 Stack technique
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Outil / Technologie | Version         |
+|---------------------|-----------------|
+| Node.js             | v18.19.1        |
+| Angular             | ^17.x.x         |
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🧰 Prérequis
 
-## Running unit tests
+Avant de commencer, assurez-vous d’avoir :
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js installé (v18.19.1)
+- NPM installé (fourni avec Node)
+- Angular CLI installé globalement
 
-## Running end-to-end tests
+### 🔧 Installation des outils
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Node.js & NPM
 
-## Further help
+Téléchargez Node.js v18.19.1 ici :  
+👉 https://nodejs.org/en/download
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Puis vérifiez :
+
+```bash
+node -v   # v18.19.1
+npm -v    # 9.x.x
+```
+
+#### Angular CLI
+
+```bash
+npm install -g @angular/cli
+```
+
+Vérifiez :
+
+```bash
+ng version
+```
+
+---
+
+## 🔁 Cloner et démarrer le projet
+
+### 1. Cloner le dépôt Git
+
+```bash
+git clone https://github.com/kompozith/kompozith-website.git
+cd kompozith-website
+```
+
+### 2. Installer les dépendances
+
+```bash
+npm install
+```
+
+Cela installera toutes les bibliothèques nécessaires à l'exécution du projet.
+
+### 3. Lancer le projet en développement
+
+```bash
+ng serve
+```
+
+Puis ouvrez votre navigateur à :  
+👉 http://localhost:4200
+
+---
+
+## ✨ Intégration du prototype
+
+L'intégration doit se faire dans le **composant racine de la landing page**, situé ici :
+
+```
+src/
+├── app/
+│   └── modules/
+│       └── landing/
+│           ├── landing.component.html     ← Ajouter le HTML ici
+│           ├── landing.component.scss     ← Ajouter les styles ici
+│           ├── landing.component.ts       ← Ajouter la logique Angular ici
+│           └── landing.module.ts          ← (Aucun changement requis ici)
+├── main.ts                                ← Ajouter du JS natif ici si nécessaire
+```
+
+### ✔️ Fichiers à modifier
+
+| Fichier                                    | Description                        |
+|--------------------------------------------|------------------------------------|
+| `landing.component.html`                   | Contenu HTML de la landing page    |
+| `landing.component.scss`                   | Styles CSS (SCSS) de la landing    |
+| `landing.component.ts`                     | Code TypeScript Angular            |
+| `main.ts`                                  | JS natif global (si besoin)        |
+
+---
+
+## 🧼 Bonnes pratiques
+
+- Travaillez uniquement dans les fichiers du dossier `landing/`.
+- Ne touchez pas aux composants globaux comme `app.component.*`.
+- Les images, icônes, vidéos ou autres assets doivent être placés dans `src/assets/`.
+- Pour tout code JavaScript non Angular, utilisez `main.ts`.
+
+---
+
+## 🛠️ Générer le build de production
+
+Une fois l’intégration terminée et validée :
+
+```bash
+ng build --configuration production
+```
+
+Les fichiers finaux seront générés dans le dossier `dist/kompozith-website`.
+
+---
+
+Merci et bonne intégration à toute l’équipe 
